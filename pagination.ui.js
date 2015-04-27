@@ -9,11 +9,12 @@
         this.dataContainer = null;
         this.pageNumContainer = null;
         this.renderType = 'array-concat'; // template
-        this.concat = false;
+        this.concat = true;
+        this.template = null;
         this.concatWith = "";
         
         this.init = function(o){
-            __.mergeIt.call(this, o, ['dataContainer', 'pageNumContainer', 'concat', 'concatWith']);
+            __.mergeIt.call(this, o, ['dataContainer', 'pageNumContainer', 'template', 'concat', 'concatWith']);
             this.renderPage(1);
             this.addEventHandlers();
         };
@@ -43,10 +44,13 @@
             var html = '';
             var isValidArr = __.isArray(data) && data.length;
             var isValidObject = __.isObject(data) && __.keys(data).length;
+            
             if(this.concat && isValidArr) { //else if object
                 html = data.join(this.concatWith); // Concat, template.
             } else {
-               // _.isFunction()
+                if(__.isFunction(this.template)) {
+                    html = this.template(data);
+                }
             }
             return html;
         };
