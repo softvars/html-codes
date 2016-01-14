@@ -1,0 +1,77 @@
+<html ng-app="acolApp">
+    <head>
+        <title>ACOL</title>
+         <script type="text/javascript" src="acol/libs/scripts/angular.min.js"></script>
+        <script type="text/javascript" src="acol/libs/scripts/angular-route.min.js"></script>
+        <script type="text/javascript" src="acol/libs/scripts/angular-smarttable.js"></script>
+        <script type="text/javascript" src="acol/libs/scripts/ui-bootstrap-tpls-0.14.3.min.js"></script>
+        <script type="text/javascript" src="source/scripts/product_visualiza/product_visualiza_controller.js"></script>
+
+        <link rel="stylesheet" href="acol/libs/css/bootstrap.min.css">
+        <link rel="stylesheet" href="acol/app/css/styles.css">
+    </head>
+    <body>
+        
+       <div ng-controller="productCtrl">
+       <table st-table="productCollection" class="table table-striped">
+	   <thead>
+           <tr>
+				<th colspan="4"><input st-search="" class="form-control" placeholder="Search ..." type="text"/></th>
+               <th><button type="button" ng-click="addProductItem()" class="btn btn-sm btn-success">
+			<i class="glyphicon glyphicon-plus">
+			</i>&nbsp;Aggiungi nuovo prodotto
+		</button></th>
+			</tr>
+           
+	   <tr>
+		<th>Codice</th>
+		<th>Nome</th>
+		<th>Descrizione</th>
+		<th>Numero Step</th>
+		<th>Template Grafico</th>
+        <th>Preferito</th>
+        <th>Data ultima pubblicazione</th>
+        <th>Ambiente</th>
+	   </tr>
+           	
+	   </thead>
+	   <tbody>
+	   <tr ng-repeat="product in productCollection">
+		<td>{{product.prodCode}}</td>
+		<td>{{product.name}}</td>
+		<td>{{product.descr}}</td>
+		<td>{{numberofSteps}}</td>
+		<td>{{product.templateCode}}</td>
+        <td>{{product.favorite}}</td>
+        <td>Data ultima pubblicazione</td>
+        <td>Ambiente</td>
+	   </tr>
+	   </tbody>
+        </table> </div> 
+    
+    <div ng-controller="ModalDemoCtrl">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <li ng-repeat="item in items">
+                    <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+                </li>
+            </ul>
+            Selected: <b>{{ selected.item }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+   
+</div>
+    </body>
+                                                
+    
+   
+</html>
