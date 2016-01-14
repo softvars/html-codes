@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-sm-3 col-md-2 sidebar" ng-include="'source/templates/templ_sidebar_widgets.html'"> </div>
+    <div class="col-sm-9 col-md-10 main">
+        <!--h1 class="page-header">Prodotto</h1-->
+        <div class="row placeholders"></div>
+        
+        <h1>Create Product Widgets</h1>
+
+        <div class="alert alert-success">
+            <strong>Instructions:</strong>
+            Drag &amp; drop a widget to add to the Product.
+        </div>
+        <div class="row">
+            <div class="dropzone box box-yellow">
+                <h3>Dropzone</h3>
+                <div dnd-list="list">
+                <div ng-repeat="step in models.product_steps">
+                    <div>Step {{id}}</div>
+                    <!-- The dropzone also uses the list template -->
+                        <div dnd-draggable="step"
+                            dnd-effect-allowed="move"
+                            dnd-moved="list.splice($index, 1)"
+                            ng-include="'widget_' + step.widgetId + '.html'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 hide">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Generated Model</h3>
+                    </div>
+                    <div class="panel-body">
+                        <pre class="code">{{modelAsJson}}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

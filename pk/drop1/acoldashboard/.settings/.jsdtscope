@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="acol/app/scripts"/>
+	<classpathentry kind="src" path="acol/libs/scripts"/>
+	<classpathentry kind="src" path="source/scripts/common"/>
+	<classpathentry kind="src" path="source/scripts/htmleditor"/>
+	<classpathentry kind="src" path="source/scripts/product_visualiza"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
