@@ -3,7 +3,9 @@
  * it's children must have position: relative
  */
 .add_product_widgets ul[dnd-list],
-.add_product_widgets ul[dnd-list] > li {
+.add_product_widgets ul[dnd-list] > li,
+.add_product_widgets ul.cust-dnd-list,
+.add_product_widgets ul.cust-dnd-list > li {
 	position: relative;
     list-style: none;
 }
@@ -12,7 +14,8 @@
  * The dnd-list should always have a min-height,
  * otherwise you can't drop to it once it's empty
  */
-.add_product_widgets ul[dnd-list] {
+.add_product_widgets ul[dnd-list],
+.add_product_widgets ul.cust-dnd-list{
     min-height: 42px;
     padding-left: 0px;
     margin-right: -12px;
@@ -25,7 +28,8 @@
  * sense to hide it to give the user the feeling
  * that he's actually moving it.
  */
-.add_product_widgets ul[dnd-list] .dndDraggingSource {
+.add_product_widgets ul[dnd-list] .dndDraggingSource,
+.add_product_widgets ul.cust-dnd-list .dndDraggingSource {
     display: none;
 }
 
@@ -34,7 +38,8 @@
  * added to the dnd-list while the user is dragging
  * over it.
  */
-.add_product_widgets ul[dnd-list] .dndPlaceholder {
+.add_product_widgets ul[dnd-list] .dndPlaceholder, 
+.add_product_widgets ul.cust-dnd-list .dndPlaceholder {
     display: block;
     background-color: #ddd;
     min-height: 42px;
@@ -47,7 +52,8 @@
  * half of the element we are dragging over. In other
  * browsers we can use event.offsetY for this.
  */
-.add_product_widgets ul[dnd-list] li {
+.add_product_widgets ul[dnd-list] li ,
+.add_product_widgets ul.cust-dnd-list li {
     background-color: #fff;
     border: 1px solid #ddd;
     border-top-right-radius: 4px;
@@ -60,7 +66,8 @@
 /**
  * Show selected elements in green
  */
-.add_product_widgets ul[dnd-list] li.selected {
+.add_product_widgets ul[dnd-list] li.selected ,
+.add_product_widgets ul.cust-dnd-list li.selected {
     background-color: #dff0d8;
     color: #3c763d;
 }

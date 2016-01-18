@@ -13,19 +13,20 @@
         <div class="row">
             <div class="dropzone box box-yellow">
                 <h3>Dropzone</h3>
-                <ul dnd-list="list">
+                <ul dnd-list="models.product_steps">
                     <!-- The dropzone also uses the list template -->
-                    <li ng-repeat="step in models.product_steps"
+                    <li ng-repeat="step in models.product_steps"    
                         dnd-draggable="step"
+                        dnd-external-sources="true"
                         dnd-effect-allowed="move"
-                        dnd-moved="list.splice($index, 1)" >
+                        dnd-moved="models.product_steps.splice($index, 1)" >
                         <div ng-include="'source/templates/widget_' + step.id + '.html'">Step {{step.id}}</div>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 hide">
+            <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Generated Model</h3>
