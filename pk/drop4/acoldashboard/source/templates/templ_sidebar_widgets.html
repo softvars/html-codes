@@ -1,0 +1,15 @@
+<ul class="nav nav-sidebar">
+    <li class="active"><a href="#">Widgets<span class="sr-only"></span></a></li>
+    <li><input class="widget_search" type="text" placeholder="Cerca"/></li>
+</ul>
+
+<div class="add_product_widgets row">
+    <div ng-repeat="(listName, list) in models.lists">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Categoria Widget {{listName}}</h3>
+            </div>
+            <div class="panel-body" ng-include="'source/templates/widgets.html'"></div>
+        </div>
+    </div>
+</div>
