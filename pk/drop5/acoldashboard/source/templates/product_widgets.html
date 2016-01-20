@@ -1,0 +1,62 @@
+<div ng-controller="addWidgetsForproductCtrl" class="row">
+    <div class="col-sm-3 col-md-2 sidebar" ng-include="'source/templates/sidebar_widgets.html'"> </div>
+    <div class="col-sm-9 col-md-10 main">
+        <!--h1 class="page-header">Prodotto</h1-->
+        <div class="row placeholders"></div>
+        
+        <h1></h1>
+        <div class="row">
+            <div id="outerContainer" class="col-md-11" ng-controller="addWidgetsForproductCtrl">
+                <div id="previousData">
+                    <lable class="lead col-sm-3">Codice: {{selectedData.data.prodCode}}</lable>
+                    <lable class="lead col-sm-3">Prodotto: {{selectedData.data.name}}</lable>
+                    <lable class="lead col-sm-3">Template grafica: {{selectedData.data.templateCode}}</lable>
+                    <lable class="lead col-sm-3">Step {{selectedData.currentStep}} di {{selectedData.data.numSteps}}</lable>
+                </div>
+            </div>
+            <div class="trashcan col-md-1">
+                <ul dnd-list="[]">
+                    <li class="widget-trash glyphicon glyphicon-trash"></li>
+                </ul>
+            </div>
+        </div>
+      
+        <div class="row">
+            <div class="dropzone box box-yellow" id="product-steps">
+                <ul dnd-list="models.product_steps"
+                    dnd-external-sources="true"
+                    dnd-allowed-types="models.product_allowed_types"
+                    dnd-drop="dropCallback(event, index, item, external, type, models.product_allowed_types)">
+                    <li ng-repeat="step in models.product_steps"    
+                        dnd-draggable="step"
+                        dnd-type="step.type"
+                        dnd-external-sources="true"
+                        dnd-effect-allowed="move"
+                        dnd-moved="models.product_steps.splice($index, 1)" >
+                        <div class="product-step">
+                            <div ng-include="'source/templates/widget/' + step.id + '.html'">Step {{step.id}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+        <div id="buttonContainer">
+             <div class="row">
+            <div class="col-sm-7"></div>
+            <div class="col-sm-2">
+            <button class="btn btn-primary" type="button" ng-click="doSaveClick()">Conferma</button>
+                </div><div class="col-md-1">
+            <button class="btn btn-warning" type="button" ng-click="doCancel('{{selectedData.currentStep}}')">Annulla</button>
+            </div>
+             <div class="col-sm-3"></div></div>
+            <div class="row">
+            <div class="col-sm-2">
+            <button class="btn btn-primary" type="button" ng-click="doPreviousClick('{{selectedData.currentStep}}')" ng-disabled="{{selectedData.currentStep}} == 1 ">< Precedente</button>
+                </div><div class="col-sm-2">
+            <button class="btn btn-primary" type="button" ng-click="doNextClick('{{selectedData.currentStep}}')" ng-disabled="{{selectedData.currentStep}} == {{selectedData.data.numSteps}}"> Successivo ></button></div><div class="col-sm-2">
+            <button class="btn btn-danger" type="button" ng-click="go('/')">Chiudi</button></div></div>
+        </div>
+    </div>
+    
+</div>
