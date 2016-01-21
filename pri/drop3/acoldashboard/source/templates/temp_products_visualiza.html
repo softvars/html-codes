@@ -7,7 +7,7 @@
             <thead>
                 <tr>
                     <th colspan="4">
-                        <input st-search  class="form-control" placeholder="Search ..." type="text" />
+                        <input class="form-control" placeholder="Search ..." type="text" ng-model="searchText"/>
                     </th>
                     <th colspan="3"></th>
                     <th>
@@ -31,8 +31,7 @@
 
             </thead>
             <tbody>
-                <tr ng-repeat="row in productCollection track by $index" ng-click="setselectedData(row)" data-idx = {{row.id}}
-                     ng-dblclick="doOpenItem(row)">
+                <tr ng-repeat="row in productCollection | filter:searchText track by $index" ng-click="setselectedData(row)" data-idx = {{row.id}}>
                     <td>{{row.prodCode}}</td> 
                     <td>{{row.name}}</td>
                     <td>{{row.descr}}</td>

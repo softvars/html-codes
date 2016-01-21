@@ -91,7 +91,7 @@ app.controller("addWidgetsForproductCtrl", function($scope, $rootScope) {
             if(list && list.length){
                 for (i = 0; i < list.length; i++) {
                     if (list[i] && list[i].id === item.id) {
-                        item["isDisabled"] = true;
+                       item["isDisabled"] = true;
                         return true;
                     }
                 }
