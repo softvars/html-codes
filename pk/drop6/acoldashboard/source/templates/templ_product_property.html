@@ -11,11 +11,15 @@
                     </th>
                     <tr>
                         <td>proprietà widget nome</td>
-                        <td></td>
+                        <td><input class="col-sm-12" type="text"
+                            id="rule_nome"></td>
                     </tr>
                     <tr>
                         <td>proprietà widget cognome</td>
-                        <td></td>
+                        <td><select class="col-sm-12" type="text"
+                            id="rule_cognome"><option val="VISIBILE">VISIBILE</option>
+                            <option val="NASCOSTO">NASCOSTO</option>
+                            <select></td>
                     </tr>
                     
                 </table>
@@ -23,7 +27,7 @@
 
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" type="button" ng-click="">Conferma</button>
+                <button class="btn btn-primary" type="button" ng-click="doClkPropertyConfirm(' {{pdtId}}')">Conferma</button>
                 <button class="btn btn-warning" type="button" ng-click="cancel()">Annulla</button>
             </div>
         </div>

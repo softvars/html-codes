@@ -13,22 +13,22 @@
                 <table class="col-sm-12 table">
                     <tr>
                         <td colspan="2">Codice Prodotto:</td>
-                        <td colspan="3"><input class="col-sm-12" type="text"
+                        <td colspan="3"><input class="col-sm-12 form-control" type="text"
                             id="prodCode"></td>
                     </tr>
                     <tr>
                         <td colspan="2">Nome prodotto:</td>
-                        <td colspan="3"><input class="col-sm-12" type="text"
+                        <td colspan="3"><input class="col-sm-12 form-control" type="text"
                             id="name"></td>
                     </tr>
                     <tr>
                         <td colspan="2">Descrizione prodotto:</td>
-                        <td colspan="3"><input class="col-sm-12" type="text"
+                        <td colspan="3"><input class="col-sm-12 form-control" type="text"
                             id="descr"></td>
                     </tr>
                     <tr>
                         <td>Numero di step:</td>
-                        <td><select class="col-sm-12" type="text"
+                        <td><select class="col-sm-12 form-control" type="text"
                             id="numberofSteps"><option val=1>1</option>
                             <option val=2>2</option>
                             <option val=3>3</option>
@@ -37,7 +37,7 @@
                             <option val=6>6</option>
                             <select></td>
                         <td>Template Grafico:</td>
-                        <td><select class="col-sm-12" type="text"
+                        <td><select class="col-sm-12 form-control" type="text"
                             id="templateCode">
                             <option val="GRAF1">GRAF1</option>
                             <option val="GRAF2">GRAF2</option>
@@ -48,6 +48,8 @@
                             <select></td>
                     </tr>
                 </table>
+
+
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" type="button" ng-click="doConfirm()">

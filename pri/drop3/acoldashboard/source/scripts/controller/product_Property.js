@@ -1,6 +1,6 @@
 app.controller('pdtPropertyCtrl', function ($scope, $uibModal, $log) {
 
-  $scope.items = [];
+ /* $scope.items = [];
 
   $scope.addProductProperty = function (pdtId) {
   $scope.pdtId = pdtId;
@@ -21,14 +21,14 @@ app.controller('pdtPropertyCtrl', function ($scope, $uibModal, $log) {
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
-
+*/
 
 
 });
 
 
 
-app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
+/*app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
 
   $scope.doClkPropertyConfirm = function () {
     $uibModalInstance.close(true);
@@ -37,4 +37,4 @@ app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) 
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-});
+});*/

@@ -10,9 +10,39 @@ $rootScope.models = {
         selected: null,
         product_allowed_types: ["widget"],
         product_steps: [],
-        lists: {"A": [], "B": []},
-        wlist:[]
+        lists: {},
+        wlist:[],
+       
+         
 };
+$rootScope.categories=["A","B"]
+$rootScope.widgetImages=[
+                        {name:"Nome e Cognome",img:"nome_cognome",catId:"A"},
+                        {name:"Codice promozionale",img:"codice_promo",catId:"A"},
+                        {name:"Codice fiscale ",img:"cod_fiscale",catId:"A"},
+                        {name:"Email",img:"email",catId:"B"},
+                        {name:"Cittadinanza",img:"city",catId:"B"},
+                        
+                ];
+$rootScope.createWidgetData = function(){
+    var widgetImg = $rootScope.widgetImages;
+    var widgetCat= $rootScope.categories;
+    for(var j=0;j<widgetCat.length;j++){
+         var wCat = widgetCat[j];
+        $rootScope.models.lists[wCat]=[];
+        for (var i = 0; i < widgetImg.length; i++) {
+            var widgetId = widgetImg[i].img;
+            var categoryId = widgetCat[j]+"_"+widgetId;
+            var imgUrl = "source/images/"+widgetId+".JPG"
+           if(widgetImg[i].catId==wCat){
+            $rootScope.models.lists[wCat].push({id:widgetId, type:"widget", catId:categoryId + i, 
+                                                    label: widgetImg[i].name,url:imgUrl});
+           }
+          
+        }
+    }
+};
+    $rootScope.createWidgetData();
 $rootScope.createDataJson = function(obj){
         var dataObj={};
         dataObj.id =obj.id || '';
@@ -33,10 +63,9 @@ $rootScope.createDataJson = function(obj){
         return dataObj;
         
     };
-    for (var i = 1; i <= 3; ++i) {
-        $rootScope.models.lists.A.push({id:"A"+i, type:"widget", catId:"WA", label: "Widget A" + i});
-        $rootScope.models.lists.B.push({id:"B"+i, type:"widget", catId:"WB", label: "Widget B" + i});
-    }
+   
+        /*$rootScope.models.images.push({name:"name_cogname",url:"source/images/nome_cognome.JPG"});
+        $rootScope.models.images.push({name:"cod_fiscale",url:"source/images/cod_fiscale.JPG"});*/
    
     $rootScope.getSelectedData = function(isNew){
         var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
@@ -63,12 +92,16 @@ $rootScope.createDataJson = function(obj){
      $rootScope.getCurrentStep = function(){
         return($rootScope.currentStep);
     }
-    $rootScope.proceedStep = function(id,isView) {
+    $rootScope.proceedStep = function(id,srcpath,isView) {
         $rootScope.isView = location.hash.indexOf("viewWidgets")!=-1 || isView;
         var selectData = $rootScope.getSelectedData() && $rootScope.getSelectedData().data || null;
         var id = id || selectData && selectData.id ||'';
-        var path = id && (location.hash.indexOf("viewWidgets")!=-1  && "/viewWidgets/"+id || location.hash.indexOf("editWidgets")!=-1 &&                      "/editWidgets/"+id )||"/addWidgets" ||'';
-        path = isView && "/viewWidgets/"+id||path;
+        var path = '';
+        if(srcpath){
+        path = id && srcpath && srcpath+id ||srcpath
+        }else{
+        path = id && (location.hash.indexOf("viewWidgets")!=-1  && "/viewWidgets/"+id || location.hash.indexOf("editWidgets")!=-1 &&                      "/editWidgets/"+id )||"/addWidgets" ||'';
+        path = isView && "/viewWidgets/"+id||path;}
        $rootScope.go(path +'/step:'+$rootScope.getCurrentStep());
     }
     

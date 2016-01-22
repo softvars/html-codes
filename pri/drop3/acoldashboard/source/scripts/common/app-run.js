@@ -18,7 +18,11 @@ $rootScope.models = {
 $rootScope.categories=["A","B"]
 $rootScope.widgetImages=[
                         {name:"Nome e Cognome",img:"nome_cognome",catId:"A"},
-                        {name:"Codice fiscale ",img:"cod_fiscale",catId:"B"}
+                        {name:"Codice promozionale",img:"codice_promo",catId:"A"},
+                        {name:"Codice fiscale ",img:"cod_fiscale",catId:"A"},
+                        {name:"Email",img:"email",catId:"B"},
+                        {name:"Cittadinanza",img:"city",catId:"B"},
+                        
                 ];
 $rootScope.createWidgetData = function(){
     var widgetImg = $rootScope.widgetImages;

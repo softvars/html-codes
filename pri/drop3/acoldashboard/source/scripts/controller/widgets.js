@@ -1,4 +1,4 @@
-app.controller("addWidgetsForproductCtrl", function($scope, $rootScope) {
+app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     
     $scope.$watch('models', function(model) {
         $scope.modelAsJson = angular.toJson(model, true);
@@ -99,4 +99,46 @@ app.controller("addWidgetsForproductCtrl", function($scope, $rootScope) {
         }
         return false;
     };
+    
+  $scope.animationsEnabled = true;
+  $scope.isDone = false;
+  $scope.pdtId = '';
+  $scope.addProductProperty = function () {
+    $scope.pdtId =event.currentTarget.id;
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'source/templates/templ_product_property.html',
+      controller: 'ModalInstanceCtrl',
+      resolve: {
+        pdtId: function () {
+          return $scope.pdtId;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (pdtId) {
+       //$scope.productCollection[pdtId].isDone = true;
+        var elt = angular.element(document.getElementsByClassName(pdtId));
+        elt.removeClass('ng-hide');
+        
+    }, function () {
+     console.log("close")
+    });
+  };
+
+  $scope.toggleAnimation = function () {
+    $scope.animationsEnabled = !$scope.animationsEnabled;
+  };
+
+    
 });
+  app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance,pdtId) {
+      $scope.pdtId = pdtId;
+    $scope.doClkPropertyConfirm = function (pdtId) {
+      $uibModalInstance.close($scope.pdtId);
+  };
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+    });

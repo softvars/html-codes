@@ -63,6 +63,10 @@
     margin-bottom: -1px;
 }
 
+.add_product_widgets ul.cust-dnd-list li[draggable="false"] {
+    cursor:default;
+    background-color: #F4F5F7;
+}
 /**
  * Show selected elements in green
  */
@@ -81,6 +85,18 @@
     width: 94%;
 }
 
+.add_product_widgets ul.cust-dnd-list li[draggable="true"] {
+    cursor: move;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
 /**/
 
@@ -148,4 +164,15 @@
     border-color: #faebcc;
     background-image: -webkit-linear-gradient(top,#fcf8e3 0,#faf2cc 100%);
     background-image: linear-gradient(to bottom,#fcf8e3 0,#faf2cc 100%);
+}
+.widgetNote.glyphicon-ok:before{
+    color:green;
+}
+div.item{
+    min-height:80px;
+}
+.widgetNote{
+    position:absolute;
+    top:50%;
+    margin-top:-13px;
 }

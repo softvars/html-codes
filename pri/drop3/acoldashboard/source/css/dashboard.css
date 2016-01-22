@@ -190,3 +190,6 @@ table.productList > tbody > tr.stSelected {
 #buttonContainer button{
       width: 90%;
 }
+.modal-body.pdtProperty table>tbody>tr>th{
+    border:none;
+}

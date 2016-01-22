@@ -10,7 +10,6 @@ app.controller('productsCtrl', ['$scope', function ($scope,$rootScope) {
              $scope.enable_button=false;
         }
     };
-
     $scope.doAddDublicate = function() {
         var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
         var index = prevSelect.attr("idx");
@@ -41,7 +40,7 @@ app.controller('productsCtrl', ['$scope', function ($scope,$rootScope) {
         var selectedPrdtData = $scope.getSelectedData()
         if(selectedPrdtData && selectedPrdtData.idx){
             $scope.setCurrentStep(1);
-            $scope.proceedStep(selectedPrdtData.data.id);
+            $scope.proceedStep(selectedPrdtData.data.id,"/editWidgets/");
         }
     };
 
@@ -49,13 +48,13 @@ app.controller('productsCtrl', ['$scope', function ($scope,$rootScope) {
         if(data) {
             $scope.setselectedData(data);
             $scope.setCurrentStep(1);
-            $scope.proceedStep(data.id, true);
+            $scope.proceedStep(data.id, "/viewWidgets/", true);
 
         } else {
             var selectedPrdtData = $scope.getSelectedData()
             if(selectedPrdtData && selectedPrdtData.idx){
                 $scope.setCurrentStep(1);
-                $scope.proceedStep(selectedPrdtData.data.id,true);
+                $scope.proceedStep(selectedPrdtData.data.id, "/viewWidgets/", true);
             }
         }
     };

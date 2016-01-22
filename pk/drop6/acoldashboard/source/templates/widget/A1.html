@@ -1,1 +1,4 @@
-<div class="item"  ng-controller = 'pdtPropertyCtrl' ng-click='addProductProperty()'><img src="source/images/nome_cognome.JPG" class="col-sm-12 col-md-12"></div>
+<div class="item"  ng-click="addProductProperty(step)" id="{{step.id}}">
+    <img src={{step.url}} class="col-sm-11 col-md-11" />
+    <span class="widgetNote glyphicon glyphicon-ok {{step.id}}" aria-hidden="true" ng-show="step.isDone"></span>
+</div>
