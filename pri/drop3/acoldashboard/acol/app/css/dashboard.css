@@ -8,7 +8,6 @@ body {
   background-color: #F0F8FF;
 }
 
-
 /*
  * Global add-ons
  */
@@ -113,10 +112,6 @@ body {
 .newPrdtForm .table, .newPrdtForm .table tr, .newPrdtForm .table tbody>tr>td,.pdtProperty .table,.pdtProperty .table tr,.pdtProperty .table tbody>tr>td{
 border:none;
 }
-/*.stSelected {
-background-color: #428bca !important;
-color: #fff;
-}*/
 
 #product-steps ul {
   min-height: 25em;
@@ -193,8 +188,4 @@ table.productList > tbody > tr.stSelected {
 }
 #buttonContainer button{
       width: 90%;
-}
-
-ul.cust-dnd-list li{
-    cursor: pointer;
 }

@@ -17,7 +17,8 @@ app.controller('productsCtrl', ['$scope', function ($scope,$rootScope) {
             $scope.productCollection.push($scope.productCollection[index]);
         }
     };
-   $scope.setselectedData = function(data){
+
+    $scope.setselectedData = function(data){
           var idx= $scope.productCollection.indexOf(data);
           var elt =event.currentTarget;
           var angElt =angular.element(elt)
@@ -33,7 +34,8 @@ app.controller('productsCtrl', ['$scope', function ($scope,$rootScope) {
   
     $scope.go = function(path){
        location.href="#"+path;
-    }
+    };
+
     $scope.doModifyItem = function(){
         var selectedPrdtData = $scope.getSelectedData()
         if(selectedPrdtData && selectedPrdtData.idx){
@@ -41,12 +43,20 @@ app.controller('productsCtrl', ['$scope', function ($scope,$rootScope) {
             $scope.proceedStep(selectedPrdtData.data.id,"/editWidgets/");
         }
     };
-     $scope.doOpenItem = function(){
-        var selectedPrdtData = $scope.getSelectedData()
-        if(selectedPrdtData && selectedPrdtData.idx){
+
+    $scope.doOpenItem = function(data){
+        if(data) {
+            $scope.setselectedData(data);
             $scope.setCurrentStep(1);
-            $scope.proceedStep(selectedPrdtData.data.id,"/viewWidgets/",true);
+            $scope.proceedStep(data.id, "/viewWidgets/", true);
+
+        } else {
+            var selectedPrdtData = $scope.getSelectedData()
+            if(selectedPrdtData && selectedPrdtData.idx){
+                $scope.setCurrentStep(1);
+                $scope.proceedStep(selectedPrdtData.data.id, "/viewWidgets/", true);
+            }
         }
-    }
+    };
 
 }]);
