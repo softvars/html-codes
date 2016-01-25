@@ -1,26 +1,18 @@
 app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     
-    $scope.$watch('models', function(model) {
-        $scope.modelAsJson = angular.toJson(model, true);
-    }, true);
-    
-    $scope.$watch('productCollection', function(productCollection) {
-        $scope.productCollectionAsJson = angular.toJson(productCollection, true);
-    }, true);
-    
     var isAdd = location.href.indexOf("addWidgets") !== -1;
     $scope.isEnableNext=false;$scope.isEnableSave=true;
     $scope.selectedData= $scope.getSelectedData(isAdd);
     $scope.selectedData.currentStep = $scope.getCurrentStep();
         
     $scope.doNextClick = function(currentStep){
-        $scope.setCurrentStep($scope.getCurrentStep()+1);
+        $scope.setCurrentStep(parseInt($scope.getCurrentStep())+1);
         $scope.proceedStep($scope.selectedData.data.id);
-         $scope.isEnableNext =  $scope.isEnableNext 
+         $scope.isEnableNext =  $scope.isEnableNext;
     };
     
     $scope.doPreviousClick = function(currentStep){
-         $scope.setCurrentStep($scope.getCurrentStep()-1);
+         $scope.setCurrentStep(parseInt($scope.getCurrentStep())-1);
          $scope.proceedStep($scope.selectedData.data.id);
     
     };
@@ -38,8 +30,6 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
             $scope.isEnableSave=false;
             $scope.go('/');
         }
-        
-       
     };
     
     $scope.doCancel = function(){
@@ -49,13 +39,13 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     
     $scope.getSelectedWidgets = function(){
         var selectedwidgets = [];
-        var widgetsForStep = $scope.selectedData.data["widgetsForStep"];
+        var widgetsForStep = $scope.selectedData.data && $scope.selectedData.data["widgetsForStep"] ||[];
         if(widgetsForStep) {
             selectedwidgets =  widgetsForStep[$scope.selectedData.currentStep];
         }
         return (angular.isArray(selectedwidgets) ? selectedwidgets : []);
     };
-    
+     
     $scope.setSelectedWidgets = function(){
         var widgetsForStep =  $scope.productCollection[$scope.selectedData.idx]["widgetsForStep"];
         if(!widgetsForStep) {
@@ -93,6 +83,8 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
                     if (list[i] && list[i].id === item.id) {
                         item["isDisabled"] = true;
                         return true;
+                    } else {
+                        item["isDisabled"] = false;
                     }
                 }
             }
@@ -118,10 +110,8 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
 
     modalInstance.result.then(function (pdtId) {
        widget.isDone = true;
-        //var elt = angular.element(document.getElementsByClassName(pdtId));
-        //elt.removeClass('ng-hide');
     }, function () {
-     console.log("close")
+     console.log("close");
     });
   };
 

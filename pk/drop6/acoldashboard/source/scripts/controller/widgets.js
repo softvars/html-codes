@@ -1,13 +1,5 @@
 app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     
-    $scope.$watch('models', function(model) {
-        $scope.modelAsJson = angular.toJson(model, true);
-    }, true);
-    
-    $scope.$watch('productCollection', function(productCollection) {
-        $scope.productCollectionAsJson = angular.toJson(productCollection, true);
-    }, true);
-    
     var isAdd = location.href.indexOf("addWidgets") !== -1;
     $scope.isEnableNext=false;$scope.isEnableSave=true;
     $scope.selectedData= $scope.getSelectedData(isAdd);
@@ -53,7 +45,7 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
         }
         return (angular.isArray(selectedwidgets) ? selectedwidgets : []);
     };
-    
+     
     $scope.setSelectedWidgets = function(){
         var widgetsForStep =  $scope.productCollection[$scope.selectedData.idx]["widgetsForStep"];
         if(!widgetsForStep) {
@@ -119,7 +111,7 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     modalInstance.result.then(function (pdtId) {
        widget.isDone = true;
     }, function () {
-     console.log("close")
+     console.log("close");
     });
   };
 

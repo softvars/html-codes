@@ -1,10 +1,47 @@
-app.run(function ($rootScope) {
-    $rootScope.productCollection = [
+app.run(function ($rootScope, $http) {
+    $rootScope.productCollection = [];
+    /*$rootScope.productCollection = [
         {"id":1100,"prodCode":"WEBSELLA2","name":"WebSella2","version":"0.1.ALPHA","descr":"","favorite":0,"numSteps":4,"templateCode":null,"createUser":"User","createDate":1451562186556,"updateDate":1451562186556,"updateUser":"User","properties":[{"id":50,"value":"TestValue1","code":"TestCode1","prod":"WEBSELLA"}],"releases":[],"steps":"6"},
         {"id":1101,"prodCode":"WEBSELLA1","name":"WebSella1","version":"0.1.ALPHA","descr":"","favorite":2,"numSteps":5,"templateCode":null,"createUser":"User","createDate":1451562186556,"updateDate":1451562186556,"updateUser":"User","properties":[{"id":50,"value":"TestValue1","code":"TestCode1","prod":"WEBSELLA"}],"releases":[],"steps":""},
         {"id":1102,"prodCode":"WEBSELLA3","name":"WebSella3","version":"0.1.ALPHA","descr":"","favorite":3,"numSteps":6,"templateCode":null,"createUser":"User","createDate":1451562186556,"updateDate":1451562186556,"updateUser":"User","properties":[{"id":50,"value":"TestValue1","code":"TestCode1","prod":"WEBSELLA"}],"releases":[],"steps":""},
-        {"id":1103,"prodCode":"WEBSELLA4","name":"WebSella4","version":"0.1.ALPHA","descr":"","favorite":5,"numSteps":3,"templateCode":null,"createUser":"User","createDate":1451562186556,"updateDate":1451562186556,"updateUser":"User","properties":[{"id":50,"value":"TestValue1","code":"TestCode1","prod":"WEBSELLA"}],"releases":[],"steps":""}];
-$rootScope.currentStep=0;
+        {"id":1103,"prodCode":"WEBSELLA4","name":"WebSella4","version":"0.1.ALPHA","descr":"","favorite":5,"numSteps":3,"templateCode":null,"createUser":"User","createDate":1451562186556,"updateDate":1451562186556,"updateUser":"User","properties":[{"id":50,"value":"TestValue1","code":"TestCode1","prod":"WEBSELLA"}],"releases":[],"steps":""}];*/
+    
+
+    $rootScope.initDone = false;
+    $rootScope.loadProductList = function(){
+        $http({
+          method: 'GET',
+          url: serviceUrl+'/mock/productList.json'
+        }).then(function successCallback(response) {
+            var data = response.data;
+            if(data) {
+                $rootScope.productCollection = angular.isArray(data) ? data : [data];
+                $rootScope.initDone = true;
+            }
+        });
+    };
+    $rootScope.loadProductList();
+    
+    $rootScope.saveProductList = function(){
+        $http({
+          method: 'POST',
+          data: $rootScope.productCollectionAsJson,
+          headers: {'Content-Type': 'application/json'},
+          url: serviceUrl+'/mock/productList.json'
+        }).then(function successCallback(response) {
+            console.log("response :" + response);
+        });
+    };
+
+    
+    $rootScope.$watch('productCollection', function(productCollection) {
+        $rootScope.productCollectionAsJson = angular.toJson(productCollection, true);
+        if($rootScope.initDone) {
+            $rootScope.saveProductList();
+        }
+    }, true);
+
+$rootScope.currentStep=location.hash.indexOf(':')!=-1 && location.hash.split(':').length>1 && location.hash.split(':')[1] ||0 ;
 $rootScope.selectedData ={};
 $rootScope.models = {
         selected: null,
@@ -44,8 +81,12 @@ $rootScope.createWidgetData = function(){
 };
     $rootScope.createWidgetData();
 $rootScope.createDataJson = function(obj){
+   
+        var index = $rootScope.productCollection.length-1;
+        var selData = $rootScope.productCollection[index];
+    
         var dataObj={};
-        dataObj.id =obj.id || '';
+        dataObj.id =obj.id || selData&& selData.id && (selData.id)+1||'';
         dataObj.prodCode = obj.prodCode || '';
         dataObj.name=obj.name||'';
         dataObj.version=obj.version||'';

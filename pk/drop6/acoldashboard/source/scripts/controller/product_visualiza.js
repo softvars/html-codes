@@ -14,7 +14,10 @@ app.controller('productsCtrl', ['$scope', function ($scope,$rootScope) {
         var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
         var index = prevSelect.attr("idx");
         if (index && index !== -1) {
-            $scope.productCollection.push($scope.productCollection[index]);
+            var product = $scope.productCollection[index];
+            if(product) {
+                $scope.productCollection.push(product);
+            }
         }
     };
 

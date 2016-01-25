@@ -6,7 +6,7 @@
         dnd-disable-if="isWidgetAdded(item)"
         dnd-effect-allowed="copy"
         dnd-selected="models.selected = item"
-        ng-class="{'selected': models.selected === item, 'noselect': item.isDisabled, 'handle': !(item.isDisabled)}">
+        ng-class="{'selected': (models.selected === item && !(item.isDisabled)), 'noselect': item.isDisabled, 'handle': !(item.isDisabled)}">
         {{item.label}}
     </li>
 </ul>
