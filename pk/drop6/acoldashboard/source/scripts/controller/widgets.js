@@ -16,7 +16,7 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     $scope.doNextClick = function(currentStep){
         $scope.setCurrentStep($scope.getCurrentStep()+1);
         $scope.proceedStep($scope.selectedData.data.id);
-         $scope.isEnableNext =  $scope.isEnableNext 
+         $scope.isEnableNext =  $scope.isEnableNext;
     };
     
     $scope.doPreviousClick = function(currentStep){
@@ -38,8 +38,6 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
             $scope.isEnableSave=false;
             $scope.go('/');
         }
-        
-       
     };
     
     $scope.doCancel = function(){
@@ -93,6 +91,8 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
                     if (list[i] && list[i].id === item.id) {
                         item["isDisabled"] = true;
                         return true;
+                    } else {
+                        item["isDisabled"] = false;
                     }
                 }
             }
@@ -118,8 +118,6 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
 
     modalInstance.result.then(function (pdtId) {
        widget.isDone = true;
-        //var elt = angular.element(document.getElementsByClassName(pdtId));
-        //elt.removeClass('ng-hide');
     }, function () {
      console.log("close")
     });

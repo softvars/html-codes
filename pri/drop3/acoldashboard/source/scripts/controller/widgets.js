@@ -77,12 +77,12 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     };
         
     $scope.dropCallback = function(event, index, item, external, type, allowedTypes) {
-        if($scope.models.product_steps.length){
+/*        if($scope.models.product_steps.length){
             if($scope.containsObject(item, $scope.models.product_steps)){
                 return false;
             }
         }
-        
+        */
         return item;
     };
     $scope.isWidgetAdded = function(item) {
@@ -103,7 +103,7 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
   $scope.animationsEnabled = true;
   $scope.isDone = false;
   $scope.pdtId = '';
-  $scope.addProductProperty = function () {
+  $scope.addProductProperty = function (widget) {
     $scope.pdtId =event.currentTarget.id;
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
@@ -117,10 +117,9 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     });
 
     modalInstance.result.then(function (pdtId) {
-       //$scope.productCollection[pdtId].isDone = true;
-        var elt = angular.element(document.getElementsByClassName(pdtId));
-        elt.removeClass('ng-hide');
-        
+       widget.isDone = true;
+        //var elt = angular.element(document.getElementsByClassName(pdtId));
+        //elt.removeClass('ng-hide');
     }, function () {
      console.log("close")
     });
