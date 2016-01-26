@@ -11,7 +11,6 @@ filesys = require("fs");
 my_http.createServer(function(request,response){
     var my_path = url.parse(request.url).pathname;
     var full_path = path.join(process.cwd(),my_path);
-    //response.writeHeader(200,{"Access-Control-Allow-Origin":"*"});
     path.exists(full_path,function(exists){
         if(!exists){
             response.writeHeader(404, {"Content-Type": "text/plain"});  
@@ -33,7 +32,7 @@ my_http.createServer(function(request,response){
                         return console.log(err);
                     }
                     console.log("The file was saved!");
-                    response.writeHead(200);
+                    response.writeHead(200,{"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept","Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods": "POST, GET,PUT"});
                     response.end();
                     return;
                 });
@@ -49,7 +48,8 @@ my_http.createServer(function(request,response){
                      return;
                  }  
                  else{
-                    response.writeHeader(200);  
+                 
+                    response.writeHeader(200,{"Access-Control-Allow-Origin":"*"});  
                     response.write(file, "binary");  
                     response.end();
                     return;
@@ -57,5 +57,5 @@ my_http.createServer(function(request,response){
             });
         }
     });
-}).listen(8080);
+}).listen(1002);
 sys.puts("Server Running on 8080");

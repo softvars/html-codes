@@ -165,15 +165,3 @@
     background-image: -webkit-linear-gradient(top,#fcf8e3 0,#faf2cc 100%);
     background-image: linear-gradient(to bottom,#fcf8e3 0,#faf2cc 100%);
 }
-
-.widgetNote.glyphicon-ok:before{
-    color:green;
-}
-div.item{
-    min-height:80px;
-}
-.widgetNote{
-    position:absolute;
-    top:50%;
-    margin-top:-13px;
-}

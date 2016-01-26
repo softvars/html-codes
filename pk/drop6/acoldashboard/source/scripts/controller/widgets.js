@@ -6,13 +6,13 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     $scope.selectedData.currentStep = $scope.getCurrentStep();
         
     $scope.doNextClick = function(currentStep){
-        $scope.setCurrentStep($scope.getCurrentStep()+1);
+        $scope.setCurrentStep(parseInt($scope.getCurrentStep())+1);
         $scope.proceedStep($scope.selectedData.data.id);
          $scope.isEnableNext =  $scope.isEnableNext;
     };
     
     $scope.doPreviousClick = function(currentStep){
-         $scope.setCurrentStep($scope.getCurrentStep()-1);
+         $scope.setCurrentStep(parseInt($scope.getCurrentStep())-1);
          $scope.proceedStep($scope.selectedData.data.id);
     
     };
@@ -39,7 +39,7 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     
     $scope.getSelectedWidgets = function(){
         var selectedwidgets = [];
-        var widgetsForStep = $scope.selectedData.data["widgetsForStep"];
+        var widgetsForStep = $scope.selectedData.data && $scope.selectedData.data["widgetsForStep"] ||[];
         if(widgetsForStep) {
             selectedwidgets =  widgetsForStep[$scope.selectedData.currentStep];
         }

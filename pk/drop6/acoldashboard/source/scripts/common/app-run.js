@@ -24,9 +24,9 @@ app.run(function ($rootScope, $http) {
     
     $rootScope.saveProductList = function(){
         $http({
-          method: 'PUT',
+          method: 'POST',
           data: $rootScope.productCollectionAsJson,
-          headers: {'Content-Type': 'application/json;charset=UTF-8',"Access-Control-Allow-Origin":"*" },
+          headers: {'Content-Type': 'application/json'},
           url: serviceUrl+'/mock/productList.json'
         }).then(function successCallback(response) {
             console.log("response :" + response);
@@ -41,7 +41,7 @@ app.run(function ($rootScope, $http) {
         }
     }, true);
 
-$rootScope.currentStep=0;
+$rootScope.currentStep=location.hash.indexOf(':')!=-1 && location.hash.split(':').length>1 && location.hash.split(':')[1] ||0 ;
 $rootScope.selectedData ={};
 $rootScope.models = {
         selected: null,
