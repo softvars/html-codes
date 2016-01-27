@@ -58,5 +58,12 @@ app.controller('productsCtrl', ['$scope', function ($scope,$rootScope) {
             }
         }
     };
+    $scope.predicate = 'prodCode';
+    $scope.reverse = false;
+    $scope.order = function(predicate) {
+    $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+    $scope.predicate = predicate;
+  };
+    
 
 }]);

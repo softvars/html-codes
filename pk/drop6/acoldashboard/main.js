@@ -3,6 +3,7 @@
 
 //var http = require("http");
 
+var server_running_port = 1002;
 var sys = require("sys"),
 my_http = require("http"),
 path = require("path"),
@@ -57,5 +58,5 @@ my_http.createServer(function(request,response){
             });
         }
     });
-}).listen(1002);
-sys.puts("Server Running on 8080");
+}).listen(server_running_port);
+sys.puts("Server Running on " + server_running_port);

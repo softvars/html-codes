@@ -3,7 +3,7 @@
 <div ng-controller="productsCtrl" class="col-sm-12 col-md-12 main">
     <div class="row">
         <h2></h2>
-        <table st-table class="table productList">
+        <table class="table productList">
             <thead>
                 <tr>
                     <th colspan="4">
@@ -19,20 +19,36 @@
                 </tr>
 
                 <tr>
-                    <th>Codice</th>
-                    <th>Nome</th>
-                    <th>Descrizione</th>
-                    <th>Numero Step</th>
-                    <th>Template Grafico</th>
-                    <th>Preferito</th>
-                    <th>Data ultima pubblicazione</th>
-                    <th>Ambiente</th>
+                    <th st-sort="id"ng-click="order('prodCode')">Codice
+                        <span class="glyphicon sortorder" ng-show="predicate === 'prodCode'" ng-class="{'glyphicon-triangle-top':!reverse,'glyphicon-triangle-bottom':reverse}"></span>
+                    </th>
+                    <th ng-click="order('name')">Nome
+                        <span class=" glyphicon sortorder" ng-show="predicate === 'name'" ng-class="{'glyphicon-triangle-top':!reverse,'glyphicon-triangle-bottom':reverse}"></span>
+                    </th>
+                    <th ng-click="order('descr')">Descrizione
+                        <span class="glyphicon sortorder" ng-show="predicate === 'descr'" ng-class="{'glyphicon-triangle-top':!reverse,'glyphicon-triangle-bottom':reverse}"></span>
+                    </th>
+                    <th ng-click="order('numSteps')">Numero Step
+                        <span class="glyphicon sortorder" ng-show="predicate === 'numSteps'" ng-class="{'glyphicon-triangle-top':!reverse,'glyphicon-triangle-bottom':reverse}"></span>
+                    </th>
+                    <th ng-click="order('templateCode')">Template Grafico
+                        <span class="glyphicon sortorder" ng-show="predicate === 'templateCode'" ng-class="{'glyphicon-triangle-top':!reverse,'glyphicon-triangle-bottom':reverse}"></span>
+                    </th>
+                    <th ng-click="order('favorite')">Preferito
+                        <span class="glyphicon sortorder" ng-show="predicate === 'favorite'" ng-class="{'glyphicon-triangle-top':!reverse,'glyphicon-triangle-bottom':reverse}"></span>
+                    </th>
+                    <th>Data ultima pubblicazione
+                       
+                    </th>
+                    <th>Ambiente
+                        
+                    </th>
                 </tr>
 
             </thead>
             <tbody>
-                <tr ng-repeat="row in productCollection | filter:searchText track by $index" ng-click="setselectedData(row)" 
-                    data-idx = {{row.id}} ng-dblclick="doOpenItem(row)">
+                <tr ng-repeat="row in productCollection | filter:searchText | orderBy:predicate:reverse track by $index" 
+                    ng-click="setselectedData(row)" data-idx = {{row.id}} ng-dblclick="doOpenItem(row)">
                     <td>{{row.prodCode}}</td> 
                     <td>{{row.name}}</td>
                     <td>{{row.descr}}</td>
@@ -43,6 +59,8 @@
                     <td></td>
                 </tr>
             </tbody>
+          
+     
         </table>
     </div>
     <div class="row">

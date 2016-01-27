@@ -41,7 +41,7 @@ app.run(function ($rootScope, $http) {
         }
     }, true);
 
-$rootScope.currentStep=location.hash.indexOf(':')!=-1 && location.hash.split(':').length>1 && location.hash.split(':')[1] ||0 ;
+$rootScope.currentStep=0;//location.hash.indexOf(':')!=-1 && location.hash.split(':').length>1 && location.hash.split(':')[1] ||0 ;
 $rootScope.selectedData ={};
 $rootScope.models = {
         selected: null,
@@ -143,7 +143,11 @@ $rootScope.createDataJson = function(obj){
         }else{
         path = id && (location.hash.indexOf("viewWidgets")!=-1  && "/viewWidgets/"+id || location.hash.indexOf("editWidgets")!=-1 &&                      "/editWidgets/"+id )||"/addWidgets" ||'';
         path = isView && "/viewWidgets/"+id||path;}
-       $rootScope.go(path +'/step:'+$rootScope.getCurrentStep());
+        if(selectData){
+       $rootScope.go(path +'/step:'+$rootScope.getCurrentStep());}
+        else{
+         $rootScope.go('/');
+        }
     }
     
  

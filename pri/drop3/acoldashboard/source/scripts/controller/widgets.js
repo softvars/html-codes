@@ -40,6 +40,7 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     $scope.getSelectedWidgets = function(){
         var selectedwidgets = [];
         var widgetsForStep = $scope.selectedData.data && $scope.selectedData.data["widgetsForStep"] ||[];
+        if($scope.selectedData.currentStep<=0){$scope.go("/")}
         if(widgetsForStep) {
             selectedwidgets =  widgetsForStep[$scope.selectedData.currentStep];
         }
