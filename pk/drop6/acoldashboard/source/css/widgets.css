@@ -176,3 +176,7 @@ div.item{
     top:50%;
     margin-top:-13px;
 }
+#product-steps{
+    max-height:380px;
+    overflow:auto;
+}

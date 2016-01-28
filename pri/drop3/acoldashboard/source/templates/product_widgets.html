@@ -39,7 +39,7 @@
 						dnd-effect-allowed="move"
 						dnd-moved="models.product_steps.splice($index, 1)">
 						<div class="product-step">
-							<div ng-include="'source/templates/widget/A1.html'">Step
+							<div ng-include="'source/templates/product_step_widget.html'">Step
 								{{step.id}}</div>
 						</div>
 					</li>
@@ -50,6 +50,12 @@
 			<div class="col-md-12" id="buttonContainer">
 				<div class="col-md-4" ng-show="!isView">
 					<!-- <div class="col-sm-7"></div> -->
+                    <div class="col-md-6">
+						<button class="btn btn-warning" type="button"
+							ng-click="go('/')">
+                            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> &#32; Annulla
+                        </button>
+					</div>
 					<div class="col-md-6">
 						<button class="btn btn-primary" type="button"
 							ng-click="doSaveClick()"
@@ -57,12 +63,7 @@
                             <span class="glyphicon glyphicon-save" aria-hidden="true"></span> &#32; Conferma
                         </button>
 					</div>
-					<div class="col-md-6">
-						<button class="btn btn-warning" type="button"
-							ng-click="doCancel('{{selectedData.currentStep}}')">
-                            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> &#32; Annulla
-                        </button>
-					</div>
+					
 					<!-- <div class="col-sm-3"></div> -->
 				</div>
 				<div class="col-md-8">

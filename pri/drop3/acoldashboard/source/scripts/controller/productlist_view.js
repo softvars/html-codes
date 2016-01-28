@@ -14,10 +14,7 @@ app.controller('productsCtrl', ['$scope', function ($scope,$rootScope) {
         var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
         var index = prevSelect.attr("idx");
         if (index && index !== -1) {
-            var product = $scope.productCollection[index];
-            if(product) {
-                $scope.productCollection.push(product);
-            }
+            $scope.productCollection.push($scope.productCollection[index]);
         }
     };
 
@@ -61,5 +58,12 @@ app.controller('productsCtrl', ['$scope', function ($scope,$rootScope) {
             }
         }
     };
+    $scope.predicate = 'prodCode';
+    $scope.reverse = false;
+    $scope.order = function(predicate) {
+    $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+    $scope.predicate = predicate;
+  };
+    
 
 }]);

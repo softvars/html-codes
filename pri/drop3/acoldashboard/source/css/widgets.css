@@ -66,6 +66,7 @@
 .add_product_widgets ul.cust-dnd-list li[draggable="false"] {
     cursor:default;
     background-color: #F4F5F7;
+    opacity:0.5;
 }
 /**
  * Show selected elements in green
@@ -175,4 +176,8 @@ div.item{
     position:absolute;
     top:50%;
     margin-top:-13px;
+}
+#product-steps{
+    max-height:380px;
+    overflow:auto;
 }

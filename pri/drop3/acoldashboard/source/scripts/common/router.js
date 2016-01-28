@@ -1,11 +1,11 @@
 app.config([ '$routeProvider', function($routeProvider) {
 	$routeProvider.
     when('/', {
-		templateUrl : 'source/templates/temp_products_visualiza.html',
+		templateUrl : 'source/templates/productlist_view.html',
 		controller : 'productsCtrl'
 	}).
 	when('/addProduct', {
-		templateUrl : 'source/templates/temp_new_product.html',
+		templateUrl : 'source/templates/add_new_product.html',
 		controller : 'addProductCtrl'
 	}).
     when('/editWidgets/:productId/step:currentStep', {

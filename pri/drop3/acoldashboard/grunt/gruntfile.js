@@ -9,7 +9,7 @@ var scriptfiles = [
     '../source/scripts/utils/*.js',
     '../source/scripts/common/app.js',
     '../source/scripts/common/app-run.js',
-    '../source/scripts/common/routing.js',
+    '../source/scripts/common/router.js',
     '../source/scripts/controller/*.js',
     '../source/scripts/service/*.js',
     '../source/scripts/htmleditor/*.js'

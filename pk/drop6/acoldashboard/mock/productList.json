@@ -1,49 +1,66 @@
 [
   {
-    "id": 1100,
-    "prodCode": "WEBSELLA2",
-    "name": "WebSella2",
-    "version": "0.1.ALPHA",
-    "descr": "",
-    "favorite": 0,
-    "numSteps": 4,
-    "templateCode": null,
-    "createUser": "User",
-    "createDate": 1451562186556,
-    "updateDate": 1451562186556,
-    "updateUser": "User",
-    "properties": [
-      {
-        "id": 50,
-        "value": "TestValue1",
-        "code": "TestCode1",
-        "prod": "WEBSELLA"
-      }
-    ],
+    "id": 1106,
+    "prodCode": "test",
+    "name": "test",
+    "version": "",
+    "descr": "test",
+    "favorite": "",
+    "numSteps": "5",
+    "templateCode": "GRAF1",
+    "createUser": "",
+    "createDate": "",
+    "updateDate": "",
+    "updateUser": "",
+    "properties": [],
     "releases": [],
-    "steps": "6"
+    "steps": "",
+    "widgetsForStep": {
+      "1": [
+        {
+          "id": "nome_cognome",
+          "type": "widget",
+          "catId": "A_nome_cognome0",
+          "label": "Nome e Cognome",
+          "url": "source/images/nome_cognome.JPG",
+          "isDone": true
+        },
+        {
+          "id": "codice_promo",
+          "type": "widget",
+          "catId": "A_codice_promo1",
+          "label": "Codice promozionale",
+          "url": "source/images/codice_promo.JPG",
+          "isDisabled": false,
+          "isDone": true
+        }
+      ],
+      "2": [
+        {
+          "id": "nome_cognome",
+          "type": "widget",
+          "catId": "A_nome_cognome0",
+          "label": "Nome e Cognome",
+          "url": "source/images/nome_cognome.JPG",
+          "isDisabled": true
+        }
+      ]
+    }
   },
   {
-    "id": 1101,
-    "prodCode": "WEBSELLA1",
-    "name": "WebSella1",
-    "version": "0.1.ALPHA",
-    "descr": "",
-    "favorite": 2,
-    "numSteps": 5,
-    "templateCode": null,
-    "createUser": "User",
-    "createDate": 1451562186556,
-    "updateDate": 1451562186556,
-    "updateUser": "User",
-    "properties": [
-      {
-        "id": 50,
-        "value": "TestValue1",
-        "code": "TestCode1",
-        "prod": "WEBSELLA"
-      }
-    ],
+    "id": 1107,
+    "prodCode": "test",
+    "name": "test",
+    "version": "",
+    "descr": "test",
+    "favorite": "",
+    "numSteps": "6",
+    "templateCode": "GRAF1",
+    "createUser": "",
+    "createDate": "",
+    "updateDate": "",
+    "updateUser": "",
+    "properties": [],
     "releases": [],
     "steps": "",
     "widgetsForStep": {
@@ -64,66 +81,18 @@
           "url": "source/images/codice_promo.JPG",
           "isDisabled": false
         }
-      ],
-      "2": [
-        {
-          "id": "cod_fiscale",
-          "type": "widget",
-          "catId": "A_cod_fiscale2",
-          "label": "Codice fiscale ",
-          "url": "source/images/cod_fiscale.JPG",
-          "isDisabled": false,
-          "isDone": true
-        }
       ]
     }
   },
   {
-    "id": 1100,
-    "prodCode": "WEBSELLA2",
-    "name": "WebSella2",
-    "version": "0.1.ALPHA",
-    "descr": "",
-    "favorite": 0,
-    "numSteps": 4,
-    "templateCode": null,
-    "createUser": "User",
-    "createDate": 1451562186556,
-    "updateDate": 1451562186556,
-    "updateUser": "User",
-    "properties": [
-      {
-        "id": 50,
-        "value": "TestValue1",
-        "code": "TestCode1",
-        "prod": "WEBSELLA"
-      }
-    ],
-    "releases": [],
-    "steps": "6",
-    "widgetsForStep": {
-      "1": [
-        {
-          "id": "nome_cognome",
-          "type": "widget",
-          "catId": "A_nome_cognome0",
-          "label": "Nome e Cognome",
-          "url": "source/images/nome_cognome.JPG",
-          "isDisabled": true,
-          "isDone": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 1101,
-    "prodCode": "WebSella 6",
-    "name": "websella",
+    "id": 1109,
+    "prodCode": "websella3",
+    "name": "websella3",
     "version": "",
     "descr": "web",
     "favorite": "",
     "numSteps": "6",
-    "templateCode": "GRAF6",
+    "templateCode": "GRAF3",
     "createUser": "",
     "createDate": "",
     "updateDate": "",
@@ -133,14 +102,289 @@
     "steps": ""
   },
   {
-    "id": 1102,
-    "prodCode": "ewqeqwe",
-    "name": "qweqwe",
+    "id": 1110,
+    "prodCode": "test",
+    "name": "test",
     "version": "",
-    "descr": "",
+    "descr": "test",
     "favorite": "",
-    "numSteps": "4",
-    "templateCode": "GRAF2",
+    "numSteps": "6",
+    "templateCode": "GRAF1",
+    "createUser": "",
+    "createDate": "",
+    "updateDate": "",
+    "updateUser": "",
+    "properties": [],
+    "releases": [],
+    "steps": ""
+  },
+  {
+    "id": 1111,
+    "prodCode": "test1",
+    "name": "test",
+    "version": "",
+    "descr": "test",
+    "favorite": "",
+    "numSteps": "1",
+    "templateCode": "GRAF1",
+    "createUser": "",
+    "createDate": "",
+    "updateDate": "",
+    "updateUser": "",
+    "properties": [],
+    "releases": [],
+    "steps": "",
+    "widgetsForStep": {
+      "1": [
+        {
+          "id": "nome_cognome",
+          "type": "widget",
+          "catId": "A_nome_cognome0",
+          "label": "Nome e Cognome",
+          "url": "source/images/nome_cognome.JPG",
+          "isDisabled": true
+        },
+        {
+          "id": "codice_promo",
+          "type": "widget",
+          "catId": "A_codice_promo1",
+          "label": "Codice promozionale",
+          "url": "source/images/codice_promo.JPG",
+          "isDisabled": false
+        }
+      ]
+    }
+  },
+  {
+    "id": 1111,
+    "prodCode": "test1",
+    "name": "test",
+    "version": "",
+    "descr": "test",
+    "favorite": "",
+    "numSteps": "1",
+    "templateCode": "GRAF1",
+    "createUser": "",
+    "createDate": "",
+    "updateDate": "",
+    "updateUser": "",
+    "properties": [],
+    "releases": [],
+    "steps": "",
+    "widgetsForStep": {
+      "1": [
+        {
+          "id": "nome_cognome",
+          "type": "widget",
+          "catId": "A_nome_cognome0",
+          "label": "Nome e Cognome",
+          "url": "source/images/nome_cognome.JPG",
+          "isDisabled": false,
+          "isDone": true
+        },
+        {
+          "id": "codice_promo",
+          "type": "widget",
+          "catId": "A_codice_promo1",
+          "label": "Codice promozionale",
+          "url": "source/images/codice_promo.JPG",
+          "isDisabled": false,
+          "isDone": true
+        },
+        {
+          "id": "cod_fiscale",
+          "type": "widget",
+          "catId": "A_cod_fiscale2",
+          "label": "Codice fiscale ",
+          "url": "source/images/cod_fiscale.JPG",
+          "isDisabled": false,
+          "isDone": true
+        },
+        {
+          "id": "email",
+          "type": "widget",
+          "catId": "B_email3",
+          "label": "Email",
+          "url": "source/images/email.JPG",
+          "isDisabled": false,
+          "isDone": true
+        },
+        {
+          "id": "city",
+          "type": "widget",
+          "catId": "B_city4",
+          "label": "Cittadinanza",
+          "url": "source/images/city.JPG",
+          "isDisabled": false
+        }
+      ]
+    }
+  },
+  {
+    "id": 1111,
+    "prodCode": "test1",
+    "name": "test",
+    "version": "",
+    "descr": "test",
+    "favorite": "",
+    "numSteps": "1",
+    "templateCode": "GRAF1",
+    "createUser": "",
+    "createDate": "",
+    "updateDate": "",
+    "updateUser": "",
+    "properties": [],
+    "releases": [],
+    "steps": "",
+    "widgetsForStep": {
+      "1": [
+        {
+          "id": "nome_cognome",
+          "type": "widget",
+          "catId": "A_nome_cognome0",
+          "label": "Nome e Cognome",
+          "url": "source/images/nome_cognome.JPG",
+          "isDisabled": false,
+          "isDone": true
+        },
+        {
+          "id": "codice_promo",
+          "type": "widget",
+          "catId": "A_codice_promo1",
+          "label": "Codice promozionale",
+          "url": "source/images/codice_promo.JPG",
+          "isDisabled": false,
+          "isDone": true
+        },
+        {
+          "id": "cod_fiscale",
+          "type": "widget",
+          "catId": "A_cod_fiscale2",
+          "label": "Codice fiscale ",
+          "url": "source/images/cod_fiscale.JPG",
+          "isDisabled": false,
+          "isDone": true
+        },
+        {
+          "id": "email",
+          "type": "widget",
+          "catId": "B_email3",
+          "label": "Email",
+          "url": "source/images/email.JPG",
+          "isDisabled": false,
+          "isDone": true
+        },
+        {
+          "id": "city",
+          "type": "widget",
+          "catId": "B_city4",
+          "label": "Cittadinanza",
+          "url": "source/images/city.JPG",
+          "isDisabled": false
+        }
+      ]
+    }
+  },
+  {
+    "id": 1109,
+    "prodCode": "websella3",
+    "name": "websella3",
+    "version": "",
+    "descr": "web",
+    "favorite": "",
+    "numSteps": "6",
+    "templateCode": "GRAF3",
+    "createUser": "",
+    "createDate": "",
+    "updateDate": "",
+    "updateUser": "",
+    "properties": [],
+    "releases": [],
+    "steps": "",
+    "widgetsForStep": {
+      "1": []
+    }
+  },
+  {
+    "id": 1110,
+    "prodCode": "test",
+    "name": "test",
+    "version": "",
+    "descr": "test",
+    "favorite": "",
+    "numSteps": "6",
+    "templateCode": "GRAF1",
+    "createUser": "",
+    "createDate": "",
+    "updateDate": "",
+    "updateUser": "",
+    "properties": [],
+    "releases": [],
+    "steps": ""
+  },
+  {
+    "id": 1111,
+    "prodCode": "WEBSELLA",
+    "name": "web sella",
+    "version": "",
+    "descr": "web sella ",
+    "favorite": "",
+    "numSteps": "2",
+    "templateCode": "GRAF4",
+    "createUser": "",
+    "createDate": "",
+    "updateDate": "",
+    "updateUser": "",
+    "properties": [],
+    "releases": [],
+    "steps": ""
+  },
+  {
+    "id": 1112,
+    "prodCode": "websella new",
+    "name": "abcd",
+    "version": "",
+    "descr": "adbc",
+    "favorite": "",
+    "numSteps": "6",
+    "templateCode": "GRAF5",
+    "createUser": "",
+    "createDate": "",
+    "updateDate": "",
+    "updateUser": "",
+    "properties": [],
+    "releases": [],
+    "steps": "",
+    "widgetsForStep": {
+      "1": []
+    }
+  },
+  {
+    "id": 1113,
+    "prodCode": "ew",
+    "name": "erwerw",
+    "version": "",
+    "descr": "erwer",
+    "favorite": "",
+    "numSteps": "1",
+    "templateCode": "GRAF1",
+    "createUser": "",
+    "createDate": "",
+    "updateDate": "",
+    "updateUser": "",
+    "properties": [],
+    "releases": [],
+    "steps": ""
+  },
+  {
+    "id": 1114,
+    "prodCode": "wer",
+    "name": "werwer",
+    "version": "",
+    "descr": "wer",
+    "favorite": "",
+    "numSteps": "1",
+    "templateCode": "GRAF1",
     "createUser": "",
     "createDate": "",
     "updateDate": "",

@@ -3,6 +3,7 @@
 
 //var http = require("http");
 
+var server_running_port = 1002;
 var sys = require("sys"),
 my_http = require("http"),
 path = require("path"),
@@ -16,7 +17,7 @@ my_http.createServer(function(request,response){
             response.writeHeader(404, {"Content-Type": "text/plain"});  
             response.write("404 Not Found\n");  
             response.end();
-            
+            return;
         }
         if(request.method && (request.method == 'POST' || request.method == 'PUT')) {
             var body = "";
@@ -45,16 +46,17 @@ my_http.createServer(function(request,response){
                      response.writeHeader(500, {"Content-Type": "text/plain"});  
                      response.write(err + "\n");  
                      response.end();
+                     return;
                  }  
                  else{
                  
                     response.writeHeader(200,{"Access-Control-Allow-Origin":"*"});  
                     response.write(file, "binary");  
                     response.end();
+                    return;
                 }
-                      
             });
         }
     });
-}).listen(8080);
-sys.puts("Server Running on 8080");
+}).listen(server_running_port);
+sys.puts("Server Running on " + server_running_port);

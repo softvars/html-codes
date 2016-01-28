@@ -1,2 +1,1 @@
-var app = angular.module('acolApp', ['smart-table','ngAnimate', 'ui.bootstrap','ngRoute', 'dndLists']);
-var serviceUrl = location.protocol+"//"+location.hostname+":1002";
+var app = angular.module('acolApp', ['ngAnimate', 'ui.bootstrap','ngRoute', 'dndLists']);

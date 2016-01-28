@@ -36,7 +36,6 @@ body {
  * Sidebar
  */
 
-/* Hide for mobile, show later */
 .sidebar {
   display: none;
 }
@@ -135,12 +134,7 @@ ul[dnd-list] > li {
     font-size: x-large;
 }
 
-/*
-table.productList 
-{
-     border: 1px solid #ddd;
-}
-*/
+
 table.productList > tbody > tr {
     cursor: pointer;
 }
@@ -193,17 +187,16 @@ table.productList > tbody > tr.stSelected {
 .modal-body.pdtProperty table>tbody>tr>th{
     border:none;
 }
-
+/*
+    view enter exit transition
+*/
 .view-slide-in.ng-enter {
-  transition: all 1s ease;
-  -webkit-transition:all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  
-  opacity:0.5;
+  transition: all 0.5s ease;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   position:relative;
   opacity:0;
- 
 }
 
 .view-slide-in.ng-enter {

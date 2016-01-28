@@ -8,7 +8,6 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     $scope.doNextClick = function(currentStep){
         $scope.setCurrentStep(parseInt($scope.getCurrentStep())+1);
         $scope.proceedStep($scope.selectedData.data.id);
-         $scope.isEnableNext =  $scope.isEnableNext;
     };
     
     $scope.doPreviousClick = function(currentStep){
@@ -19,7 +18,7 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     
     $scope.doSaveClick = function(){
         $scope.setSelectedWidgets();
-      
+   
         if($scope.selectedData.data.numSteps>$scope.getCurrentStep()){
             $scope.setCurrentStep($scope.getCurrentStep()+1);
             $scope.proceedStep($scope.selectedData.data.id); 
@@ -52,7 +51,9 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
         if(!widgetsForStep) {
             $scope.productCollection[$scope.selectedData.idx].widgetsForStep = {};
         }
+        
         $scope.productCollection[$scope.selectedData.idx].widgetsForStep[$scope.selectedData.currentStep] = $scope.models.product_steps;
+        
     };
         
     $scope.models.product_steps = $scope.getSelectedWidgets();
@@ -100,7 +101,7 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     $scope.pdtId =event.currentTarget.id;
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
-      templateUrl: 'source/templates/templ_product_property.html',
+      templateUrl: 'source/templates/product_property.html',
       controller: 'ModalInstanceCtrl',
       resolve: {
         pdtId: function () {
@@ -131,4 +132,5 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
+  
     });

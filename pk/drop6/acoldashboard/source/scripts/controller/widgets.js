@@ -39,24 +39,33 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     
     $scope.getSelectedWidgets = function(){
         var selectedwidgets = [];
-        var widgetsForStep = $scope.selectedData.data && $scope.selectedData.data["widgetsForStep"] ||[];
-        if(widgetsForStep) {
-            selectedwidgets =  widgetsForStep[$scope.selectedData.currentStep];
+        if($scope.selectedData) {
+            var currentStep = parseInt($scope.selectedData.currentStep);
+            if(!(currentStep)) {
+                $scope.go("/");
+            }
+            var widgetsForStep = ($scope.selectedData.data && $scope.selectedData.data["widgetsForStep"]) || [] ;
+            if(widgetsForStep) {
+                selectedwidgets =  widgetsForStep[currentStep];
+            }
         }
         return (angular.isArray(selectedwidgets) ? selectedwidgets : []);
     };
      
     $scope.setSelectedWidgets = function(){
-        var widgetsForStep =  $scope.productCollection[$scope.selectedData.idx]["widgetsForStep"];
-        if(!widgetsForStep) {
-            $scope.productCollection[$scope.selectedData.idx].widgetsForStep = {};
+        var idx = parseInt($scope.selectedData.idx) ;
+        if(idx >= 0) {
+            var widgetsForStep =  $scope.productCollection[idx]["widgetsForStep"];
+            if(!widgetsForStep) {
+                $scope.productCollection[idx].widgetsForStep = {};
+            }
+            $scope.productCollection[idx].widgetsForStep[$scope.selectedData.currentStep] = $scope.models.product_steps;
         }
-        $scope.productCollection[$scope.selectedData.idx].widgetsForStep[$scope.selectedData.currentStep] = $scope.models.product_steps;
     };
         
-    $scope.models.product_steps = $scope.getSelectedWidgets();
+    $scope.models.product_steps = [].concat($scope.getSelectedWidgets());
     
-    $scope.containsObject = function(obj, list) {
+/*    $scope.containsObject = function(obj, list) {
         var i;
         for (i = 0; i < list.length; i++) {
             if (angular.equals(list[i], obj)) {
@@ -64,15 +73,14 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
             }
         }
         return false;
-    };
+    };*/
         
     $scope.dropCallback = function(event, index, item, external, type, allowedTypes) {
-/*        if($scope.models.product_steps.length){
+        /*if($scope.models.product_steps.length){
             if($scope.containsObject(item, $scope.models.product_steps)){
                 return false;
             }
-        }
-        */
+        }*/
         return item;
     };
     $scope.isWidgetAdded = function(item) {
@@ -99,7 +107,7 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     $scope.pdtId =event.currentTarget.id;
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
-      templateUrl: 'source/templates/templ_product_property.html',
+      templateUrl: 'source/templates/product_property.html',
       controller: 'ModalInstanceCtrl',
       resolve: {
         pdtId: function () {

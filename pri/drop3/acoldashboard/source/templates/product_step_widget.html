@@ -1,4 +1,4 @@
-<div class="item"  ng-click="addProductProperty(step)" id="{{step.id}}">
+<div class="item"  ng-click="!isView && addProductProperty(step)" id="{{step.id}}">
     <img src={{step.url}} class="col-sm-11 col-md-11" />
     <span class="widgetNote glyphicon glyphicon-ok {{step.id}}" aria-hidden="true" ng-show="step.isDone"></span>
 </div>

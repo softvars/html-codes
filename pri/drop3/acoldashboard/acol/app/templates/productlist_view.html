@@ -19,7 +19,7 @@
                 </tr>
 
                 <tr>
-                    <th st-sort="id" ng-click="order('prodCode')">Codice
+                    <th ng-click="order('prodCode')">Codice
                         <span class="glyphicon sortorder" ng-show="predicate === 'prodCode'" ng-class="{'glyphicon-triangle-top':!reverse,'glyphicon-triangle-bottom':reverse}"></span>
                     </th>
                     <th ng-click="order('name')">Nome
@@ -59,6 +59,8 @@
                     <td></td>
                 </tr>
             </tbody>
+          
+     
         </table>
     </div>
     <div class="row">
