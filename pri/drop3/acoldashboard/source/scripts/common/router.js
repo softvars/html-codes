@@ -11,7 +11,6 @@ app.config([ '$routeProvider', function($routeProvider) {
     when('/editWidgets/:productId/step:currentStep', {
         templateUrl: 'source/templates/product_widgets.html',
         controller: 'addWidgetsForproductCtrl'
-     
     }).
 	when('/addWidgets/step:currentStep', {
 		templateUrl : 'source/templates/product_widgets.html',
@@ -20,7 +19,6 @@ app.config([ '$routeProvider', function($routeProvider) {
       when('/viewWidgets/:productId/step:currentStep', {
         templateUrl: 'source/templates/product_widgets.html',
         controller: 'addWidgetsForproductCtrl'
-     
     }).
 	when('/ckeditor', {
         templateUrl: 'acol/app/templates/ckeditorTemplate.html',

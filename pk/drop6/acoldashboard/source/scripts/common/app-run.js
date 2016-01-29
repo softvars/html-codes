@@ -1,7 +1,7 @@
-app.run(function ($rootScope, $http) {
+app.run(['$rootScope', '$http', 'productService', function ($rootScope, $http, productService) {
     $rootScope.productCollection = [];
     $rootScope.initDone = false;
-    $rootScope.loadProductList = function(){
+/*    $rootScope.loadProductList = function(){
         $http({
           method: 'GET',
           url: '/mock/productList.json'
@@ -13,7 +13,7 @@ app.run(function ($rootScope, $http) {
             }
         });
     };
-    $rootScope.loadProductList();
+    productService.loadProductList();
     
     $rootScope.saveProductList = function(){
         $http({
@@ -24,13 +24,13 @@ app.run(function ($rootScope, $http) {
         }).then(function successCallback(response) {
             console.log("response :" + response);
         });
-    };
-
+    };*/
+    productService.loadProductList();
     
     $rootScope.$watch('productCollection', function(productCollection) {
         $rootScope.productCollectionAsJson = angular.toJson(productCollection, true);
         if($rootScope.initDone) {
-            $rootScope.saveProductList();
+            productService.saveProductList();
         }
     }, true);
 
@@ -69,7 +69,7 @@ $rootScope.createWidgetData = function(){
         }
     }
 };
-$rootScope.createWidgetData();
+    $rootScope.createWidgetData();
 $rootScope.createDataJson = function(obj){
    
         var index = $rootScope.productCollection.length-1;
@@ -135,7 +135,7 @@ $rootScope.createDataJson = function(obj){
             ||"/addWidgets" ||'';
             path = isView && "/viewWidgets/"+id||path;
         }
-        if(selectData){
+        if(selectData || path=="/addWidgets"){
             $rootScope.go(path +'/step:'+$rootScope.getCurrentStep());}
         else{
          $rootScope.go('/');
@@ -143,4 +143,4 @@ $rootScope.createDataJson = function(obj){
     }
     
  
-});
+}]);

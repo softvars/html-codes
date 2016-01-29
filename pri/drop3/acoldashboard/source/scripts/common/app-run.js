@@ -76,7 +76,7 @@ $rootScope.createDataJson = function(obj){
         var selData = $rootScope.productCollection[index];
     
         var dataObj={};
-        dataObj.id =obj.id || selData&& selData.id && (selData.id)+1||'';
+        dataObj.id =obj.id || ((selData && selData.id) && (selData.id)+1) ||'';
         dataObj.prodCode = obj.prodCode || '';
         dataObj.name=obj.name||'';
         dataObj.version=obj.version||'';

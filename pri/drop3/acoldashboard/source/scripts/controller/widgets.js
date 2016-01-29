@@ -8,6 +8,7 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     $scope.doNextClick = function(currentStep){
         $scope.setCurrentStep(parseInt($scope.getCurrentStep())+1);
         $scope.proceedStep($scope.selectedData.data.id);
+         $scope.isEnableNext =  $scope.isEnableNext;
     };
     
     $scope.doPreviousClick = function(currentStep){
@@ -132,5 +133,4 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-  
     });

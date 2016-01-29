@@ -1,4 +1,4 @@
-app.controller('productsCtrl', ['$scope', function ($scope,$rootScope) {
+app.controller('productsCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.enable_button=false;
     $scope.doRemoveItem = function() {
         var prevSelect= angular.element(document.getElementsByClassName("stSelected"));

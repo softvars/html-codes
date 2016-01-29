@@ -14,7 +14,6 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
     $scope.doPreviousClick = function(currentStep){
          $scope.setCurrentStep(parseInt($scope.getCurrentStep())-1);
          $scope.proceedStep($scope.selectedData.data.id);
-    
     };
     
     $scope.doSaveClick = function(){
