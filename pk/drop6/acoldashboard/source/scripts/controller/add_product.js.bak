@@ -12,5 +12,7 @@ app.controller('addProductCtrl', function ($scope, $rootScope) {
         $scope.productCollection.push($scope.createDataJson(postObj));
         $scope.setCurrentStep(1);
         $scope.proceedStep()
+       
     };
+    
 });

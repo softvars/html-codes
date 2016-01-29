@@ -48,7 +48,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="row in productCollection | filter:searchText | orderBy:predicate:reverse track by $index" 
-                    ng-click="setselectedData(row)" ng-model="row" data-idx = {{row.id}} ng-dblclick="doOpenItem(row)">
+                    ng-click="setselectedData(row)" data-idx = {{row.id}} ng-dblclick="doOpenItem(row)">
                     <td>{{row.prodCode}}</td> 
                     <td>{{row.name}}</td>
                     <td>{{row.descr}}</td>

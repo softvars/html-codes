@@ -44,18 +44,16 @@
                     <tr>
                         <td><label for="numberofSteps">Numero di step:</label></td>
                         <td><select class="col-sm-12 form-control" type="text"  ng-model="product.step_count" name="numberofSteps"
-                            id="numberofSteps" required>
-                            <option val=1>1</option>
+                            id="numberofSteps"><option val=1>1</option>
                             <option val=2>2</option>
                             <option val=3>3</option>
                             <option val=4>4</option>
                             <option val=5>5</option>
                             <option val=6>6</option>
-                            <select>
-                        </td>
+                        <select></td>
                         <td><label for="templateCode">Template Grafico:</label></td>
                         <td><select class="col-sm-12 form-control" type="text"  ng-model="product.template_code" name="templateCode" 
-                            id="templateCode" required>
+                            id="templateCode">
                             <option val="GRAF1">GRAF1</option>
                             <option val="GRAF2">GRAF2</option>
                             <option val="GRAF3">GRAF3</option>
@@ -64,24 +62,14 @@
                             <option val="GRAF6">GRAF6</option>
                         <select></td>
                     </tr>
-                    <tr>
-                        <td colspan="2">
-                            <div ng-show="form.$submitted || form.numberofSteps.$touched" style="float: right">
-                              <span ng-show="form.numberofSteps.$error.required">Provide Numero di step.</span>
-                            </div>
-                        </td>
-                        <td colspan="2">
-                            <div ng-show="form.$submitted || form.templateCode.$touched" style="float: right">
-                              <span ng-show="form.templateCode.$error.required">Provide Template Grafico.</span>
-                            </div>
-                        </td>
-                    </tr>
                 </table>
+
+
             </div>
             <div class="modal-footer">
                  <button class="btn btn-warning" type="button" ng-click="go('/')">
                     <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> &#32; Annulla</button>
-                <button class="btn btn-primary" type="submit" ng-click="doConfirm(product)" ng-disabled="form.$invalid">
+                <button class="btn btn-primary" type="button" ng-click="doConfirm(product)">
                     <span class="glyphicon glyphicon-save" aria-hidden="true"></span> &#32; Conferma</button>
             </div>
           </form>
