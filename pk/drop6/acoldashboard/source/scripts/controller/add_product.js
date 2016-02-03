@@ -1,4 +1,4 @@
-app.controller('addProductCtrl', function ($scope, $rootScope) {
+app.controller('addProductCtrl', function ($scope, $rootScope, productService) {
     //$scope.getElement =function(id){return angular.element(document.getElementById(id))};
     $scope.enableConfirm = false;
     $scope.product = {};
@@ -9,8 +9,10 @@ app.controller('addProductCtrl', function ($scope, $rootScope) {
             "descr"     :product.descr,
             "numSteps"  :product.step_count,
             "templateCode":product.template_code};
-        $scope.productCollection.push($scope.createDataJson(postObj));
+        var json = $scope.createDataJson(postObj);
+        $scope.productCollection.push(json);
         $scope.setCurrentStep(1);
         $scope.proceedStep()
+        productService.addProduct(json);
     };
 });

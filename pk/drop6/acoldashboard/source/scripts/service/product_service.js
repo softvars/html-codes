@@ -14,6 +14,17 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
             });
     };
     
+    productAPI.addProduct = function(product) {
+        return $http({
+                method: 'POST',
+                data: angular.toJson(product),
+                headers: {'Content-Type': 'application/json', cust_method_name:'testName'},
+                url: '/api/product/add'
+            }).then(function successCallback(response) {
+                console.log("response :" + response);
+            });
+    };
+
     productAPI.saveProductList = function(){
         return $http({
                 method: 'POST',
