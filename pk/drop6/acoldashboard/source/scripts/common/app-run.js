@@ -1,8 +1,8 @@
 app.run(['$rootScope', '$http', 'productService', function ($rootScope, $http, productService) {
     $rootScope.productCollection = [];
     $rootScope.initDone = false;
-
     productService.loadProductList();
+    
     $rootScope.$watch('productCollection', function(productCollection) {
         $rootScope.productCollectionAsJson = angular.toJson(productCollection, true);
         if($rootScope.initDone) {
@@ -19,7 +19,7 @@ app.run(['$rootScope', '$http', 'productService', function ($rootScope, $http, p
         lists: {}       
     };
     
-    /* Mock widget creation [needs to updated the model based on the real widget data]*/
+    /*Mock widget creation [needs to updated the model based on the real widget data]*/
     $rootScope.categories=["A","B"]
     $rootScope.widgetImages=[
                         {name:"Nome e Cognome",img:"nome_cognome",catId:"A"},
@@ -53,7 +53,7 @@ app.run(['$rootScope', '$http', 'productService', function ($rootScope, $http, p
         var selData = $rootScope.productCollection[index];
     
         var dataObj={};
-        dataObj.id =obj.id || ((selData && selData.id) && (selData.id)+1) ||'';
+        dataObj.id =obj.id || ((selData && selData.id) && (selData.id+1)) || 1 ;
         dataObj.prodCode = obj.prodCode || '';
         dataObj.name=obj.name||'';
         dataObj.version=obj.version||'';
@@ -71,6 +71,7 @@ app.run(['$rootScope', '$http', 'productService', function ($rootScope, $http, p
         return dataObj;
     };
    
+
     $rootScope.getSelectedData = function(isNew){
         var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
           if(prevSelect.length == 0 && !isNew &&  $rootScope.selectedData){
@@ -121,4 +122,32 @@ app.run(['$rootScope', '$http', 'productService', function ($rootScope, $http, p
         }
     }
     
+    /*$rootScope.createModel = function(tempName,title,succClk,errClk){
+        
+      var alertInstance = $uibModal.open({
+     
+      templateUrl: tempName,
+      controller: 'alertInstanceCtrl',
+      resolve: {
+       
+      }
+    });
+
+    alertInstance.result.then(function (clk) {
+       
+    }, function () {
+     
+    });
+    }*/
+    
 }]);
+/* app.controller('alertInstanceCtrl', function ($scope, $uibModalInstance) {
+    
+    $scope.ok = function () {
+      $uibModalInstance.close();
+  };
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+    });*/

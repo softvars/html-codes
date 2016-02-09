@@ -4,7 +4,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
     productAPI.loadProductList = function(){
         return $http({
                 method: 'GET',
-                url: '/mock/productList.json'
+                url: '/api/product'
             }).then(function successCallback(response) {
                 var data = response.data;
                 if(data) {
@@ -19,18 +19,21 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 method: 'POST',
                 data: angular.toJson(product),
                 headers: {'Content-Type': 'application/json', cust_method_name:'testName'},
-                url: '/api/product/add'
+                url: '/api/product'
             }).then(function successCallback(response) {
-                console.log("response :" + response);
+                var data = response.data;
+                if(data) {
+                    $rootScope.productCollection = angular.isArray(data) ? data : [data];
+                }
             });
     };
 
     productAPI.saveProductList = function(){
         return $http({
-                method: 'POST',
+                method: 'PUT',
                 data: $rootScope.productCollectionAsJson,
                 headers: {'Content-Type': 'application/json'},
-                url: '/mock/productList.json'
+                url: '/api/product'
             }).then(function successCallback(response) {
                 console.log("response :" + response);
             });

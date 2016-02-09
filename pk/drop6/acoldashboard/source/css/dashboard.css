@@ -134,6 +134,7 @@ ul[dnd-list] > li {
     font-size: x-large;
 }
 
+
 table.productList > tbody > tr {
     cursor: pointer;
 }
@@ -217,10 +218,16 @@ table.productList > tbody > tr.stSelected {
   opacity:0;
 }
 
+/* table sort icon */
 .st-sort-ascent:before{
 content: '\25B2';
 }
 
 .st-sort-descent:before{
 content: '\25BC';
+}
+
+/* validation error */
+.field-error{
+     color: #ff0039;
 }

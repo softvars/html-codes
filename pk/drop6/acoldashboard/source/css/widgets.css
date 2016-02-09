@@ -12,7 +12,7 @@
 
 /**
  * The dnd-list should always have a min-height,
- * otherwise you can't drop to it once it's empty
+ * otherwise we can't drop to it once it's empty
  */
 .add_product_widgets ul[dnd-list],
 .add_product_widgets ul.cust-dnd-list{
@@ -26,7 +26,7 @@
  * The dndDraggingSource class will be applied to
  * the source element of a drag operation. It makes
  * sense to hide it to give the user the feeling
- * that he's actually moving it.
+ * that we actually moving it.
  */
 .add_product_widgets ul[dnd-list] .dndDraggingSource,
 .add_product_widgets ul.cust-dnd-list .dndDraggingSource {
@@ -49,8 +49,7 @@
  * The dnd-lists's child elements currently MUST have
  * position: relative. Otherwise we can not determine
  * whether the mouse pointer is in the upper or lower
- * half of the element we are dragging over. In other
- * browsers we can use event.offsetY for this.
+ * half of the element we are dragging over. 
  */
 .add_product_widgets ul[dnd-list] li ,
 .add_product_widgets ul.cust-dnd-list li {
