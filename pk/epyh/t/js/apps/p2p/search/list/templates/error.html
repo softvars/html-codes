@@ -1,0 +1,18 @@
+﻿{{#is errorCode '20'}}
+<div class="contact-wrapper">
+    <div class="title">Hype non ha accesso
+        <br> ai tuoi contatti</div>
+    <div class="label padding">
+        Per inviare e richiedere denaro abilita l'accesso ai Contatti dalle Impostazioni del tuo telefono.
+    </div>
+   {{#is canOpenSettings true}}
+    <a href="#" class="js-open-settings small-btn">
+        abilita contatti
+    </a>
+    {{/is}}
+  </div>
+  <div class="enable-wrapper">
+    <div class="enable_contacts"></div>
+  </div>
+
+{{/is}}

@@ -1,0 +1,711 @@
+#card-plus-container {
+    background: @midnight-lightest;
+    .title {
+        color: @blue;
+        margin-bottom: 15px;
+    }
+    .description {
+        margin-bottom: 15px;
+        strong {}
+    }
+}
+
+.card-page {
+    padding: 20px;
+    .padding {
+        padding: 15px 30px;
+    }
+    &.card-recharge {
+        padding: 0px;
+        //border-bottom: 2px solid @midnight-lighter-more;
+        padding-top: 0;
+        padding-bottom: 0;
+        .dropdown {
+            display: inline-block;
+            background-image: url(../images/dropdown.svg);
+            background-repeat: no-repeat;
+            height: 16px;
+            width: 16px;
+            background-size: contain;
+            -webkit-transition: all 500ms ease-in-out;
+            transition: all 500ms ease-in-out;
+            transform: rotateZ(180deg);
+            -webkit-transform: rotateZ(180deg);
+        }
+    }
+    > .turn-card {
+        .centered-using-table-and-margin();
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background: url('../images/refresh.svg') no-repeat;
+        background-size: contain;
+        height: 33px;
+        width: 50px;
+    }
+    .space-line {
+        border-top: 2px solid @midnight-lighter-more;
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+    .card-container {
+        perspective: 600px;
+        .virtual-card {
+            position: relative;
+            width: 100%;
+            height: 55vw;
+            min-height: 200px;
+            margin-top: 20px;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 500ms ease-in-out;
+            .front {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 900;
+                border-radius: 10px;
+                background: @midnight-dark url('../images/card-front.png') 0 0 no-repeat;
+                background-size: contain;
+                height: 100%;
+                width: 100%;
+                display: block;
+                backface-visibility: hidden;
+                transform: translateZ(5px) rotateY(0deg);
+                /*
+                &.special-12437086 {
+                    background-size: cover;
+                    background: #3d3e54 url(../images/front-12437086.png) 0 0 no-repeat;
+                    background-position-x: -150px;
+                    background-size: cover;
+                }
+                &.special-13199777 {
+                    background-size: cover;
+                    background: #3d3e54 url(../images/front-13199777.jpg) 0 0 no-repeat;
+                    background-size: cover;
+                }
+                &.special-12690971 {
+                    background-size: cover;
+                    background: #3d3e54 url(../images/front-12690971.png) 0 0 no-repeat;
+                    background-size: cover;
+                }
+                */
+                &.yoox {
+                    background: @yoox url('../images/card-front-yoox.png') 0 0 no-repeat;
+                    background-size: contain
+                }
+                > .pan {
+                    .color-white();
+                    .font-size-regular();
+                    margin: 34vw 9vw 0;
+                    letter-spacing: 2px;
+                    > span {
+                        margin-right: 5vw;
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+                > .cvv {
+                    .color-white();
+                    .font-size-regular();
+                    margin: 21vw 2vw 0;
+                    letter-spacing: 2px;
+                    > span {
+                        margin-right: 5vw;
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+                > .expire {
+                    .color-white();
+                    .font-size-x-small();
+                    margin-left: 30vw;
+                    > small {
+                        .font-size-xxx-small();
+                        text-transform: uppercase;
+                    }
+                    .card-exp-date {
+                        font-size: 13px;
+                        display: inline-block;
+                    }
+                    .card-exp-label {
+                        .font-size-xxxx-small();
+                        display: inline-block;
+                    }
+                }
+                .initialPan {
+                    margin-left: 10vw;
+                    .color-white();
+                    .font-size-xxx-small();
+                    margin-top: 1vw;
+                }
+                &.recharge {
+                    background: @midnight-lighter url('../images/carta_campi.svg') no-repeat;
+                    background-size: contain;
+                    .form-wrapper {
+                        padding: 15px;
+                        width: 100%;
+                        box-sizing: border-box;
+                        position: absolute;
+                        bottom: 0;
+                        .input-container {
+                            float: left;
+                            box-sizing: border-box;
+                            margin-top: 10px;
+                            padding-right: 15px;
+                            .label {
+                                .font-size-xxx-small();
+                                margin-bottom: 5px;
+                                display: block;
+                            }
+                            input,
+                            select {
+                                .font-size-xx-small();
+                                border-radius: 5px;
+                                border: none;
+                                box-sizing: border-box;
+                                padding: 4px;
+                                height: 31px;
+                                width: 100%;
+                                &.error {
+                                    border: 1px solid @red;
+                                }
+                            }
+                            select {
+                                height: 31px;
+                            }
+                            &.full {
+                                width: 100%;
+                            }
+                            &.half {
+                                width: 50%;
+                            }
+                            &.quarter {
+                                width: 25%;
+                            }
+                            &.last {
+                                padding-right: 0;
+                            }
+                            &.no-margin {
+                                margin-top: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            > .retro {
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-radius: 10px;
+                background: @midnight-dark url('../images/card-retro.png') 0 0 no-repeat;
+                /*
+                &.special-12437086 {
+                    background-size: cover;
+                    //background: #3d3e54 url(../images/rear-12437086.png) 0 0 no-repeat;
+                    background-position-x: -100px;
+                    background-size: cover;
+                }
+                &.special-13199777 {
+                    background-size: cover;
+                    background: #3d3e54 url(../images/rear-13199777.jpg) 0 0 no-repeat;
+                    background-size: cover;
+                }
+                &.special-12690971 {
+                    background-size: cover;
+                    background: #3d3e54 url(../images/rear-12690971.png) 0 0 no-repeat;
+                    background-size: cover;
+                }
+                */
+                &.yoox {
+                    background-color: @yoox;
+                    background-size: contain;
+                }
+                background-size: cover;
+                height: 100%;
+                width: 100%;
+                display: block;
+                backface-visibility: hidden;
+                transform: translateZ(-5px) rotateY(-180deg);
+                > .cvv {
+                    .color-white();
+                    vertical-align: middle;
+                    position: absolute;
+                    margin-top: 26vw;
+                    margin-left: 59vw;
+                    font-size: 12px;
+                }
+            }
+            &.rotate {
+                transform: rotateY(180deg);
+            }
+        }
+        &.card-form-container {
+            .virtual-card {
+                height: 45vw;
+                min-height: 150px;
+                margin-top: 15px;
+                .card-element {
+                    position: absolute;
+                    margin: initial;
+                }
+                .label {
+                    .color-white();
+                    .font-size-xx-small();
+                    color: @midnight-darker;
+                    text-transform: uppercase;
+                    letter-spacing: 0px;
+                    &.value {
+                        .color-white();
+                    }
+                }
+                .front {
+                    background: @midnight-lighter url(../images/carta_campi_front.svg) no-repeat;
+                    background-size: cover;
+                    .chip {
+                        height: 45px;
+                        width: 45px;
+                        top: 10px;
+                        left: 10px;
+                        background: url(../images/chip.svg) no-repeat;
+                        background-size: contain;
+                    }
+                    .cardlogo {
+                        height: 30px;
+                        width: 45px;
+                        border-radius: 5px;
+                        top: 15px;
+                        right: 14px;
+                        background-size: cover;
+                    }
+                    .pan {
+                        .color-white();
+                        margin: initial;
+                        top: 43%;
+                        left: 10px;
+                        //width: 70%;
+                        .font-size-medium();
+                    }
+                    .expiration {
+                        right: 10px;
+                        top: 70%;
+                        .label {
+                            text-align: right;
+                        }
+                    }
+                    .owner {
+                        left: 10px;
+                        top: 70%;
+                    }
+                }
+                .retro {
+                    background: @midnight-lighter url(../images/carta_campi_retro_c.svg) no-repeat;
+                    background-size: cover;
+                    .cvv {
+                        top: 50%;
+                        left: 10px;
+                        width: 100%;
+                        .whitestripe {
+                            height: 30px;
+                            width: 70%;
+                            background: white;
+                            border-radius: 5px;
+                        }
+                        .label {
+                            margin: 8px;
+                        }
+                    }
+                }
+                span {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+    #card-action-container {
+        //margin-top: 15px;
+        .caption {
+            //font-size: 13px;
+            //margin-top: 15px;
+            margin-bottom: 15px;
+            padding: 0;
+        }
+        .space-line {
+            display: none;
+        }
+        .action-container {
+            display: none;
+            margin-bottom: 15px;
+        }
+        &.show-request {
+            .request {
+                display: block;
+            }
+        }
+        &.show-activate {
+            .activate,
+            .plus {
+                display: block;
+            }
+            .space-line {
+                display: block;
+            }
+        }
+        &.show-locked {
+            .locked {
+                display: block;
+            }
+        }
+    }
+    &.card-activation {
+        .card-container {
+            > .virtual-card {
+                > .retro {
+                    > .cvv {
+                        .color-white();
+                        vertical-align: middle;
+                        position: absolute;
+                        margin-top: 21.5vw;
+                        margin-left: 59vw;
+                        font-size: 12px;
+                        input {
+                            .font-size-medium();
+                            color: @midnight-darker;
+                            height: 46px;
+                            width: 92px;
+                            border-radius: 4px;
+                            -webkit-appearance: none;
+                            border: 0;
+                            padding: 10px;
+                            box-sizing: border-box;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+        .glb-btn {
+            margin-top: 15px;
+        }
+    }
+    #card-recharge-container {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        .card-status {
+            .font-size-small();
+            .base-font-xlight();
+            &::before {
+                clear: both;
+            }
+            .date {
+                color: @blue;
+                .base-font-book();
+            }
+        }
+        .price {
+            margin-top: 10px;
+            color: @blue;
+        }
+        .progress-bar {
+            margin-top: 10px;
+            height: 10px;
+            > .color {
+                .background-color-blue();
+            }
+        }
+        .card-limit {
+            margin-top: 10px;
+            text-align: right;
+            .font-size-x-small();
+            .base-font-xlight();
+            &::before {
+                clear: both;
+            }
+            .amount {
+                .base-font-book();
+            }
+        }
+    }
+}
+
+.new-card {
+    background-color: @midnight-lightest;
+    span {
+        display: inline-block;
+        &:nth-child(2) {
+            background-image: url(../images/dropdown.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 15px;
+            width: 15px;
+            transform: rotateZ(-90deg);
+        }
+    }
+}
+
+.cards-list-container {
+    .cards-list-group {
+        border-bottom: 2px solid @midnight-lighter-more;
+    }
+    .dropdown {
+        transform: rotateZ(180deg);
+        -webkit-transform: rotateZ(180deg);
+    }
+    &.closed {
+        .dropdown {
+            transform: rotateZ(0deg);
+            -webkit-transform: rotateZ(0deg);
+        }
+    }
+}
+ 
+
+.card-view {
+    .toggler {
+        background-color: @midnight-lightest;
+        border-bottom: 2px solid @midnight-lighter-more;
+        border-top: 2px solid @midnight-lighter-more;
+        &.top {
+            border-bottom: 0px;
+        }
+        padding: 15px;
+    }
+    .amount-block {
+        border-bottom: 0px;
+    }
+    #form-region {
+        border-bottom: 0px;
+    }
+    /*.new-card-wrapper {
+        background-color: @midnight-lightest;
+    }*/
+    .dropdown {
+        display: inline-block;
+        background-image: url(../images/dropdown.svg);
+        background-repeat: no-repeat;
+        height: 16px;
+        width: 16px;
+        background-size: contain;
+        -webkit-transition: all 500ms ease-in-out;
+        transition: all 500ms ease-in-out;
+    }
+    .slider {
+        overflow-y: hidden;
+        transition-property: all;
+        transition-duration: .8s;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.4, 0.4);
+        max-height: 700px; //per lo slidetoggle
+        &.closed {
+            max-height: 0px; //per lo slidetoggle
+            border-bottom: 0px;
+        }
+        .cards-list-element {
+            border-top: 2px solid @midnight-lighter-more;
+        }
+    }
+    #default-card-region {
+        border-bottom: 0px;
+        &.slider {
+            transition-duration: .8s;
+            max-height: 100px; //per lo slidetoggle
+            transition-timing-function: cubic-bezier(0.4, 0, 0.4, 0.4);
+            &.closed {
+                max-height: 0px; //per lo slidetoggle
+            }
+        }
+    }
+}
+
+.card-edit-container{
+    .toggler {
+        padding-left: 30px;
+        padding-top: 30px;
+    }
+}
+
+#default-card-region {
+    .cards-list-element {
+        background-color: @white;
+        //padding-top: 0px;
+        border-bottom: 0px;
+    }
+}
+
+.cards-list-element {
+    border-bottom: 2px solid;
+    border-color: @midnight-lighter-more;
+    padding: 15px;
+    .card-details {
+        margin-left: 15px;
+        width: 80%;
+    }
+    .card-type {
+        //background: @midnight-dark url('../images/carta_campi.svg') no-repeat;
+        background-size: contain;
+        border-radius: 5px;
+        width: 40px;
+        height: 30px;
+    }
+    /*.show-other-cards {
+        display: inline-block;
+        background-image: url(../images/dropdown.svg);
+        height: 16px;
+        width: 16px;
+        background-size: contain;
+        margin-top: 10px;
+        -webkit-transform: rotateZ(270deg);
+        transform: rotateZ(270deg);
+    }*/
+    a.show-other-cards {
+        .font-size-xx-small();
+        margin-top: 15px;
+        float: right;
+    }
+}
+
+.button-wrapper {
+    margin-top: 15px;
+    margin-bottom: 0px;
+    margin-left: 30px;
+    margin-right: 30px;
+    &:last-child {
+        margin-bottom: 15px;
+    }
+}
+
+.card-form-container {
+    margin: 0px 30px;
+    .fields-line {
+        margin-top: 15px;
+        .input-container {
+            float: left;
+            box-sizing: border-box;
+            padding: 0px 4px;
+            &.full {
+                padding-right: 0px;
+                padding-left: 0px;
+            }
+            &.padding-right {
+                padding-right: 4px;
+                padding-left: 0px;
+            }
+            &.padding-left {
+                padding-right: 0px;
+                padding-left: 4px;
+            }
+            &.full {
+                width: 100%;
+            }
+            &.half {
+                width: 50%;
+            }
+            &.third {
+                width: 33.33%;
+            }
+            input {
+                padding: 4px;
+                font-size: 12px;
+                box-sizing: border-box;
+                width: 100%;
+                border-radius: 5px;
+                border: 1px solid @midnight-lighter;
+                height: 30px;
+            }
+        }
+    }
+}
+
+.selection-mode {
+    .cards-list-element .card-details {
+        width: initial;
+    }
+    .edit-label {
+        display: none;
+    }
+}
+
+.card-recharge-menu {
+    .panel-content {
+        background-color: @midnight-lightest;
+    }
+    .page-content {
+        .image {
+            .centered-using-table-and-margin();
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 100px;
+            height: 100px;
+            &.by-card {
+                background-image: url('../images/choice_carta.svg');
+            }
+            &.by-transfer {
+                background-image: url('../images/choice_bonifico.svg');
+            }
+            &.tapped {
+                border: 3px solid @blue;
+            }
+        }
+        .coming-soon {
+            display: none;
+        }
+        .choice {
+            margin: 10px;
+            padding: 30px;
+            background: white;
+            &.disabled {
+                filter: grayscale(1);
+                opacity: 0.3;
+                .coming-soon {
+                    margin-top: 5px;
+                    display: block;
+                }
+            }
+            p {
+                color: midnight-light;
+                text-align: center;
+                &.title {
+                    .font-size-large();
+                    margin-bottom: 15px;
+                }
+                &.description {
+                    .font-size-regular();
+                    line-height: 15px;
+                    text-align: justify;
+                }
+            }
+        }
+    }
+}
+
+.amex {
+    background: url('../images/amex.svg') no-repeat;
+}
+
+.diners {
+    background: url('../images/diners.svg') no-repeat;
+}
+
+.jcb {
+    background: url('../images/jcb.svg') no-repeat;
+}
+
+.maestro {
+    background: url('../images/maestro.svg') no-repeat;
+}
+
+.mastercard {
+    background: url('../images/mastercard.svg') no-repeat;
+}
+
+.pagobancomat {
+    background: url('../images/pagobancomat.svg') no-repeat;
+}
+
+.visa {
+    background: url('../images/visa.svg') no-repeat;
+}
+
+.generic-card {
+    background: url('../images/pagobancomat.svg') no-repeat;
+}

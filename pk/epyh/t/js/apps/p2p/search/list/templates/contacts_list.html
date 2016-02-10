@@ -1,0 +1,56 @@
+<div id="search-area" class="input-field">
+    <h4>A:</h4>
+    <div class="input-container">
+        <input type="text" class="js-search" placeholder="Nome, telefono, email, IBAN" value="{{query}}" />
+        <div class="loading-contacts" style="display:none;"></div>        
+        <a href="#" id="js-search-peer" class="search-button">
+            <i class="search-icon icon-address_book"></i>
+            <small>Contatti</small>
+        </a>
+    </div>
+</div>
+
+<div class="search-result scrollable" style="display:none">
+    <!--<h3 class="search-result-title" style="display:none;">
+        <span class="title">Risultati trovati</span>
+    </h3>-->
+    <div class="contacts-list">
+
+    </div>
+
+    <div id="" class="send-to-other-peer">
+        <h3>
+            <span class="title with-result">Oppure invia ad un altro utente!</span>
+            <span class="title no-result">Utente non presente tra i tuoi contatti</span>
+            <span class="subtitle">Invia denaro comunque via email, telefono o IBAN</span>
+        </h3>
+
+        <div class="info-block">
+            <div class="glb-btn complete title-line" id="js-show-form">
+                {{#is mode 'payment' }}
+                Invia denaro a:<span>{{query}}</span>
+                <i class="icon-send-money"></i>
+                {{/is}}
+                {{#is mode 'request' }}
+                Richiedi denaro a:<span>{{query}}</span>
+                <i class="icon-request-money"></i>
+                {{/is}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#is mode 'request' }}
+<div id="js-add-peer" class="add-peer">
+    <div class="info-block">
+        <div class="icon-block">
+            <i class="icon-add"></i>
+        </div>
+
+        <div class="title-line">
+            <h4>Richiedi ad un'altra persona</h4>
+            <small>L'importo richiesto verrà diviso</small>
+        </div>
+    </div>
+</div>
+{{/is}}

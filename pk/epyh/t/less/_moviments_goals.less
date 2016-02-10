@@ -1,0 +1,71 @@
+
+.goals-wrapper-movements,
+.goals-wrapper{
+    min-height: 100%;
+    .background-color-midnight-lightest();
+
+    #entities-region {
+        top: 80px;
+        .background-color-midnight-lightest();
+
+        .goals-container {
+            padding-bottom: 60px;
+
+            .daily-rate {
+                line-height: 17px;
+                float: right;
+                margin-right: 5px;
+                .color-midnight();
+                .font-size-x-small();
+
+                > .euro {
+                    .text-color-highlight();
+                }
+            }
+
+            .list-block-title {
+                .font-size-x-small();
+                text-transform: uppercase;
+                margin-left: 14px;
+                padding-left: 25px;
+                position: relative;
+
+                > i {
+                    margin-right: 8px;
+                    position: absolute;
+                    left: 0px;
+                    font-size: 16px;
+                }
+            }
+
+            #completed, #paused, #expired, #onGoing {
+                > :first-child{
+                    margin-bottom: 20px;
+                }
+            }
+            #completed {
+                .list-block-title {
+                    .color-green();
+                }
+            }
+            #onGoing {
+                .list-block-title {
+                    .color-blue();
+                }
+            }
+            #paused {
+                .list-block-title {
+                    .color-orange();
+                }
+            }
+            #expired {
+                .list-block-title {
+                    .color-red();
+                }
+            }
+            .content {
+                margin-top: 10px;
+            }
+        }
+    }
+}

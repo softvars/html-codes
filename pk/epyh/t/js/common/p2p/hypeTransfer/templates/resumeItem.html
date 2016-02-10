@@ -1,0 +1,21 @@
+﻿<div class="baloon-container">
+    {{#if imageValue}}
+    {{#if hyper}}
+        <div class="baloon" style="background-image: url(data:image/gif;base64,{{imageValue}}); background-size: cover">
+        </div>
+    {{else}}
+        <div class="baloon" style="background-image: url({{imageValue}}); background-size:cover">
+        </div>
+    {{/if}}        
+    {{else}}
+    <div class="baloon no-image">
+        {{initials firstName lastName}}
+    </div>
+    {{/if}}
+</div>
+<h4>{{firstName}}</h4>
+<div class="multiple-amount price x-small">
+    <div class="amount">
+        {{formatNumber amount}}
+    </div>
+</div> 

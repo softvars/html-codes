@@ -1,0 +1,492 @@
+@white: white;
+@black: black;
+
+@midnight-lightest: #F2F2F2; //#f0f1f2
+@midnight-lighter-more: #E4E4E9;
+@midnight-lighter: #D4D4D9;
+@midnight-light: #9394A0;
+@midnight: #68697A;
+@midnight-dark: #3D3E54;
+@midnight-darker: #282941;
+
+@yellow-lightest: #FFF2CC;
+@yellow-lighter: #FEE693;
+@yellow-light: #FEDD67;
+@yellow: #FDD62F;
+@yellow-dark: #BFA245;
+@yellow-darker: #8A774A;
+@yellow-darkest: #464543;
+
+@blue-lightest: #D4EBF7;
+@blue-lighter: #A2D6ED;
+@blue-light: #7AC7E6;
+@blue: #3DB8DE;
+@blue-dark: #2E91B1;
+@blue-darker: #256E89;
+@blue-darkest: #1A4257;
+
+@red-lightest: #FAD0C7;
+@red-lighter: #F39B90;
+@red-light: #EE746D;
+@red: #E9474E;
+@red-dark: #B7424B;
+@red-darker: #893B47;
+@red-darkest: #4A2F3E;
+
+@orange-lightest: #FCDBC6;
+@orange-lighter: #F8B58C;
+@orange-light: #F49A66;
+@orange: #EF7C41;
+@orange-dark: #BB6646;
+@orange-darker: #8A5145;
+@orange-darkest: #4A363E;
+
+@aquamarine-lightest: #DCEEEB;
+@aquamarine-lighter: #B5DDD5;
+@aquamarine-light: #97D0C6;
+@aquamarine: #73C4B7;
+@aquamarine-dark: #569997;
+@aquamarine-darker: #3D7379;
+@aquamarine-darkest: #234451;
+
+@green-lightest: #DCEDE0;
+@green-lighter: #B5DABE;
+@green-light: #98CDA7;
+@green: #76BF90;
+@green-dark: #57977D;
+@green-darker: #3E726A;
+@green-darkest: #23444C;
+
+@purple-lightest: #D8D0E8;
+@purple-lighter: #B4A2CE;
+@purple-light: #9C83BB;
+@purple: #8665A9;
+@purple-dark: #6A548C;
+@purple-darker: #504673;
+@purple-darkest: #2F314F;
+
+@sand-lightest: #FEE7CA;
+@sand-lighter: #FCD093;
+@sand-light: #FBBF6C;
+@sand: #F8AE41;
+@sand-dark: #BF874A;
+@sand-darker: #8B6649;
+@sand-darkest: #493E41;
+/* Base */
+.color-white {
+  color: @white;
+}
+.color-black {
+  color: @black;
+}
+.background-color-white {
+  background-color: @white;
+}
+.background-color-black {
+  background-color: @black;
+}
+.background-color-white-opacity-50 {
+  background: rgba(red(@white), green(@white), blue(@white), 0.50);
+}
+/* Midnight */
+.color-midnight-lightest {
+  color: @midnight-lightest;
+}
+.color-midnight-lighter {
+  color: @midnight-lighter;
+}
+.color-midnight-light {
+  color: @midnight-light;
+}
+.color-midnight {
+  color: @midnight;
+}
+.color-midnight-dark {
+  color: @midnight-dark;
+}
+.color-midnight-darker {
+  color: @midnight-darker;
+}
+/* Midnight background */
+.background-color-midnight-lightest {
+  background-color: @midnight-lightest;
+}
+.background-color-midnight-lighter {
+  background-color: @midnight-lighter;
+}
+.background-color-midnight-light {
+  background-color: @midnight-light;
+}
+.background-color-midnight {
+  background-color: @midnight;
+}
+.background-color-midnight-dark {
+  background-color: @midnight-dark;
+}
+.background-color-midnight-darker {
+  background-color: @midnight-darker;
+}
+.background-color-midnight-opacity-50 {
+  background: rgba(red(@midnight), green(@midnight), blue(@midnight), 0.50);
+}
+.background-color-midnight-darker-opacity-50 {
+  background: rgba(red(@midnight-darker), green(@midnight-darker), blue(@midnight-darker), 0.50);
+}
+/* Yellow */
+.color-yellow-lightest {
+  color: @yellow-lightest;
+}
+.color-yellow-lighter {
+  color: @yellow-lighter;
+}
+.color-yellow-light {
+  color: @yellow-light;
+}
+.color-yellow {
+  color: @yellow;
+}
+.color-yellow-dark {
+  color: @yellow-dark;
+}
+.color-yellow-darker {
+  color: @yellow-darker;
+}
+.color-yellow-darkest {
+  color: @yellow-darkest;
+}
+.background-color-yellow-opacity-50 {
+  background: rgba(red(@yellow), green(@yellow), blue(@yellow), 0.50);
+}
+/* Yellow background*/
+.background-color-yellow-lightest {
+  background-color: @yellow-lightest;
+}
+.background-color-yellow-lighter {
+  background-color: @yellow-lighter;
+}
+.background-color-yellow-light {
+  background-color: @yellow-light;
+}
+.background-color-yellow {
+  background-color: @yellow;
+}
+.background-color-yellow-dark {
+  background-color: @yellow-dark;
+}
+.background-color-yellow-darker {
+  background-color: @yellow-darker;
+}
+.background-color-yellow-darkest {
+  background-color: @yellow-darkest;
+}
+/* Blue */
+.color-blue-lightest {
+  color: @blue-lightest;
+}
+.color-blue-lighter {
+  color: @blue-lighter;
+}
+.color-blue-light {
+  color: @blue-light;
+}
+.color-blue {
+  color: @blue;
+}
+.color-blue-dark {
+  color: @blue-dark;
+}
+.color-blue-darker {
+  color: @blue-darker;
+}
+.color-blue-darkest {
+  color: @blue-darkest;
+}
+/* Blue background*/
+.background-color-blue-lightest {
+  background-color: @blue-lightest;
+}
+.background-color-blue-lighter {
+  background-color: @blue-lighter;
+}
+.background-color-blue-light {
+  background-color: @blue-light;
+}
+.background-color-blue {
+  background-color: @blue;
+}
+.background-color-blue-dark {
+  background-color: @blue-dark;
+}
+.background-color-blue-darker {
+  background-color: @blue-darker;
+}
+.background-color-blue-darkest {
+  background-color: @blue-darkest;
+}
+/* Red */
+.color-red-lightest {
+  color: @red-lightest;
+}
+.color-red-lighter {
+  color: @red-lighter;
+}
+.color-red-light {
+  color: @red-light;
+}
+.color-red {
+  color: @red;
+}
+.color-red-dark {
+  color: @red-dark;
+}
+.color-red-darker {
+  color: @red-darker;
+}
+.color-red-darkest {
+  color: @red-darkest;
+}
+.background-color-red-opacity-50 {
+  background: rgba(red(@red-darkest), green(@red-darkest), blue(@red-darkest), 0.50);
+}
+/* Red background*/
+.background-color-red-lightest {
+  background-color: @red-lightest;
+}
+.background-color-red-lighter {
+  background-color: @red-lighter;
+}
+.background-color-red-light {
+  background-color: @red-light;
+}
+.background-color-red {
+  background-color: @red;
+}
+.background-color-red-dark {
+  background-color: @red-dark;
+}
+.background-color-red-darker {
+  background-color: @red-darker;
+}
+.background-color-red-darkest {
+  background-color: @red-darkest;
+}
+/* Orange */
+.color-orange-lightest {
+  color: @orange-lightest;
+}
+.color-orange-lighter {
+  color: @orange-lighter;
+}
+.color-orange-light {
+  color: @orange-light;
+}
+.color-orange {
+  color: @orange;
+}
+.color-orange-dark {
+  color: @orange-dark;
+}
+.color-orange-darker {
+  color: @orange-darker;
+}
+.color-orange-darkest {
+  color: @orange-darkest;
+}
+/* Orange background*/
+.background-color-orange-lightest {
+  background-color: @orange-lightest;
+}
+.background-color-orange-lighter {
+  background-color: @orange-lighter;
+}
+.background-color-orange-light {
+  background-color: @orange-light;
+}
+.background-color-orange {
+  background-color: @orange;
+}
+.background-color-orange-dark {
+  background-color: @orange-dark;
+}
+.background-color-orange-darker {
+  background-color: @orange-darker;
+}
+.background-color-orange-darkest {
+  background-color: @orange-darkest;
+}
+/* Aquamarine */
+.color-aquamarine-lightest {
+  color: @aquamarine-lightest;
+}
+.color-aquamarine-lighter {
+  color: @aquamarine-lighter;
+}
+.color-aquamarine-light {
+  color: @aquamarine-light;
+}
+.color-aquamarine {
+  color: @aquamarine;
+}
+.color-aquamarine-dark {
+  color: @aquamarine-dark;
+}
+.color-aquamarine-darker {
+  color: @aquamarine-darker;
+}
+.color-aquamarine-darkest {
+  color: @aquamarine-darkest;
+}
+/* Aquamarine background*/
+.background-color-aquamarine-lightest {
+  background-color: @aquamarine-lightest;
+}
+.background-color-aquamarine-lighter {
+  background-color: @aquamarine-lighter;
+}
+.background-color-aquamarine-light {
+  background-color: @aquamarine-light;
+}
+.background-color-aquamarine {
+  background-color: @aquamarine;
+}
+.background-color-aquamarine-dark {
+  background-color: @aquamarine-dark;
+}
+.background-color-aquamarine-darker {
+  background-color: @aquamarine-darker;
+}
+.background-color-aquamarine-darkest {
+  background-color: @aquamarine-darkest;
+}
+/* Green */
+.color-green-lightest {
+  color: @green-lightest;
+}
+.color-green-lighter {
+  color: @green-lighter;
+}
+.color-green-light {
+  color: @green-light;
+}
+.color-green {
+  color: @green;
+}
+.color-green-dark {
+  color: @green-dark;
+}
+.color-green-darker {
+  color: @green-darker;
+}
+.color-green-darkest {
+  color: @green-darkest;
+}
+/* Green background*/
+.background-color-green-lightest {
+  background-color: @green-lightest;
+}
+.background-color-green-lighter {
+  background-color: @green-lighter;
+}
+.background-color-green-light {
+  background-color: @green-light;
+}
+.background-color-green {
+  background-color: @green;
+}
+.background-color-green-dark {
+  background-color: @green-dark;
+}
+.background-color-green-darker {
+  background-color: @green-darker;
+}
+.background-color-green-darkest {
+  background-color: @green-darkest;
+}
+/* Purple */
+.color-purple-lightest {
+  color: @purple-lightest;
+}
+.color-purple-lighter {
+  color: @purple-lighter;
+}
+.color-purple-light {
+  color: @purple-light;
+}
+.color-purple {
+  color: @purple;
+}
+.color-purple-dark {
+  color: @purple-dark;
+}
+.color-purple-darker {
+  color: @purple-darker;
+}
+.color-purple-darkest {
+  color: @purple-darkest;
+}
+/* Purple background*/
+.background-color-purple-lightest {
+  background-color: @purple-lightest;
+}
+.background-color-purple-lighter {
+  background-color: @purple-lighter;
+}
+.background-color-purple-light {
+  background-color: @purple-light;
+}
+.background-color-purple {
+  background-color: @purple;
+}
+.background-color-purple-dark {
+  background-color: @purple-dark;
+}
+.background-color-purple-darker {
+  background-color: @purple-darker;
+}
+.background-color-purple-darkest {
+  background-color: @purple-darkest;
+}
+/* Sand */
+.color-sand-lightest {
+  color: @sand-lightest;
+}
+.color-sand-lighter {
+  color: @sand-lighter;
+}
+.color-sand-light {
+  color: @sand-light;
+}
+.color-sand {
+  color: @sand;
+}
+.color-sand-dark {
+  color: @sand-dark;
+}
+.color-sand-darker {
+  color: @sand-darker;
+}
+.color-sand-darkest {
+  color: @sand-darkest;
+}
+/* Sand background*/
+.background-color-sand-lightest {
+  background-color: @sand-lightest;
+}
+.background-color-sand-lighter {
+  background-color: @sand-lighter;
+}
+.background-color-sand-light {
+  background-color: @sand-light;
+}
+.background-color-sand {
+  background-color: @sand;
+}
+.background-color-sand-dark {
+  background-color: @sand-dark;
+}
+.background-color-sand-darker {
+  background-color: @sand-darker;
+}
+.background-color-sand-darkest {
+  background-color: @sand-darkest;
+}

@@ -1,0 +1,26 @@
+<h4>
+    <span class="icon-{{#is type 'E'}}mail{{else}}phone{{/is}}-full"></span> {{#is type 'E'}}E-MAIL PRINCIPALE <span class="caption">(login)</span>{{else}}NUMERO DI TELEFONO PRINCIPALE{{/is}}
+</h4>
+<div class="default-alias">
+    {{value}} <i class="icon-accept"></i>
+</div>
+{{#if anyAliases}}
+<h4>
+    {{#is type 'E'}}SECONDARIE{{else}}SECONDARI{{/is}}
+</h4>
+{{/if}}
+<div class="alias-list{{#unless anyAliases}} collapsed{{/unless}}">
+</div>
+<div>
+    <button class="js-add-alias btn-add-alias{{#if maxReached}} hidden{{/if}}">AGGIUNGI {{#is type 'E'}}INDIRIZZO E-MAIL{{else}}NUMERO DI TELEFONO{{/is}}</button>
+    <div class="js-max-reached color-gray-dark {{#unless maxReached}} hidden{{/unless}}">
+        Hai raggiunto il numero massimo di indirizzi registrabili. Rimuovi i secondari per aggiungerne altri.
+    </div>
+</div>
+<div class="new-alias-wrapper hidden">
+    <div class="new-alias-header">AGGIUNGI {{#is type 'E'}}INDIRIZZO E-MAIL{{else}}NUMERO DI TELEFONO{{/is}}</div>
+    <div class="field-editable restyled">
+        <input placeholder="{{#is type 'E'}}Nuovo indirizzo email{{else}}Nuovo numero di telefono{{/is}}" class="js-new-alias js-validate-element-alias" name="new-alias" type="text">
+        <button class="js-submit-alias btn-abs-right" disabled>SALVA</button>
+    </div>
+</div>

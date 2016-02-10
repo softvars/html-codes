@@ -1,0 +1,88 @@
+﻿<div class="menu-in">
+    <a href="#" class="back icon-arrow"></a>
+    <p>{{#is subType 'bon'}}Bonifico{{else}}Movimento{{/is}}</p>
+</div>
+<div class="panel-content scrollable">
+    <div id="profile-region" class="movimento-block">
+
+        <div id="top-image" class="top-image-title-container ">
+            <p class="mov-date">{{niceDate date}}</p>
+            <p class="mov-title js-set-venue">
+                {{#if merchant }}
+                <span class="icon-marker-full"></span>
+                {{/if}}
+
+                {{#if merchant }}
+                {{ capitalize merchant.name }}
+                {{else}}
+                {{ capitalize title }}
+                {{/if}}
+            </p>
+        </div>
+
+        <div class="center-info-block">
+
+            <div class="price-cat-block">
+                <div class="price {{ type }}">
+                    <span class="amount">{{formatNumber amount}}</span>
+                </div>
+                <div id="dropdown-region" class="dropdown-categories">
+                    <!-- selettore categoria obiettivo -->
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="memo-container">
+                <h4 class="float-left">Memo</h4>
+                <a href="#" style="display:none;" class="save-memo js-save-memo float-right">
+                    <i class="icon-accept"></i>
+                </a>
+
+                <div class="clearfix"></div>
+                
+                <div class="memo">
+                    <textarea id="hashtag-editor" name="memo" style="display:none;"></textarea>
+                    <div id="hashtag-display">
+                        {{ memo }}
+                        <span class="hashtag-placeholder">
+                            es. Regalo per mamma <span class="tag">#compleanno</span>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <p class="select-goal">
+                Soldi spesi da:
+                <a href="#movements/{{id}}/spend-from-goal" class="js-spend-from-goal">
+                    {{#if goal }}
+                    {{ goal.title }}
+                    {{else}}
+                    Seleziona obiettivo
+                    {{/if}}
+                </a>
+            </p>
+
+        </div>
+        <div class="bottom-map-block">
+
+        </div>
+    </div>
+
+    <div id="image-profile-region" class="camera-block">
+        <!-- pulsante per avviare selezione foto -->
+    </div>
+
+    <div id="map-region">
+
+    </div>
+
+    {{#if merchant }}
+    <div class="causal">
+        {{ capitalize title }}
+    </div>
+    {{/if}}
+
+</div><!-- fine panel content -->
+<div id="image-show-region">
+
+</div>

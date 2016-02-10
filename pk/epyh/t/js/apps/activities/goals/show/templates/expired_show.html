@@ -1,0 +1,91 @@
+﻿<div class="goal-blocker hidden"></div>
+<header class="menu-in">
+    <a href="#" class="icon-arrow js-back"></a>
+
+    <p>Obiettivo scaduto</p>
+
+    <a class="right-ctrl js-more"><i class="icon-more"></i></a>
+</header>
+
+<div class="panel-content scrollable">
+    <div id="profile-region" class="obiettivo-block expired">
+
+        <div id="top-image" class="top-image-title-container">
+            <div class="ob-title">
+                <div id="dropdown-region" class="dropdown-categories">
+                    <!-- selettore categoria obiettivo -->
+                </div> 
+                <br />
+                {{ title }}
+            </div>
+        </div>
+
+        <div class="center-info-block">
+            <div class="status-block">
+                <div class="status-line">
+                    Dal {{niceDate startDate}} hai messo da parte
+                </div>
+
+                <div class="info-line">
+                    <div class="price">
+                        <span class="amount">{{formatNumber currentAmount}}</span>
+                    </div>
+                    <div class="total">
+                        su <span class="amount">{{formatNumber total}}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="status-line no-margin">
+
+                </div>
+                <div class="progress-bar status-{{percentageString percentage}}">
+                    <div class="color"></div>
+                    <div class="back"></div>
+                </div>
+                {{#unless paused}}
+                    {{#unless suspended}}
+                    <div class="check">
+                        <input id="check" type="checkbox" class="js-complete">
+                        <label for="check"></label>
+                        <span>Ho raggiunto il mio obiettivo</span>
+                    </div>
+                    {{/unless}}   
+                {{/unless}}   
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="action-block border-top padding border-bottom">
+            <div class="block">
+                <div class="">
+                    <h5>Obiettivo scaduto</h5>
+                    <span class="subtitle">
+                        Puoi estendere la data di completamento obiettivo.
+                    </span>
+                    <span class="text">
+                        Scadenza:
+                        <span class="cash">{{niceDate endDate}}</span>
+                    </span>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="clearfix"></div> 
+        <div class="deals-title hidden js-deals">
+            Potrebbero interessarti anche:
+        </div>
+        <div class="js-deals hidden" id="deals-region">
+        </div>
+    </div>
+    <div id="image-profile-region" class="camera-block">
+        <!-- pulsante per avviare selezione foto -->
+    </div>
+</div>
+
+<div id="image-show-region">
+    <!-- pulsante per avviare selezione foto -->
+</div>
+</div>
+

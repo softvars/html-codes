@@ -1,0 +1,55 @@
+﻿<div class="info-block {{clickable}} {{type}}">
+    {{#if imageValue}}    
+        {{#if hyper}}
+            <div class="image-block hype with-pic" style="background-image: url(data:image/gif;base64,{{imageValue}});">
+                <i class="hype-logo icon-hype-logo"></i>
+            </div>
+        {{else}}
+            <div class="image-block {{type}} with-pic" style="background-image: url({{imageValue}});">
+                <div class="pin">
+                    <i class="icon-phone-full"></i>
+                </div>
+            </div>
+        {{/if}}
+    {{else}}
+    <div class="image-block {{#if hyper}} hype {{/if}} {{type}}">
+        {{initials firstName lastName nickname}}
+        {{#if hyper}}
+        <i class="hype-logo icon-hype-logo"></i>
+        {{else}} 
+        <div class="pin">
+            <i class="icon-phone-full"></i>
+        </div>
+        {{/if}}
+    </div>
+    {{/if}}
+    {{#if firstName}}
+        <div class="title-line">{{capitalize firstName}} {{capitalize lastName}}</div>
+    {{else}}
+        <div class="title-line">{{capitalize nickname}}</div>
+    {{/if}}
+    <div class="favourite-button">
+        {{#is type 'hype'}}
+        <a href="#" class="js-favourite">
+            <i class="icon-star"></i>
+            <i class="icon-star-full"></i>
+        </a>
+        {{/is}}
+        {{#is type 'favourite'}}
+        <a href="#" class="js-favourite"><i class="icon-star-full"></i></a>
+        {{/is}}
+    </div>
+
+    {{#is type 'personal'}}
+    <div class="edit-button">
+        <a href="#" class="js-edit">
+            <i class="icon-edit"></i>
+        </a>
+    </div>
+    <!-- a href="#" class="js-delete action icon-trash" style=" margin-right: 40px; "></a-->
+    {{/is}}
+
+    <!--<span class="isSelected"></span>-->
+</div>
+<div class="clearfix"></div>
+<ul class="contact-reference-list" style="display:none"></ul>

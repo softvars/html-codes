@@ -1,0 +1,61 @@
+<!--i class="hype-logo icon-hype-logo"></i-->
+<div id="userdata-region" class="hype-logo">
+
+</div>
+<div id="menu-navigation-region">
+    <div class="main-menu-container">
+        <div class="section active">
+            <div class="inner">
+                <p class="menu-title">Attività</p>
+                <ul>
+                    <li><a class="navigate movements" id="movements" data-navigationtrigger="activities" data-innertrigger="movements:list" href="#">Movimenti</a></li>
+                    <li><a class="navigate inactive goals"  id="goals" data-navigationtrigger="activities" data-innertrigger="goals:list" href="#">Obiettivi</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <div class="inner">
+                <p class="menu-title">Trasferisci denaro</p>
+                <ul>
+                    <li><a class="navigate inactive send" id="send"  data-navigationtrigger="hype:payment:new" href="#">Invia denaro</a></li>
+                    <li><a class="navigate inactive request" id="request"  data-navigationtrigger="hype:request:new" href="#">Richiedi denaro</a></li>
+                    <li><a class="navigate inactive transfer"  id="transfer"  data-navigationtrigger="hype:transfer:new" href="#">Invia bonifico</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <div class="inner">
+                <p class="menu-title">Pagamenti</p>
+                <ul>
+                    <li><a class="navigate inactive recharge"  id="mobile"  data-navigationtrigger="payments" data-innertrigger="payments:mobile" href="#">Ricarica telefono</a>
+                    </li>
+                    <li><a class="navigate inactive cards-list" id="cards-list"  data-navigationtrigger="my:cards:list" href="#">Le mie Carte</a>
+                    </li>
+                    <li><a class="navigate inactive card-recharge" id="card-recharge"  data-navigationtrigger="card:recharge:menu" href="#">Ricarica HYPE</a>
+                    </li>
+                    <!-- HYPE WALLET -->
+					{{#if wallet}}
+                        <li><a class="navigate inactive" id="qr"   data-navigationtrigger="qr_reader" href="#">Paga con QR code<i class="icon-logout"></i></a></li>
+                        <li><a class="navigate inactive" id="atm"  data-navigationtrigger="geolocalization" href="#">Nelle vicinanze<i class="icon-logout"></i></a></li>
+                        <li><a class="navigate inactive"  id="bills"  data-navigationtrigger="pay_bill" href="#">Paga bollette<i class="icon-logout"></i></a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+        {{#if deals}}
+            {{#is customerType 'YOOX'}} {{else}}
+                <div class="section">
+                    <div class="inner">
+                        <p class="menu-title">OFFERTE</p>
+                        <ul>
+                            <li><a class="navigate show-deals inactive" id="deals"   data-navigationtrigger="deals:list" href="#">Le offerte per te</a></li>
+                        </ul>
+                    </div>
+                </div>
+            {{/is}}
+        {{/if}}
+    </div>
+</div>
+{{#is customerType 'YOOX'}} {{else}}
+<a class="plus-button js-plus glb-btn rounded-ghost" href="#">PASSA A HYPE PLUS</a>
+{{/is}}

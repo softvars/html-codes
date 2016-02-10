@@ -1,0 +1,159 @@
+html, body {
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    perspective: 1500px;
+    transform-style: preserve-3d;
+    transform: translate3d(0, 0, 0);
+}
+
+.main-content {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    background-color: @midnight-darker;
+    z-index: 10;
+    backface-visibility: hidden;
+    transition: all 500ms ease-in-out;
+    /*
+    transform-origin: 0% 100%;
+    transform-style: preserve-3d;
+    transform: translateX(0%) translateY(0%) rotateZ(0);
+    */
+    box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 80px;
+
+    &.toggled {
+        opacity: 0.5;
+        transform: translateX(70%) rotateY(-45deg);
+
+        .activities-panel .activities-wrapper .activities-container {
+            overflow: hidden;
+        }
+    }
+    &.hide-content {
+        opacity: 0;
+        transform: translateX(100%) rotateY(-60deg);
+    }
+
+    &.toggled-android {
+        transform: translateX(80%) translateY(0%) rotateZ(0deg);
+
+        .activities-panel .activities-wrapper .activities-container {
+            overflow: hidden;
+        }
+    }
+    &.hide-content-android {
+        transform: translateX(105%) translateY(0%) rotateZ(0deg);
+    }
+
+    .panel-manager {
+        height: 100%;
+        width: 100%;
+
+        .panel {
+            transition: all 500ms ease-in-out;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            overflow: hidden;
+            .background-color-white();
+            /*
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            */
+            > div {
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+                position: relative;
+            }
+
+            header.menu-in {
+                /* sarebbe panel-menu */
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                /*
+                backface-visibility: hidden;
+                transform-style: preserve-3d;
+                */
+            }
+
+            .panel-content {
+                /*
+                backface-visibility: hidden;
+                transform-style: preserve-3d;
+                */
+                position: absolute;
+                top: @menu-in-height+@menu-in-top-space; /* iOS */
+                bottom: 0;
+                left: 0;
+                right: 0;
+                .font-size-regular();
+                &.no-top-menu {
+                    top: 0;
+                }
+            }
+
+            /* iOS specific fix, don't use it on Android devices */
+            &.left {
+                -webkit-transform: translateX(-100%);
+            }
+            &.right {
+                -webkit-transform: translateX(100%);
+                //box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+            }
+            &.center {
+                -webkit-transform: translateX(0);
+            }
+        }
+    }
+}
+
+#action-blocker {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    z-index: 11;
+
+    &.active {
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        display: block;
+    }
+    &.toggled {
+        transform: translateX(70%) rotateY(-45deg);
+    }
+    &.toggled-android {
+        transform: scale3d(1, 1, 1) translateX(80%) translateY(0%) rotateZ(0deg);
+    }
+}
+
+#loading-content {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.scrollable {
+    z-index: 1;
+
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+}

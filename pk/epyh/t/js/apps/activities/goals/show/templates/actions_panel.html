@@ -1,0 +1,26 @@
+﻿{{#unless archived}}
+    {{#if completed}}
+<div class="menu-item">
+    <i class="icon-save"></i>
+    <a class="js-action" data-action="archive">Archivia Obiettivo</a>
+</div>
+
+    {{else}}
+        
+<div class="menu-item">
+    <i class="icon-edit"></i>
+    <a class="js-action" data-action="edit">Modifica Obiettivo</a>
+</div>
+
+<div class="menu-item">
+    <i class="icon-save"></i>
+    <a class="js-action" data-action="archive">Archivia Obiettivo</a>
+</div>
+
+      
+    {{/if}}
+{{/unless}}
+<div class="menu-item">
+    <i class="icon-trash"></i>
+    <a class="js-action" data-action="delete">Elimina Obiettivo</a>
+</div>

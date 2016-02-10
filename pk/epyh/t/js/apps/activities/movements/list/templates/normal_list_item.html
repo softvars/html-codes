@@ -1,0 +1,111 @@
+﻿
+{{#if loading}}
+<div class="loading-movements">
+</div>
+{{else}}
+<div class="main-list-item movement {{ type }} {{ subType }}">
+
+    <div class="border">
+    </div>
+
+    <div class="head">
+        {{#is type 'income' }}
+            {{#if subType }}
+                {{#is subType 'crd'}}
+                    <i class="icon-refresh"></i>Ricarica HYPE
+                {{/is}}
+                {{#is subType 'bonifico' }}
+                <i class="icon-iban"></i>Denaro ricevuto
+                {{/is}}
+                {{#is subType 'bon' }}
+                <i class="icon-iban"></i>Denaro ricevuto
+                {{/is}}
+            {{/if}}
+        {{/is}}
+
+        {{#is type 'outcome' }}
+            {{#if subType }}
+                {{#is subType 'bonifico' }}
+                <i class="icon-iban"></i>Denaro inviato
+                {{/is}}        
+                {{#is subType 'bon' }}
+                <i class="icon-iban"></i>Denaro inviato
+                {{/is}}
+                {{#is subType 'crd' }}
+                <i class="icon-cards"></i>Pagamento presso
+                {{/is}}
+                {{#is subType 'gas' }}
+                <i class="icon-gas"></i>Rifornimento carburante
+                {{/is}}
+                {{#is subType 'atm' }}
+                <i class="icon-atm"></i>Prelievo Contanti
+                {{/is}}
+                {{#is subType 'ric' }}
+                <i class="icon-recharge"></i>Ricarica telefono
+                {{/is}}
+
+                <!-- da cancellare -->
+                {{#is subType 'pap' }}
+                <i class="icon-cards"></i>Pagamento presso <i class="icon-time"></i>
+                {{/is}}
+                {{#is subType 'ppc' }}
+                <i class="icon-cards"></i>Pagamento presso
+                {{/is}}
+                <!-- da cancellare -->
+            {{else}}
+                <i class="icon-cards"></i>Pagamento presso
+            {{/if}}
+
+        {{/is}}
+    </div>
+
+    <div class="body">
+        {{#is type 'income' }}
+            {{#is subType 'crd'}}
+                Ricarica da carta di credito            
+            {{else}} 
+                <p class="title">
+                    {{#if merchant }}
+                        <span class="marker icon-marker"></span>{{ merchant.name }}
+                    {{else}}
+                        {{ capitalize title }}
+                    {{/if}}
+                </p>       
+            {{/is}}    
+        {{else}}   
+            <p class="title">
+                {{#if merchant }}
+                <span class="marker icon-marker"></span>{{ merchant.name }}
+                {{else}}
+                {{ capitalize title }}
+                {{/if}}
+            </p>    
+        {{/is}}
+
+        
+
+        <p class="price small">
+            <span class="amount">{{formatNumber amount}}</span>
+        </p>
+
+
+    </div>
+
+    <div class="footer">
+        <p class="description">
+            {{#is type 'outcome' }}
+                {{#is subType 'crd' }}
+                    <span class="content">{{{surroundHashtags memo }}}</span>
+                {{/is}}
+                {{#is subType 'ppc' }}
+                    <span class="content">{{{surroundHashtags memo }}}</span>
+                {{/is}}            
+                {{#is subType 'gas' }}
+                    <span class="content">{{{surroundHashtags memo }}}</span>
+                {{/is}}
+            {{/is}}
+        </p>
+    </div>
+
+</div>
+{{/if}}

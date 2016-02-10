@@ -1,0 +1,37 @@
+﻿<div class="menu-in" id="command-region">
+    <a href="#" class="icon-arrow back"></a>
+    {{#is type 'M'}}
+    <p>Attivazione nuovo numero</p>
+    {{else}}
+    <p>Attiva nuova email</p>
+    {{/is}}
+    
+</div>
+<div class="activate-form panel-content scrollable">
+    <div class=" input-wrapper">
+        <div class="otp-block">
+
+            {{#is type 'M'}}
+            <p>Inserisci il codice ricevuto via sms</p>
+            {{else}}
+            <p>Inserisci il codice ricevuto via email</p>
+            {{/is}}
+
+            <div class="otp-container">
+                <input id="entity-otp" class="js-validate-element-otp" placeholder="Codice" name="otp" type="text"></input>
+            </div>
+        </div>
+
+        <div id="keyboard-region" class="keyboard-container">
+
+        </div>
+    </div>
+    <div class="margin-top">
+        <a href="#" class="js-submit glb-btn success">
+            Conferma <i href="#" class="icon-accept"></i>
+        </a>
+    </div>
+    <div class="page-description margin-top">
+        Il codice inviato è valido 24 ore. <br> Se hai inserito un numero o un indirizzo e-mail non valido, il codice non sarà più attivo trascorso questo tempo. 
+    </div>
+</div>

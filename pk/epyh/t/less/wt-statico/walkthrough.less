@@ -1,0 +1,192 @@
+@slide_number: 4;
+
+html, body {
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: white;
+}
+
+.gradient {
+    background: rgb(57, 42, 99);
+    background: -moz-linear-gradient(-45deg, rgba(57, 42, 99, 1) 0%, rgba(72, 112, 164, 1) 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(57, 42, 99, 1)), color-stop(100%, rgba(72, 112, 164, 1)));
+    background: -webkit-linear-gradient(-45deg, rgba(57, 42, 99, 1) 0%, rgba(72, 112, 164, 1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(57, 42, 99, 1) 0%, rgba(72, 112, 164, 1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(57, 42, 99, 1) 0%, rgba(72, 112, 164, 1) 100%);
+    background: linear-gradient(135deg, rgba(57, 42, 99, 1) 0%, rgba(72, 112, 164, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#392a63', endColorstr='#4870a4', GradientType=1);
+}
+
+#skip {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    img {
+        .lh-size(60, 17);
+    }
+}
+
+.logo {
+    padding: 0 0 220px 0;
+    text-align: center;
+    height: 100%;
+    img {
+        width: 216px;
+    }
+}
+
+.title, .subtitle {
+    letter-spacing: 1px;
+}
+
+.title {
+    font-size: 22px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    @media screen and (max-height: 568px) {
+        font-size: 19px;
+        line-height: 21px;
+        margin-top: 10px;
+    }
+}
+
+.subtitle {
+    font-size: 15px;
+    line-height: 23px;
+    @media screen and (max-height: 568px) {
+        font-size: 12px;
+        line-height: 20px;
+    }
+}
+
+.btn-wt {
+    background: #FFFFFF url('../images/walktrough/slide4/arrow@2x.png') no-repeat 97% 50%;
+    background-size: 28px 16px;
+    box-shadow: 0px 2px 0px 0px #0E6683;
+    border-radius: 6px;
+    width: 80%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 11px;
+    color: @blue;
+    display: inline-block;
+    text-decoration: none;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+.message {
+    position: absolute;
+    bottom: 0;
+    height: 220px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    &.opaque.on {
+        background: @blue;
+    }
+}
+
+.pagination {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 0 35px 0;
+    text-align: center;
+    line-height: 8px;
+    .bullet {
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        background-color: white;
+        opacity: .2;
+        margin: 0 5px;
+        display: inline-block;
+        &.active {
+            opacity: 1;
+        }
+    }
+    .prev, .next {
+        position: absolute;
+        bottom: 30px;
+        img {
+            width: 18px
+        }
+    }
+    .off {
+        opacity: .5;
+    }
+    .prev {
+        left: 30px;
+    }
+    .next {
+        right: 30px;
+    }
+}
+
+.slider {
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    .slide {
+        height: 100%;
+        width: 100%;
+        float: left;
+        position: absolute;
+        overflow: hidden;
+    }
+
+}
+
+.slide {
+    // Common settings
+    .o {
+        height: 100%;
+        .lh-transform-origin(50% 100%);
+        @media screen and (max-height: 480px) {
+            .lh-scale(.8);
+        }
+        @media screen and (max-height: 568px) {
+            .lh-scale(.9);
+        }
+        img {
+            width: 646px/2;
+            margin: 0 0 0 -646px/4;
+            position: absolute;
+            bottom: 200px;
+            left: 50%;
+        }
+    }
+
+}
+
+#walkthrough-container {
+    z-index: 1001;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    .subtitle.hardcore {
+        margin: 0;
+        font-weight: 300;
+        font-family: 'Lato', sans-serif !important;
+        font-size: 13px;
+        line-height: 1.4;
+        color: white;
+        font-style: normal;
+        @media screen and (max-height: 568px) {
+            font-size: 12px;
+            line-height: 20px;
+        }
+    }
+    .btn-wt {
+        box-shadow: 0px 2px 0px 0px #0E6683 !important;
+    }
+}
+
+.login {
+    display: none;
+}

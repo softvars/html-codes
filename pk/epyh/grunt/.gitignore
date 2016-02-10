@@ -1,0 +1,8 @@
+node_modules/
+assets/js/bower_components/
+.DS_Store
+.svn/
+assets/css/main.css
+dist/
+assets/js/app.js
+assets/js/apps/config/ackbone/custom.js

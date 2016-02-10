@@ -1,0 +1,36 @@
+<div class="menu-in">
+    <a href="#" class="icon-menu toggle-menu"></a>
+
+    <p>{{nickname}}</p>
+
+    <a href="#" class="js-transfer-money right-ctrl send-money"></a>
+</div>
+
+<div class="safe-to-spend minified">
+    {{#compare '>=' spendable 0}}
+    <div class="label">Puoi spendere</div>
+    <div class="amount">{{formatNumber spendable}}<div class="dropdown"></div></div>
+    {{else}}
+    <div class="label error">"PUOI SPENDERE" SUPERATO</div>
+    <div class="safe-to-spend-error">Rivedi i tuoi obiettivi</div>
+    {{/compare}}
+
+</div>
+
+<div class="safe-to-spend">
+    {{#compare '>=' spendable 0}}
+    <div class="label">Puoi spendere</div>
+    <div class="amount">{{formatNumber spendable}}<div class="dropdown"></div></div>
+    {{else}}
+    <div class="label error">"PUOI SPENDERE" SUPERATO</div>
+    <div class="safe-to-spend-error">Rivedi i tuoi obiettivi<div class="dropdown"></div></div>
+    {{/compare}}
+
+</div>
+
+<!-- qui sotto è mostrato solo sul click della parte sopra -->
+<div class="bank-account-review">
+    <p>Saldo disponibile <span class="value positive">{{formatNumber balance}} +</span></p>
+    <p>Pagamenti programmati <span class="value negative">{{formatNumber scheduledActivities}} -</span></p>
+    <p>Impegnato per obiettivi <span class="value negative">{{formatNumber savedAmountForGoals}} -</span></p>
+</div>

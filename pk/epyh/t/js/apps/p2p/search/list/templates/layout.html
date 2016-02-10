@@ -1,0 +1,66 @@
+﻿<div id="top-panel">
+    <header class="menu-in detailed">
+        <a href="#" class="icon-menu corner-menu"></a>
+        {{#is mode 'request'}}
+        <p>Richiedi denaro</p>
+        <span>Seleziona uno o pi&uacute; contatti</span> {{else}} {{#compare '>' sts 0}}
+        <p>Invia Denaro</p>
+        <span>Seleziona un contatto</span> {{else}}
+        <div class="insufficient-sts">
+            <p>"PUOI SPENDERE" SUPERATO</p>
+            <span>Rivedi i tuoi obiettivi</span>
+        </div>
+        {{/compare}} {{/is}}
+        </p>
+        <a href="#" class="js-new-contact icon-addBuddy right-ctrl" data-trigger=""></a>
+    </header>
+</div>
+<div class="panel-content">
+    <div id="loading-panel">
+    </div>
+    {{#is mode 'payment'}}
+    <div class="js-share banner-button-top">
+        <!-- <img src="assets/images/invite.svg"> -->
+        <div class="share-image"></div>
+        <div class="center">
+            Invita i tuoi amici a provare HYPE
+            <!--<i class="icon-close arrow"></i></a>-->
+            <br>
+            <a class="go" href="#">Semplice, gratuito, per tutti</a><span class="arrow"> &gt;</span>
+        </div>
+    </div>
+    {{/is}}
+    <div id="search-area" class="input-field-search">
+        <div class="search-container">
+            <i class="icon-lens"></i>
+            <input type="text" class="js-search" placeholder="Cerca" value="{{query}}" />
+            <div class="loading-contacts" style="display:none;"></div>
+        </div>
+    </div>
+    <div class="all-contacts-wrapper search-result {{mode}} scrollable">
+        <div id="all-contacts-panel" class="generic-contacts-list">
+        </div>
+    </div>
+    <div class="hypers-favourites-wrapper search-result  {{mode}} scrollable" style="display:none;">
+        <h3 class="favourites-panel-header">Preferiti</h3>
+        <div id="favourites-panel" class="generic-contacts-list">
+        </div>
+        <h3 class="hypers-panel-header">Hypers</h3>
+        <div id="hypers-panel">
+        </div>
+    </div>
+    <div class="navigation disabled">
+        <ul class="tabs">
+            <li class="active">
+                <a href="#" class="js-show-all" data-searchtype="personal">Tutti</a>
+            </li>
+            <li>
+                <a href="#" class="js-show-hypers" data-searchtype="personal">Hypers</a>
+            </li>
+        </ul>
+    </div>
+    <a href="#" class="js-secondStep bottom-panel" style="display:none">
+        <h4 class="content"></h4>
+        <i class="icon-arrow-dx"></i>
+    </a>
+</div>

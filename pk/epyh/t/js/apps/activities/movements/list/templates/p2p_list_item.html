@@ -1,0 +1,76 @@
+﻿<div class="main-list-item movement p2p {{ type }} {{ p2pType }}">
+    <div class="border">
+    </div>
+    <div class="head">
+        {{#is type 'income' }}
+        {{#if p2pType }}
+        {{#is p2pType 'request_out'}}
+        <i class="icon-request-money"></i> Richiesta di denaro a
+        {{/is}}
+        {{#is p2pType 'rejected_request_out'}}
+        <i class="icon-request-money"></i> Hai rifiutato la richiesta di denaro di
+        {{/is}}
+        {{else}}
+        <i class="icon-request-money-complete"></i> Denaro ricevuto da
+        {{/if}}
+        {{/is}}
+
+        {{#is type 'outcome' }}
+        {{#if p2pType }}
+        {{#is p2pType 'request_in'}}
+        <i class="icon-send-money"></i> Hai una richiesta di denaro da
+        {{/is}}
+        {{#is p2pType 'rejected_request_in'}}
+        <i class="icon-request-money"></i> Richiesto di denaro rifiutata da
+        {{/is}}
+        {{#is p2pType 'send_pending'}}
+        <i class="icon-send-money"></i> Denaro inviato a
+        {{/is}}
+        {{else}}
+        <i class="icon-send-money"></i> Denaro inviato a
+        {{/if}}
+        {{/is}}
+    </div>
+
+    <div class="body">
+        <p class="title">{{ capitalize mateFirstName }} {{ capitalize mateLastName }}</p>
+        <p class="price small">
+            <span class="amount">{{formatNumber amount}}</span>
+        </p>
+    </div>
+
+    <div class="footer">
+
+        {{#if memo }}
+        <p class="message">
+            <span class="content">{{{ memo }}}</span>
+        </p>
+        {{/if}}
+
+    </div>
+
+    {{#is p2pType 'send_pending' }}
+    <p class="footer-alert">
+        <i class="icon-time float-right"></i><span>In attesa che il tuo contatto diventi un Hyper. </span>
+    </p>
+    {{/is}}
+
+    {{#is p2pType 'receive_pending' }}
+    <p class="footer-alert">
+        <i class="icon-time float-right"></i><span>Denaro in entrata in sospeso</span>
+    </p>
+    {{/is}}
+
+    {{#is p2pType 'request_in'}}
+    <p class="footer-alert">
+        <i class="icon-time float-right"></i><span>In attesa della tua accettazione</span>
+    </p>
+    {{/is}}
+
+    {{#is p2pType 'request_out'}}
+    <p class="footer-alert">
+        <i class="icon-time float-right"></i><span>In attesa della sua accettazione</span>
+    </p>
+    {{/is}}
+
+</div>

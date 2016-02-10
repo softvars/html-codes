@@ -1,0 +1,90 @@
+﻿<div class="goal-blocker hidden"></div>
+<header class="menu-in">
+    <a href="#" class="icon-arrow js-back"></a>
+    <p>Obiettivo completato</p>
+    <a class="right-ctrl js-more"><i class="icon-more"></i></a>
+</header>
+<div class="panel-content scrollable">
+    <div id="profile-region" class="obiettivo-block completed">
+        <div id="top-image" class="top-image-title-container">
+            <div class="ob-title">
+                <div id="dropdown-region" class="dropdown-categories">
+                    <!-- selettore categoria obiettivo -->
+                </div>
+                <br /> {{ title }}
+            </div>
+        </div>
+        <div class="center-info-block">
+            <div class="status-block">
+                <div class="status-line">
+                    Hai ancora da spendere
+                </div>
+                <div class="info-line">
+                    <div class="price">
+                        <span class="amount">{{formatNumber remaining}}</span>
+                    </div>
+                    <div class="total">
+                        di <span class="amount">{{formatNumber total}}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="progress-bar status-{{percentageString remainingPercentage}} inverted">
+                    <div class="back"></div>
+                    <div class="color"></div>
+                </div>
+            </div>
+        </div>        
+        <div class="share-container">
+            {{#if shared}}
+                <a class="fb-share js-share shared"><i class="icon-fbshare"></i>&nbsp;</a>
+            {{else}}
+                <a class="fb-share js-share"><i class="icon-fbshare"></i>&nbsp;</a>
+            {{/if}}
+        </div>        
+        <div class="clearfix"></div>
+        <div class="action-block padding border-top border-bottom padding">
+            <div class="block table">
+                <div>
+                    <h5>Obiettivo Completato</h5>
+                    <div class="display-associated-movements js-movements">
+                        <span class="subtitle">
+                            Vedi le spese associate
+                        </span>
+                        <div id="movements-region"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="display-associated-movements js-movements">
+                    <i class="icon-go-dx"></i>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+        {{#compare '>' currentAmount 0}}
+        <div class="action-block padding border-bottom">
+            <div class="block info">
+                <div class="js-transfer-to-sts">
+                    <h5>Trasferisci residuo</h5>
+                    <span class="subtitle">
+                        Sposta il rimanente<br />nel Puoi Spendere
+                    </span>
+                </div>
+                <span class="js-transfer-to-sts icon-refresh icon"></span>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        {{/compare}}
+        <div class="deals-title hidden js-deals">
+            Potrebbero interessarti anche:
+        </div>
+        <div class="js-deals hidden" id="deals-region">
+        </div>
+    </div>
+    <div id="image-profile-region" class="camera-block">
+        <!-- pulsante per avviare selezione foto -->
+    </div>
+</div>
+<div id="image-show-region">
+    <!-- pulsante per avviare selezione foto -->
+</div>

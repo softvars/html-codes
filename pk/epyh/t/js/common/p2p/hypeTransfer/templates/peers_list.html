@@ -1,0 +1,48 @@
+﻿<div class="list-title">
+    <h3 style="display: none">
+        <div class="check">
+            <input id="check" type="checkbox" value="" class="">
+            <label for="check"></label> 
+        </div>
+        <span class="js-split-amount-link"></span>
+    </h3>
+</div>
+
+<div id="peers-list-container">
+
+</div>
+
+<form id="destination-form-region" style="display:none;">
+    <div class="input-wrapper">
+        <div class="input-field">
+            <h4>Alias</h4>
+            <div class="input-container">
+                <input type="text" name="destination" placeholder="Telefono, Email o IBAN" value="{{destination}}" id="entity-destination" class="js-validate-element-destination" />
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="input-wrapper">
+        <div class="input-field">
+            <h4>Nome</h4>
+            <div class="input-container">
+                <input type="text" name="firstName" placeholder="es. Mario" value="{{firstName}}" id="entity-firstName" class="js-validate-element-firstName" />
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="input-wrapper">
+        <div class="input-field">
+            <h4>Cognome</h4>
+            <div class="input-container">
+                <input type="text" name="lastName" placeholder="es. Rossi" value="{{lastName}}" id="entity-lastName" class="js-validate-element-lastName" />
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <!-- <a href="#" id="js-submit-destination">OK!</a> -->
+    <a href="#" id="js-close-form" class="delete-peer" style="display:none;"><i class="icon-close"></i></a>
+</form>

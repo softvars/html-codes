@@ -1,0 +1,34 @@
+﻿<form>
+    <div id="top-navigation" class="menu-in">
+        <a href="#" class="icon-arrow back"></a>
+        <p>Paga bolletta</p>
+    </div>
+
+    <div class="payments">
+        <p class="text">
+            Paga bolletta <span class="mark js-prevent" id="discriminatore"></span>
+            <span class="mark" data-placeholder="codice" contenteditable="true" id="codeline">codice</span> di
+            <span class="mark js-prevent" id="importo">0</span><span>€</span> al conto postale
+            <br />
+            <span class="mark" data-placeholder="conto postale" contenteditable="true" id="contopostale">conto postale</span>
+            <br />
+            in data
+            <span contenteditable="true" class="mark data" id="data">{{data}}</span>
+        </p>
+
+
+
+        <a href="#" class="btn btn-small js-confirm full-width-btn fixed-bottom-0">
+            <span class="icon-accept"></span>Conferma
+        </a>
+    </div>
+    <div id="form-region">
+        <input id="input-codeline" name="codeline" type="hidden" value="{{codeline}}" />
+        <input id="input-data" name="data" type="hidden" value="{{data}}" />
+        <input id="input-contopostale" name="contopostale" type="hidden" value="{{contopostale}}" />
+        <input id="input-importo" name="importo" type="hidden" value="{{importo}}" />
+        <input id="input-discriminatore" name="discriminatore" type="hidden" value="{{discriminatore}}" />
+    </div> 
+    <div id="result-region"></div>
+    <div id="keyboard-region"></div>
+</form>

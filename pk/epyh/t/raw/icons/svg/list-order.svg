@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>list-order</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="list-order" sketch:type="MSArtboardGroup">
+            <path d="M49.0035434,30.5739026 L46.7184566,28.6300974 L36.0904566,41.1240974 L38.3755434,43.0679026 L49.0035434,30.5739026 Z M38.3755434,43.0679026 L49.0035434,30.5739026 L46.7184566,28.6300974 L36.0904566,41.1240974 L38.3755434,43.0679026 Z M47.67,30.66 L46.17,29.16 L46.17,52.358 L47.67,50.858 L24.253,50.858 L25.753,52.358 L25.753,42.178 L22.753,42.178 L22.753,52.358 L22.753,53.858 L24.253,53.858 L47.67,53.858 L49.17,53.858 L49.17,52.358 L49.17,29.16 L49.17,27.66 L47.67,27.66 L36.759,27.66 L36.759,30.66 L47.67,30.66 Z M36.835,10.158 L35.335,8.658 L35.335,41.646 L36.835,40.146 L13.417,40.146 L14.917,41.646 L14.917,8.658 L13.417,10.158 L36.835,10.158 Z M11.917,7.158 L11.917,8.658 L11.917,41.646 L11.917,43.146 L13.417,43.146 L36.835,43.146 L38.335,43.146 L38.335,41.646 L38.335,8.658 L38.335,7.158 L36.835,7.158 L13.417,7.158 L11.917,7.158 Z" id="Stroke-1" fill="#101220" sketch:type="MSShapeGroup"></path>
+            <path d="M30.873,16.659 L32.373,16.659 L32.373,13.659 L30.873,13.659 L18.242,13.659 L16.742,13.659 L16.742,16.659 L18.242,16.659 L30.873,16.659 Z M24.722,21.619 L26.222,21.619 L26.222,18.619 L24.722,18.619 L18.242,18.619 L16.742,18.619 L16.742,21.619 L18.242,21.619 L24.722,21.619 Z" id="Stroke-2" fill="#090C1F" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

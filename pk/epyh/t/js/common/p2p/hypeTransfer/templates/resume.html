@@ -1,0 +1,65 @@
+﻿
+<div class="modal-dialog resume-dialog">
+	<div class="backdrop"></div>
+	<div class="overdrop scrollable">
+		<div class="top-title">
+			{{#is mode 'request'}}
+			<p>STAI CHIEDENDO</p>
+			{{else}}
+			<p>STAI INVIANDO</p>
+			{{/is}}
+		</div>
+		<div class="amount-container">
+			<div class="total-amount">{{formatNumber totalAmount}}</div>
+		</div>
+
+		<div class="peers-container">
+
+			<div id="peers-resume-sender-container">
+				<div class="peer-item">
+					<div class="baloon-container">
+
+                        {{#if userImgValue}}
+                        <div class="baloon" style="background-image: url(data:image/gif;base64,{{userImgValue}}); background-size: cover">
+                        </div>
+                        {{else}}
+                        <div class="baloon no-image">
+                            {{initials myself.firstName myself.lastName}}
+                        </div>
+                        {{/if}}
+
+					</div>
+					<h4>{{myself.firstName}}</h4>
+				</div>
+			</div>
+			<div id="peer-arrow-container">
+				<div class="peer-line">
+					<i class="arrow"></i>
+				</div>
+			</div>
+			<div id="peers-resume-container">
+
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+		<div class="message">
+			<div class="content">
+				{{message}}
+			</div>
+		</div>
+
+		<div class="actions">
+			<a href="#" class="glb-btn success js-confirm">Conferma<i class="icon-accept"></i></a>
+			<a href="#" class="glb-btn delete js-cancel">Annulla<i class="icon-reject"></i></a>
+		</div>
+		
+		<div class="bottom-box">
+			<div class="close-button">
+				<a href="#" class="js-cancel">
+					<i class="icon-close"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

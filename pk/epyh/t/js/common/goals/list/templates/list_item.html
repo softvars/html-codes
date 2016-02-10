@@ -1,0 +1,24 @@
+﻿<div class="main-list-item goal">
+    <div class="info-block">
+        <div class="title-line">{{{ title }}}</div>
+        <div class="description-line">
+        {{#is completed true}}
+            ti rimangono da spendere <span>{{remaining}}€</span> di <span>{{total}}€</span>
+        {{else}}
+            hai completato <span>{{currentAmount}}€</span> di <span>{{total}}€</span> entro {{niceDate endDate}}
+        {{/is}}
+        </div>
+        {{#is completed true}}
+        <div class="progress-bar status-{{remainingPercentage}}">
+            <div class="color"></div>
+            <div class="back"></div>
+        </div>
+        {{else}}
+        <div class="progress-bar status-{{percentage_string}}">
+            <div class="color"></div>
+            <div class="back"></div>
+        </div>
+        {{/is}}
+    </div>
+    <!--div class="status-block"></div-->
+</div>

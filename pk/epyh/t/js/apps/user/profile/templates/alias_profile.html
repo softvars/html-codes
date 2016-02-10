@@ -1,0 +1,15 @@
+﻿<div class="field-editable">
+	{{#is aliasType 'M'}}
+	<span class="icon-phone-full"></span>
+	<input type="text" name="alias" id="entity-alias" class="js-validate-element-alias" placeholder="numero di telefono" />
+	{{else}}
+	<span class="icon-mail-full"></span>
+	<input type="text" name="alias" id="entity-alias" class="js-validate-element-alias" placeholder="email" />
+	{{/is}}
+
+	<span class="action">
+		<a href="#" class="js-submit-alias icon-save-small"></a>
+		<a href="#" class="js-close icon-close-small"></a>    
+	</span>
+
+</div>

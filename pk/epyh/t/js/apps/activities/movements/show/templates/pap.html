@@ -1,0 +1,50 @@
+﻿<div class="menu-in">
+    <a href="#" class="back icon-arrow"></a>
+    <p>Partita prenotata</p>
+</div>
+<div class="panel-content scrollable">
+    <div id="profile-region" class="movimento-block">
+
+        <div id="top-image" class="top-image-title-container">
+            <p class="mov-date">{{niceDate date}}</p>
+            <p class="mov-title js-set-venue">
+                {{#if merchant }}
+                <span class="icon-marker"></span>
+                {{/if}}
+                <!-- {{ title }} per ora inutilizzato -->
+                {{#if merchant }}
+                {{ merchant.name }}
+                {{else}}
+                {{ causal }}
+                {{/if}}
+            </p>
+        </div>
+
+        <div class="center-info-block">
+
+            <div class="price-cat-block">
+                <div class="price {{ type }}">
+                    <span class="amount">{{formatNumber amount}}</span>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+        <div class="bottom-map-block">
+
+        </div>
+    </div>
+
+
+    <div id="map-region">
+
+    </div>
+
+    <div class="causal">
+        Partita prenotata   
+    </div>
+</div><!-- fine panel content -->
+<div id="image-show-region">
+
+</div>

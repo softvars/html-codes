@@ -1,0 +1,189 @@
+.fadeIn {
+    animation-name: fadeIn;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+}
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.rollIn {
+    animation-name: rollIn;
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+}
+@-webkit-keyframes rollIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-25%) rotateX(-65deg);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%) rotateX(0deg)
+    }
+}
+.slideUp {
+    animation-name: slideUp;
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+}
+@-webkit-keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(100%);
+    }
+    100% {
+        -webkit-transform: translateY(0%);
+    }
+}
+.slideDownAndFade {
+    animation-name: slideDownAndFade;
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+}
+@-webkit-keyframes slideDownAndFade {
+    0% {
+        padding: 0px 15px;
+        max-height: 0;
+        opacity: 0;
+        -webkit-transform: translateY(-100%);
+    }
+    100% {
+        padding: 5px 15px;
+        max-height: auto;
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
+.fadeInAndScale {
+    animation-name: fadeInAndScale;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+}
+@-webkit-keyframes fadeInAndScale {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+    }
+}
+.scaleInRotate {
+    animation-name: scaleInRotate;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+}
+@-webkit-keyframes scaleInRotate {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateZ(60deg);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1) rotateZ(0deg);
+    }
+}
+.toOverflowHidden {
+    animation-name: toOverflowHidden;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+}
+@-webkit-keyframes toOverflowHidden {
+    0% {} 100% {
+        overflow: hidden;
+    }
+}
+.slideInLeft {
+    animation-name: slideInLeft;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+}
+@-webkit-keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.flipInX {
+    -webkit-animation-name: flipInX;
+    -webkit-animation-duration: 0.8s;
+}
+@-webkit-keyframes flipInX {
+    0% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
+        -webkit-transition-timing-function: ease-in;
+    }
+    40% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 20deg);
+        -webkit-transition-timing-function: ease-out;
+    }
+    60% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -10deg);
+        -webkit-transition-timing-function: ease-in;
+        opacity: 1;
+    }
+    80% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 5deg);
+        -webkit-transition-timing-function: ease-out;
+    }
+    100% {
+        -webkit-transform: perspective(400px);
+    }
+}
+.flipOutX {
+    -webkit-animation-name: flipInXSimple;
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-direction: reverse;
+}
+@-webkit-keyframes flipInXSimple {
+    0% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
+        -webkit-transition-timing-function: ease-in;
+    }
+    100% {
+        -webkit-transform: perspective(400px);
+    }
+}
+/*
+.fadeIn {
+   animation-name: slideUp;
+   animation-duration: 500ms;
+   animation-iteration-count: 10;
+   animation-direction: alternate;
+   animation-timing-function: ease-out;
+   animation-fill-mode: forwards;
+   animation-delay: 2s;
+}
+*/
+
+.floating{
+    animation-duration: 1700ms;
+    animation-name: floating;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+@-webkit-keyframes floating {
+    0% {
+        -webkit-transform: translateY(0px);
+    }
+
+    50% {
+        -webkit-transform: translateY(200%);
+    }
+
+    100% {
+        -webkit-transform: translateY(0px);
+    }
+}

@@ -1,0 +1,73 @@
+body.ios {
+    #main-menu #userdata-region .user-card {
+        left: 205px;
+    }
+    #main-menu,
+    .login {
+        .plus-label{
+            display: none;
+        }
+        .plus-button {
+            display: initial;
+        }
+        background-image: linear-gradient(143deg, @menu-start 0%, @menu-end 100%);
+        &.plus {
+            .plus-button{
+                display: none;
+            }
+            .plus-label {
+                display: block;
+                text-align: center;
+                margin-top: 33px;
+                font-size: 10px;
+                letter-spacing: 1px;
+            }
+            background-image: linear-gradient(143deg, @menu-start-plus 0%, @menu-end-plus 100%);
+        }
+    }
+    .menu-in {
+        a.right-ctrl {
+            top: 5px;
+        }
+    }
+    .safe-to-spend.minified {
+        top: 20px;
+    }
+    .activities-panel {
+        .activities-wrapper .activities-container {
+            padding-top: 214px;
+        }
+        header.home-header #search-area .search-area {
+            padding-top: 10px;
+        }
+        .activities-wrapper .activities-container#goals-area {
+            padding-top: 231px;
+        }
+    }
+    .activities-panel header.home-header {
+        .backdrop {
+            height: 166px;
+        }
+        &.minified {
+            height: 100px;
+            .backdrop {
+                transform: translateY(-67px);
+            }
+        }
+        #safetospend-region .safe-to-spend-block .safe-to-spend.minified {
+            top: 12px;
+        }
+    }
+    /*.modal-dialog .overdrop .top-title {
+        padding-top: 35px;
+        }*/
+    .select-merchant {
+        #list-region {
+            top: 120px;
+        }
+    }
+    .card-page .card-container > .virtual-card > .retro > .cvv {
+        margin-top: 29vw;
+        margin-left: 67vw;
+    }
+}

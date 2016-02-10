@@ -1,0 +1,39 @@
+.payments {
+    .base-font-rounded-book();
+    padding: 15px;
+
+    .text {
+        .font-size-x-large();
+        .text-color-primary-lighter();
+        margin-bottom: 15px;
+        line-height: 1.9;
+        
+        .mark {
+            .text-color-highlight();
+            background: @blue;
+            color: @white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    }
+
+    .phone-number {
+        .font-size-x-large();
+        .base-font-rounded-book();
+        width: 100%;
+        outline: 0;
+        border: none;
+        background: @blue;
+        color: @white;
+        padding: 5px;
+        border-radius: 5px;
+        display: inherit;
+        box-sizing: border-box;
+
+        &::-webkit-input-placeholder {
+            color: @blue-dark;
+        }
+
+    }
+}
+

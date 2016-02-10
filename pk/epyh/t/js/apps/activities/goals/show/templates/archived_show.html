@@ -1,0 +1,75 @@
+﻿<div class="goal-blocker hidden"></div>
+<header class="menu-in">
+    <a href="#" class="icon-arrow js-back"></a>
+    <p>Obiettivo archiviato</p>
+    <a class="right-ctrl js-more"><i class="icon-more"></i></a>
+</header>
+
+<div class="panel-content scrollable">
+    <div id="profile-region" class="obiettivo-block archived">
+
+        <div id="top-image" class="top-image-title-container">
+            <div class="ob-title">
+                <div id="dropdown-region" class="dropdown-categories">
+                    <!-- selettore categoria obiettivo -->
+                </div>
+                <br />
+                {{ title }}
+            </div>
+        </div>
+
+        <div class="center-info-block">
+            <div class="status-block">
+                <div class="status-line">
+                    Dal <span class="date">{{niceDate endDate}}</span> hai speso
+                </div>
+                <div class="info-line">
+                    <div class="price">
+                        <span class="amount">{{formatNumber remaining}}</span>
+                    </div>
+                    <div class="total">
+                        di <span class="amount">{{formatNumber total}}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="action-block padding border-top border-bottom">
+            <div class="block info">
+                <div class="">
+                    <h5>Obiettivo archiviato</h5>
+                    <span class="subtitle">
+                        L'obiettivo è stato salvato<br />
+                        in archivio e quindi non è più modificabile.
+                    </span>
+
+                    <div class="display-associated-movements">
+                        <span class="subtitle">
+                            Ecco le spese associate:
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="lista-movimenti">
+
+        </div>
+
+        <div class="clearfix"></div> 
+    </div>
+    <div id="image-profile-region" class="camera-block">
+        <!-- pulsante per avviare selezione foto -->
+    </div>
+</div>
+
+<div id="image-show-region">
+    <!-- pulsante per avviare selezione foto -->
+</div>
+
+

@@ -1,0 +1,31 @@
+<div id="main-region">
+    <div id="top-navigation" class="menu-in detailed">
+        <a href="#" class="icon-arrow js-back"></a>
+        <p>LE MIE CARTE</p>
+        {{#if id}}
+        <span>Modifica o elimina carta collegata</span> 
+        {{else}}
+        <span>Collega nuova carta</span> 
+        {{/if}}
+    </div>
+    <div class="panel-content scrollable">
+        <div id="form-region">
+        </div>
+        {{#if id}}
+             
+            <div class="button-wrapper">
+                <a href="#" class="js-delete glb-btn delete">
+                        Elimina Carta
+                        <i class="icon-trash"></i>
+                    </a>
+            </div>
+        {{else}} 
+                <div class="button-wrapper">
+                <a href="#" class="js-submit glb-btn success">
+                        Collega Carta
+                        <i class="icon-accept"></i>
+                    </a>
+            </div>
+        {{/if}}
+    </div>
+</div>

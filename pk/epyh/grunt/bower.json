@@ -1,0 +1,17 @@
+{
+  "name": "bancasella-hype",
+  "version": "0.0.1",
+  "dependencies": {
+    "backbone": "1.1.2",
+    "jquery": "2.0.0",
+    "backbone.syphon": "0.4.1",
+    "backbone.picky": "0.2.0",
+    "json2": "*",
+    "backbone.marionette": "1.6.4",
+    "underscore": "1.6.0",
+    "handlebars": "1.3.0",
+    "moment": "2.5.1",
+    "text": "2.0.10",
+    "mapbox.js": "~1.6.2"
+  }
+}

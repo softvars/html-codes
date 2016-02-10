@@ -1,0 +1,140 @@
+@alias-btn-radius: 3px;
+@alias-btn-padding: 10px 15px 10px 15px;
+@alias-item-verified-padding: 0 0 15px 0;
+.btn-add-alias {
+    border: none;
+    background: @midnight-lightest;
+    border-radius: @alias-btn-radius;
+    padding: @alias-btn-padding;
+    color: @midnight-darker;
+}
+
+.btn-abs-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 12px;
+    margin-right: 15px;
+    border: none;
+    background: @green;
+    color: @white;
+    border-radius: @alias-btn-radius;
+    padding: @alias-btn-padding !important;
+    font-size: 13px;
+}
+
+.btn-abs-right[disabled] {
+    background: @midnight-lightest;
+}
+
+.alias-list-wrapper {
+    padding: 15px 0 15px 0;
+    font-size: 13px;
+    color: @midnight-darker;
+}
+
+.default-alias {
+    padding: @alias-item-verified-padding;
+}
+
+.alias-list.collapsed {
+    padding: 0;
+}
+
+.default-alias,
+.alias-list .alias-list-item {
+    font-size: 18px;
+    position: relative;
+    padding: 15px 0 15px 0;
+    text-transform: lowercase;
+    .lower-buttons {
+        height: 15px;
+        a {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 15px;
+            bottom: 0;
+            position: absolute;
+            text-transform: none;
+
+            &.btn-set-primary {
+                left: 0;
+            }
+
+            &.btn-remove {
+                color: @red;
+                //right: 0;
+                left: 170px;
+                margin-left: 15px;
+                bottom: 0;
+                //margin-right: 15px;
+            }
+        }
+
+        padding-top: 15px;
+    }
+    &.verified {
+        padding: @alias-item-verified-padding;
+        .item-value {
+            padding-right: 0;
+            display: inline;
+        }
+        .lower-buttons {
+            padding-top: 0;
+        }
+    }
+    .item-value {
+        height: 20px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 105px;
+        white-space: nowrap;
+    }
+    .btn-abs-right {
+        margin-top: 9px;
+    }
+}
+
+.alias-list-wrapper {
+    .icon-accept {
+        color: @green;
+        font-size: 23px;
+    }
+    .icon-mail-full, .icon-phone-full {
+        position: absolute;
+        left: 0;
+        margin-left: 18px;
+        font-size: 15px;
+        color: @midnight-darker;
+        margin-top: -3px;
+
+    }
+}
+
+.icon-user-full {
+    color: @midnight-darker;
+    margin: 18px 15px 15px 15px !important;
+}
+
+.field-editable {
+    &.restyled {
+        padding: 15px 0 !important;
+        input {
+            padding-left: 5px !important;
+            padding-right: 95px;
+            margin: 0 !important;
+            position: static !important;
+            z-index: inherit;
+            top: inherit;
+            left: inherit;
+            max-width: 100%;
+            color: @midnight-darker;
+        }
+        .help-inline {
+            &.error {
+                margin-top: 10px;
+            }
+        }
+    }
+}

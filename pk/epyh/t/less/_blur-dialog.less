@@ -1,0 +1,185 @@
+.blurred-element {
+    filter: blur(2px);
+}
+
+#activities-region.blurred-element {
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    top: 118px;
+    z-index: -999;
+}
+
+.activities-container.blurred-element {
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    top: 158px;
+    z-index: -999;
+}
+
+.blur-dialog {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.confirm-dialog {
+    .blur-dialog();
+    color: @white;
+
+    .top-title {
+    color: @white;
+        .font-size-small();
+        .base-font-medium();
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: @dialog-top-title-vertical-margin;
+        margin-bottom: @dialog-top-title-vertical-margin;
+    }
+
+    .title {
+    color: @white;
+        .font-size-large();
+        text-align: center;
+        margin-left: @dialog-elements-horizontal-margin;
+        margin-right: @dialog-elements-horizontal-margin;
+        padding-top: @dialog-title-vertical-padding;
+        padding-bottom: @dialog-title-vertical-padding;
+    }
+
+    .description {
+    color: @white;
+        .font-size-regular();
+        text-align: center;
+        margin-left: @dialog-elements-horizontal-margin;
+        margin-right: @dialog-elements-horizontal-margin;
+        margin-bottom: @dialog-description-vertical-margin;
+    }
+
+    .confirm-button {
+    color: @white; 
+        .font-size-small(); 
+        text-align: center;
+        margin-top: @dialog-button-margin;
+
+        a {
+            padding: @dialog-button-padding;
+            text-decoration: none;
+            color: @white;
+            border-radius: @dialog-button-border-radius;
+            text-transform: uppercase;
+        }
+    }
+
+    .bottom-box {
+    color: @white;
+        position: fixed;
+        bottom: 5%;
+        width: 100%;
+
+        > .close-button {
+            .centered-using-table-and-margin();
+
+            &, > * { // supporto strutture differenti
+                .font-size-x-large();
+                .text-color-primary();
+            }
+        }
+    }
+}
+
+.information-dialog {
+    .confirm-dialog();
+    .background-color-white-opacity-50();
+
+    .confirm-button {
+        a {
+            .background-color-green();
+            border-bottom: @dialog-button-border-width @green-darkest solid;
+        }
+    }
+}
+
+.confirmation-dialog-safe {
+    .confirm-dialog();
+    .background-color-yellow-opacity-50();
+
+    .confirm-button {
+        a {
+            .background-color-green();
+            border-bottom: @dialog-button-border-width @green-darkest solid;
+        }
+    }
+
+    .bottom-box > .close-button, .close-buttom > * { // supporto strutture differenti
+        .text-color-alternate();
+    }
+}
+
+.confirmation-dialog-danger {
+    .confirm-dialog();
+    .background-color-red-opacity-50();
+    color: @white;
+
+    .confirm-button {
+        a {
+            .background-color-red();
+            border-bottom: @dialog-button-border-width @red-darkest solid;
+        }
+    }
+
+    .bottom-box > .close-button, .close-buttom > * { // supporto strutture differenti
+        .text-color-alternate();
+    }
+}
+
+.transfer-dialog {
+    .confirm-dialog();
+    .background-color-midnight-darker-opacity-50();
+    color: @white;
+
+    & > a {
+        .centered-using-table-and-margin();
+
+        & > img {
+            margin-top: 20px;
+            display: block;
+            width: 95px;
+            .centered-using-table-and-margin();
+        }
+
+        & > span {
+            margin-top: 10px;
+            .centered-using-table-and-margin();
+            .uppercase();
+            .text-color-alternate();
+            .font-size-x-small();
+        }
+    }
+
+    & > .bottom-box > .close-button > span {
+        .text-color-alternate();
+    }
+}
+
+.select-from-list-dialog {
+    .confirm-dialog();
+    .background-color-midnight-darker-opacity-50();
+    color: @white;
+
+    .confirm-button {
+        a {
+            .background-color-red();
+            border-bottom: @dialog-button-border-width @red-darkest solid;
+        }
+    }
+}
+
+.pin-dialog {
+    .blur-dialog();
+    .background-color-midnight-opacity-50();
+}

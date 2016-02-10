@@ -1,0 +1,198 @@
+.login {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  .logo-container {
+    height: 180px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 60px;
+
+    .logo {
+      background-image: url('../images/logo.svg');
+      &.plus{
+        background-image: url('../images/logo_plus.svg');
+      }
+      background-size: contain;
+      width: 100%;
+      height: 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  form {
+    position: relative;
+    padding: 15px;
+    padding-top: 0;
+
+    &.full {
+      height: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  div.error {
+    margin: 15px;
+    line-height: 1.3;
+    font-size: 13px;
+    position: absolute;
+    top: 30%;
+    color: @red;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    background: white;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .help-inline.error {
+    .rollIn();
+    color: @red;
+    .font-size-small();
+    width: 100%;
+    display: inline-block;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  .pin {
+    text-align: center;
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+    left: 0;
+    bottom: 0;
+
+    ul.hints {
+      margin-top: 15px;
+      margin-bottom: 15px;
+
+      li {
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        border: 2px solid #fff;
+        display: inline-block;
+        background-color: rgba(255, 255, 255, 0);
+        //transition: all 500ms ease-in-out;
+        &.filled {
+          background-color: rgba(255, 255, 255, 1);
+        }
+      }
+    }
+
+    .number-keyboard {
+      margin-bottom: 30px;
+
+      a {
+        color: white;
+      }
+    }
+  }
+
+  .rounded-ghost {
+    .font-size-x-small;
+    bottom: 15px;
+  }
+
+  .divider {
+    border-top: 2px solid rgba(255, 255, 255, .3);
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+
+  .step2 {
+    a.android {
+      position: absolute;
+      right: 30px;
+      top: 0;
+      height: 20px;
+      top: 15px;
+
+      i {
+        width: 100%;
+        text-align: center;
+        display: block;
+        line-height: 24px;
+        font-size: 35px;
+        color: @midnight-lightest;
+        margin-top: 20px;
+      }
+    }
+
+    .blue-spinner {
+      top: -45px;
+      width: 30px !important;
+      height: 30px !important;
+      margin-left: -15px !important;
+    }
+
+    p.android {
+      text-align: center;
+      margin-top: 135px;
+      color: @white;
+      line-height: 1.3;
+    }
+  }
+}
+
+#overlay-content-lckscrn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: @z-index-overall;
+
+  &.blurred-element {
+    z-index: 0;
+  }
+}
+
+.block-spinner-container {
+  position: absolute;
+  bottom: 20px;
+  width: 90%;
+  /* margin: 15px; */
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.fingerprint-login {
+  .icon-fingerprint{
+      color: @midnight-lighter;
+      opacity: 0.6;
+    }
+  .rememberMe{
+    &.fingerprint{
+      padding: 0 30px;
+    }
+  }
+  form {
+    position: initial;
+  }
+  .bottom-block {
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    left: 15px;
+    right: 15px;
+    input[type=checkbox] {
+      width: 15px; 
+      position: absolute;
+    }
+    color: @midnight-lightest;    
+  }
+  .rememberme-checkbox-label{
+    padding-top: 5px;
+  }
+
+
+}

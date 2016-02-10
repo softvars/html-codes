@@ -1,0 +1,41 @@
+﻿<div class="modal-dialog auth-dialog">
+    <div class="backdrop"></div>
+    <div class="overdrop scrollable">
+        <div class="top-title">
+            Autorizzazione richiesta
+        </div>
+        
+        <form class="control-group auth">
+
+            <div class="separator"></div>
+
+            {{#is pin true}}
+            <label>Password</label>
+            <div class="input-container">
+                <input type="password" autocomplete="off" placeholder="Password" class="js-input" data-target="pin" name="pin" id="js-pin" />
+            </div>
+            {{/is}}
+
+            <div class="separator"></div>
+
+            {{#is password true}}
+            <label>Codice di sicurezza via sms</label>
+            <div class="input-container">
+                <input type="text" autocomplete="off" placeholder="Codice" class="js-input" data-target="pwd" name="pwd" id="js-pwd" />
+            </div>
+            {{/is}}
+            
+            <div class="separator"></div>
+        </form>
+
+        <a href="#" class="glb-btn success js-submit">Conferma<i class="icon-accept"></i></a>
+
+        <div class="bottom-box">
+            <div class="close-button">
+                <a href="#" class="js-cancel">
+                    <i class="icon-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
