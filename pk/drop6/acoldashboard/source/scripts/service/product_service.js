@@ -6,7 +6,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 method: 'GET',
                 url: '/api/product'
             }).then(function successCallback(response) {
-                var data = response.data;
+                var data = response.data && response.data.data||[];
                 if(data) {
                     $rootScope.productCollection = angular.isArray(data) ? data : [data];
                     $rootScope.initDone = true;

@@ -3,12 +3,12 @@ app.run(['$rootScope', '$http', 'productService', function ($rootScope, $http, p
     $rootScope.initDone = false;
     productService.loadProductList();
     
-    $rootScope.$watch('productCollection', function(productCollection) {
+    /*$rootScope.$watch('productCollection', function(productCollection) {
         $rootScope.productCollectionAsJson = angular.toJson(productCollection, true);
         if($rootScope.initDone) {
             productService.saveProductList();
         }
-    }, true);
+    }, true);*/
 
     $rootScope.currentStep=0;
     $rootScope.selectedData ={};
@@ -20,7 +20,7 @@ app.run(['$rootScope', '$http', 'productService', function ($rootScope, $http, p
     };
     
     /*Mock widget creation [needs to updated the model based on the real widget data]*/
-    $rootScope.categories=["A","B"]
+    $rootScope.categories=["A","B"];
     $rootScope.widgetImages=[
                         {name:"Nome e Cognome",img:"nome_cognome",catId:"A"},
                         {name:"Codice promozionale",img:"codice_promo",catId:"A"},

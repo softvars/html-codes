@@ -1,5 +1,6 @@
-app.controller('productsCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+app.controller('productsCtrl', ['$scope', '$rootScope','productService', function ($scope, $rootScope,productService) {
     $scope.enable_button=false;
+    productService.loadProductList();
     $scope.doRemoveItem = function() {
         var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
         var index = prevSelect.attr("idx");
