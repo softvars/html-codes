@@ -1,5 +1,5 @@
-app.controller('productsCtrl', ['$scope', '$rootScope','productService', function ($scope, $rootScope,productService) {
-    $scope.enable_button=false;
+app.controller('productsCtrl', ['$scope', '$rootScope', 'productService', function ($scope, $rootScope, productService) {
+    $scope.enable_button = false;
     productService.loadProductList();
     $scope.doRemoveItem = function() {
         var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
@@ -20,8 +20,8 @@ app.controller('productsCtrl', ['$scope', '$rootScope','productService', functio
     };
 
     $scope.setselectedData = function(data){
-          var idx= $scope.productCollection.indexOf(data);
-          var elt =event.currentTarget;
+          var idx = $scope.productCollection.indexOf(data);
+          var elt = event.currentTarget;
           var angElt =angular.element(elt)
           var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
            prevSelect.removeClass("stSelected");
@@ -34,7 +34,7 @@ app.controller('productsCtrl', ['$scope', '$rootScope','productService', functio
     };
   
     $scope.go = function(path){
-       location.href="#"+path;
+       location.href = "#"+path;
     };
 
     $scope.doModifyItem = function(){

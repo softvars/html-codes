@@ -18,20 +18,6 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
         return $http({
                 method: 'POST',
                 data: angular.toJson(product),
-                headers: {'Content-Type': 'application/json', cust_method_name:'testName'},
-                url: '/api/product'
-            }).then(function successCallback(response) {
-                var data = response.data;
-                if(data) {
-                    $rootScope.productCollection = angular.isArray(data) ? data : [data];
-                }
-            });
-    };
-
-    productAPI.saveProductList = function(){
-        return $http({
-                method: 'PUT',
-                data: $rootScope.productCollectionAsJson,
                 headers: {'Content-Type': 'application/json'},
                 url: '/api/product'
             }).then(function successCallback(response) {
@@ -39,5 +25,47 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
             });
     };
     
+     productAPI.deleteProduct = function(productId) {
+        return $http({
+                method: 'DELETE',
+                headers: {'Content-Type': 'application/json'},
+                url: '/api/product/'+productId
+            }).then(function successCallback(response) {
+                console.log("response :" + response);
+            });
+    };
+    
+     productAPI.copyProduct = function(product,mode) {
+        return $http({
+                method: 'POST',
+                data: angular.toJson(product),
+                headers: {'Content-Type': 'application/json'},
+                url: '/api/product/'+product.id+'/clone/'+mode
+            }).then(function successCallback(response) {
+                console.log("response :" + response);
+            });
+    };
+    
+     productAPI.getProduct = function(product,isFull) {
+        return $http({
+                method: 'GET',
+                headers: {'Content-Type': 'application/json'},
+                url: '/product/'+product.id+'?full='+(isFull ||false)
+            }).then(function successCallback(response) {
+                console.log("response :" + response);
+            });
+    };
+
+   /* productAPI.saveProductList = function(){
+        return $http({
+                method: 'PUT',
+                data: $rootScope.productCollectionAsJson,
+                headers: {'Content-Type': 'application/json'},
+                 url: '/api/product'
+            }).then(function successCallback(response) {
+                console.log("response :" + response);
+            });
+    };
+    */
     return productAPI;
 }]);
