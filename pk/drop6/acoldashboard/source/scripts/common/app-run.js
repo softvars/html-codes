@@ -1,8 +1,8 @@
-app.run(['$rootScope', '$http', 'productService', function ($rootScope, $http, productService) {
+app.run(['$rootScope', '$http', 'productService','widgetService', function ($rootScope, $http, productService,widgetService) {
     $rootScope.productCollection = [];
     $rootScope.initDone = false;
     productService.loadProductList();
-    
+    widgetService.getCategoryList();
     /*$rootScope.$watch('productCollection', function(productCollection) {
         $rootScope.productCollectionAsJson = angular.toJson(productCollection, true);
         if($rootScope.initDone) {
@@ -20,7 +20,7 @@ app.run(['$rootScope', '$http', 'productService', function ($rootScope, $http, p
     };
     
     /*Mock widget creation [needs to updated the model based on the real widget data]*/
-    $rootScope.categories=["A","B"];
+  /*  $rootScope.categories=["A","B"];
     $rootScope.widgetImages=[
                         {name:"Nome e Cognome",img:"nome_cognome",catId:"A"},
                         {name:"Codice promozionale",img:"codice_promo",catId:"A"},
@@ -48,7 +48,7 @@ app.run(['$rootScope', '$http', 'productService', function ($rootScope, $http, p
         }
     };
     $rootScope.createWidgetData();
-    $rootScope.createDataJson = function(obj){
+  */  $rootScope.createDataJson = function(obj){
         var index = $rootScope.productCollection.length-1;
         var selData = $rootScope.productCollection[index];
     

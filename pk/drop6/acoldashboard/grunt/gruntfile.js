@@ -6,8 +6,9 @@ var mountFolder = function (connect, dir) {
 };
 
 var scriptfiles = [
-    '../source/scripts/utils/*.js',
+    
     '../source/scripts/common/app.js',
+    '../source/scripts/utils/*.js',
     '../source/scripts/common/app-run.js',
     '../source/scripts/common/router.js',
     '../source/scripts/controller/*.js',
@@ -30,7 +31,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['../source/css/**/*.css'],
-                tasks: ['cssmin','copy'],
+                tasks: ['cssmin','copy']
             },
             express: {
                 files:  ['mock/**/*.js'],
@@ -129,8 +130,8 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 src: scriptfiles,
-                dest: '../acol/app/scripts/acol.min.js',
-            },
+                dest: '../acol/app/scripts/acol.min.js'
+            }
         }
     });
 

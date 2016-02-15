@@ -8,7 +8,7 @@ app.config([ '$routeProvider', function($routeProvider) {
 		templateUrl : 'source/templates/add_new_product.html',
 		controller : 'addProductCtrl'
 	}).
-    when('/editWidgets/:productId/step:currentStep', {
+    when('/editWidgets/:productId/step/:currentStep', {
         templateUrl: 'source/templates/product_widgets.html',
         controller: 'addWidgetsForproductCtrl'
     }).
@@ -16,7 +16,7 @@ app.config([ '$routeProvider', function($routeProvider) {
 		templateUrl : 'source/templates/product_widgets.html',
 		controller : 'addWidgetsForproductCtrl'
 	}).
-      when('/viewWidgets/:productId/step:currentStep', {
+      when('/viewWidgets/:productId/step/:currentStep', {
         templateUrl: 'source/templates/product_widgets.html',
         controller: 'addWidgetsForproductCtrl'
     }).

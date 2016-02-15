@@ -1,15 +1,26 @@
-app.controller('productsCtrl', ['$scope', '$rootScope', 'productService', function ($scope, $rootScope, productService) {
+app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productService","util", function ($scope, $route, $routeParams, productService,util) {
     $scope.enable_button = false;
     productService.loadProductList();
     $scope.doRemoveItem = function() {
         var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
+        var index = prevSelect.attr("data-idx");
+        if (index && index !== -1) {
+            productService.deleteProduct(index, function(res){
+            $scope.selectedData.data =  res.data.data[0];
+            productService.loadProductList();
+            prevSelect.removeClass("stSelected");
+            prevSelect.removeAttr("idx");
+             $scope.enable_button=false;
+        })}
+        
+        /*var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
         var index = prevSelect.attr("idx");
         if (index && index !== -1) {
             $scope.productCollection.splice(index, 1);
             prevSelect.removeClass("stSelected");
             prevSelect.removeAttr("idx");
              $scope.enable_button=false;
-        }
+        }*/
     };
     $scope.doAddDublicate = function() {
         var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
@@ -40,9 +51,12 @@ app.controller('productsCtrl', ['$scope', '$rootScope', 'productService', functi
     $scope.doModifyItem = function(){
         var selectedPrdtData = $scope.getSelectedData()
         if(selectedPrdtData && selectedPrdtData.idx){
-            $scope.setCurrentStep(1);
-            $scope.proceedStep(selectedPrdtData.data.id,"/editWidgets/");
-        }
+           // $scope.setCurrentStep(1);
+           // productService.getProduct(selectedPrdtData.idx, true, function(res){
+           // $scope.selectedData.data =  res.data.data[0];
+            $scope.selectedData.currentStep =  1;
+            util.go("/editWidgets/"+ selectedPrdtData.idx +"/step/1");
+           }
     };
 
     $scope.doOpenItem = function(data){

@@ -27,23 +27,27 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
             });
     };
     
-     productAPI.deleteProduct = function(productId) {
+     productAPI.deleteProduct = function(productId,cbk) {
         return $http({
                 method: 'DELETE',
                 headers: {'Content-Type': 'application/json'},
                 url: '/api/product/'+productId
             }).then(function successCallback(response) {
+               if(cbk) { cbk(response)};
                 console.log("response :" + response);
             });
     };
     
-     productAPI.copyProduct = function(product,mode) {
+     productAPI.copyProduct = function(productId,mode,cbk) {
         return $http({
                 method: 'POST',
                 data: angular.toJson(product),
                 headers: {'Content-Type': 'application/json'},
                 url: '/api/product/'+product.id+'/clone/'+mode
             }).then(function successCallback(response) {
+             if(cbk) {
+                    cbk(response);
+                }
                 console.log("response :" + response);
             });
     };
