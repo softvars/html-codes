@@ -12,7 +12,7 @@ app.config([ '$routeProvider', function($routeProvider) {
         templateUrl: 'source/templates/product_widgets.html',
         controller: 'addWidgetsForproductCtrl'
     }).
-	when('/addWidgets/step:currentStep', {
+	when('/addWidgets/:productId/step/:currentStep', {
 		templateUrl : 'source/templates/product_widgets.html',
 		controller : 'addWidgetsForproductCtrl'
 	}).

@@ -1,10 +1,28 @@
-app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
+app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams"  , "$uibModal","productService", function($scope, $route, $routeParams, $uibModal, productService) {
+    console.log("current step:" + $routeParams.currentStep);
+    console.log("current pid:" + $routeParams.productId);
+    $scope.setCurrentStep = function(step){
+        $scope.currentStep = step;
+    };
+    
+    $scope.getCurrentStep = function(){
+        return $scope.currentStep;
+    };
+    
+    $scope.getSelectedData = function(isAdd){
+        productService.getProduct($routeParams.productId, true, function(res){
+            $scope.selectedData = {data: res.data[0]};
+        })
+    };
     
     var isAdd = location.href.indexOf("addWidgets") !== -1;
     $scope.isEnableNext=false;$scope.isEnableSave=true;
-    $scope.selectedData= $scope.getSelectedData(isAdd);
-    $scope.selectedData.currentStep = $scope.getCurrentStep();
-        
+    
+    $scope.getSelectedData(isAdd);
+    
+    //$scope.selectedData.currentStep = $scope.getCurrentStep();
+    $scope.selectedData.currentStep =  $routeParams.currentStep;
+    
     $scope.doNextClick = function(currentStep){
         $scope.setCurrentStep(parseInt($scope.getCurrentStep())+1);
         $scope.proceedStep($scope.selectedData.data.id);
@@ -16,7 +34,7 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
          $scope.proceedStep($scope.selectedData.data.id);
     };
     
-    $scope.doSaveClick = function(){
+    $scope.doSaveClick = function() {
         $scope.setSelectedWidgets();
       
         if($scope.selectedData.data.numSteps>$scope.getCurrentStep()){
@@ -127,7 +145,7 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
   };
 
     
-});
+}]);
   app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance,pdtId) {
       $scope.pdtId = pdtId;
     $scope.doClkPropertyConfirm = function (pdtId) {
@@ -137,4 +155,4 @@ app.controller("addWidgetsForproductCtrl", function($scope, $uibModal) {
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-    });
+});

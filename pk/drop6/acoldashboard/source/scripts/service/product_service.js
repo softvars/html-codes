@@ -14,13 +14,15 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
             });
     };
     
-    productAPI.addProduct = function(product) {
+    productAPI.addProduct = function(product, cbk) {
+        
         return $http({
                 method: 'POST',
                 data: angular.toJson(product),
                 headers: {'Content-Type': 'application/json'},
                 url: '/api/product'
             }).then(function successCallback(response) {
+                if(cbk) { cbk(response)};
                 console.log("response :" + response);
             });
     };
@@ -46,12 +48,15 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
             });
     };
     
-     productAPI.getProduct = function(product,isFull) {
+     productAPI.getProduct = function(productid, isFull, cbk) {
         return $http({
                 method: 'GET',
                 headers: {'Content-Type': 'application/json'},
-                url: '/product/'+product.id+'?full='+(isFull ||false)
+                url: '/api/product/'+productid+'?full='+(isFull || false)
             }).then(function successCallback(response) {
+                if(cbk) {
+                    cbk(response);
+                }
                 console.log("response :" + response);
             });
     };
