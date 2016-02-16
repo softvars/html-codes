@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var loki = require('lokijs');
-
 var app = express();
 var router = express.Router();
 var db = new loki('db4.json');
@@ -31,7 +30,7 @@ app.use(express.static('./../acoldashboard'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 //var products = db.getCollection('products') || db.addCollection('products',{ indices: ['id'] });
-app.post('/api/product', function(req, res){
+app.post('/product', function(req, res){
      var products = db.getCollection('products') || db.addCollection('products',{ indices: ['id'] });
     var reqData = req.body;
     console.log("inserting data ",reqData);
@@ -51,7 +50,7 @@ app.post('/api/product', function(req, res){
     res.json(returnSuccessData(reqData));
 });
 
-app.get('/api/product', function(req, res){
+app.get('/product', function(req, res){
     var products = db.getCollection('products') || db.addCollection('products',{ indices: ['id'] });
     db.loadDatabase({}, function () {
         if(products && products.data){
@@ -63,7 +62,7 @@ app.get('/api/product', function(req, res){
     })
 });
 
-app.get('/api/product/:id', function(req, res){
+app.get('/product/:id', function(req, res){
     var products = db.getCollection('products') || db.addCollection('products',{ indices: ['id'] });
     var id = parseInt(req.params.id);
     console.log("pid:" + id);
@@ -82,8 +81,8 @@ app.get('/api/product/:id', function(req, res){
         });
     }
 });
-app.post('/api/product/:id/step', function(req, res){
-    var products = db.getCollection('products') || db.addCollection('products',{ indices: ['id'] });
+app.post('/product/:id/step', function(req, res){
+    var widgets = db.getCollection('widgets') || db.addCollection('widgets',{ indices: ['id'] });
     var id = parseInt(req.params.id);
     var reqData = req.body;
     console.log("pid:" + id);
@@ -91,20 +90,29 @@ app.post('/api/product/:id/step', function(req, res){
    
     if(id) {
         db.loadDatabase({}, function () {
-            if(products && products.data){
-                product = products.find({"id": id});
-                product.widgets[reqData.step] = reqData.widgets;
-                products.update(product);
-                console.log("update product step :" + product);
+            console.log("widgets:",widgets)
+             console.log("widgetsdata:",widgets.data)
+            if(widgets && widgets.data){
+                  console.log("widgetsdata:",widgets.data)
+               var widData = widgets.find({"id": id});
+                if(widData){
+                    widgets.update(reqData.widgets);
+                }
+                
+                else{
+                widgets.insert(reqData.widgets);}
+               // products.update(product);
+                console.log("update product step :" + widgets);
             }
+            db.saveDatabase();
             res.set({"Content-Type": "application/json"});
             res.type('application/json');
-            res.send(returnSuccessData(product));
+            res.send(returnSuccessData(widgets));
         });
     }
 });
 
-app.delete('/api/product/:id', function (req, res) {
+app.delete('/product/:id', function (req, res) {
      var id = parseInt(req.params.id);
     console.log("pid:" + id);
     var resData = "";
@@ -124,7 +132,7 @@ app.delete('/api/product/:id', function (req, res) {
         });
     }
 });
-app.get('/api/category', function(req, res){
+app.get('/category', function(req, res){
    var data = [{"name": "Anagrafica","code": "ANAGRAFE"},
                             {"name": "Onboarding","code": "ONBOARDING"},
                             {"name": "Catalogo prodotti","code": "CATALOGO"}];
@@ -133,8 +141,13 @@ app.get('/api/category', function(req, res){
         res.send(returnSuccessData(data));
 });
 
-app.get('/api/widget', function(req, res){
-   var data = [{
+app.get('/widget?:category', function(req, res){
+    var catId = req.query.category;
+    console.log(req.query.category)
+    var widgets = db.getCollection('widgetList');
+   if(!widgets){
+       widgets = db.addCollection('widgetList');
+    var data = [{
     "name": "Email",
     "description": "Widget email",
     "code": "EMAIL",
@@ -142,51 +155,70 @@ app.get('/api/widget', function(req, res){
       "name": "Anagrafica",
       "code": "ANAGRAFE"
     },
-    "configurations": [{
-      "code": "VALIDAZIONE",
-      "name": "Validazione",
-      "description": "Validazione",
-      "multi": false,
-      "status": [{
-        "code": "INSERIMENTO_CODICE",
-        "description": "Il widget/componente viene validato con codice",
-        "style": null
-      }, {
-        "code": "INSERIMENTO_DOPPIO",
-        "description": "Il widget/componente viene validato con reinserimento",
-        "style": null
-      }, {
-        "code": "NON_VALIDARE",
-        "description": "Il widget/componente non viene validato",
-        "style": null
-      }]
-    }],
-    "components": [{
-      "code": "CODICE_EMAIL",
-      "name": "codice email","description": "Codice Email",
-      "properties": []
-    }, {
-      "code": "CONFERMA_EMAIL",
-      "name": "conferma email",
-      "description": "Conferma Email",
-      "properties": []
-    }, {
-      "code": "EMAIL",
-      "name": "email",
-      "description": "Email",
-      "properties": [{
-        "code": "VALUE"
-      }]
-    }],
-    "properties": [{
-      "code": "TEMPLATE",
-      "name": "Codice invia mail"
-    }]
-  }];
+    "configurations": [],
+    "components": [],
+    "properties": []
+  },{
+    "name": "Nome e Cognome",
+    "description": "Widget Nome e Cognome",
+    "code": "NOME_COGNOME",
+    "category": {
+      "name": "Anagrafica",
+      "code": "ANAGRAFE"
+    },
+    "configurations": [],
+    "components": [],
+    "properties": []
+  },{
+    "name": "Codice promozionale",
+    "description": "Widget Codice promozionale",
+    "code": "CODICE_PROMOZIONALE",
+    "category": {
+      "name": "Onboarding",
+      "code": "ONBOARDING"
+    },
+    "configurations": [],
+    "components": [],
+    "properties": []
+  },
+   {
+    "name": "Codice fiscale",
+    "description": "Widget Codice fiscale",
+    "code": "CODICE_FISCALE",
+    "category": {
+      "name": "Onboarding",
+      "code": "ONBOARDING"
+    },
+    "configurations": [],
+    "components": [],
+    "properties": []
+  },{
+    "name": "Cittadinanza",
+    "description": "Widget Cittadinanza",
+    "code": "CITTADINANZA",
+    "category": {
+      "name": "Catalogo prodotti",
+      "code": "CATALOGO"
+    },
+    "configurations": [],
+    "components": [],
+    "properties": []
+  }
+];
+       widgets.insert(data);
+   
+   }
+ if(catId) {
+    var resData = [];
+ widgets.where(function( obj ){ if(obj.category.code == catId){ console.log(obj); resData.push(obj);} });
 
-        res.set({"Content-Type": "application/json"});
-        res.type('application/json');
-        res.send(returnSuccessData(data));
+
+}
+ res.set({"Content-Type": "application/json"});
+            res.type('application/json');
+            res.send( returnSuccessData(resData));
+       
+    
 });
 //app.use(router);
 app.listen(3000);

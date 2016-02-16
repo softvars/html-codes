@@ -41,7 +41,7 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
     $scope.getSelectedData = function(isAdd){
         productService.getProduct($routeParams.productId, true, function(res){
             $scope.selectedData = {};
-            $scope.selectedData.data =  res.data[0];
+            $scope.selectedData.data =  isAdd && res.data && res.data.data[0] || res.data[0];
             $scope.selectedData.currentStep =  $scope.getCurrentStep();
             $scope.models.product_steps = [].concat($scope.getSelectedWidgets());
         })
@@ -60,21 +60,26 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
     };
      $scope.widgetList = [];
      $scope.getWidgets = function(){
-         for(var i = 0; i< $scope.categories.length-1;i++){
-              var catId = $scope.categories[i].code;
-             $scope.models.lists[catId] =[];
-             widgetService.getWidgetList( catId,function(res){
+         for(var i = 0; i< $scope.categories.length;i++){
+             var catList = $scope.categories[i];
+             var catId =catList.code;
+             $scope.models.lists[catId] =new Array();
+             
+             widgetService.getWidgetList(catId,function(res){
                  var resWidget = res && res.data && res.data.data ||[];
+                 
                   for(var j=0;j< resWidget.length;j++){
                       var imgUrl = "source/images/"+resWidget[j].code+".JPG"
-                      var wgtObj = {};
-                      wgtObj.id = resWidget[j].code;
-                      wgtObj.label = resWidget[j].name;
-                      wgtObj.url = imgUrl;
-                      wgtObj.type = "widget";
-                      wgtObj.catId = resWidget[j].category.code;
-                     $scope.models.lists[catId].push(wgtObj);
+                      var id = resWidget[j].code;
+                      var label = resWidget[j].name;
+                      var url = imgUrl;
+                      var catgId = resWidget[j].category.code;
+                   
+                     $scope.models.lists[catgId].push({id:id, type:"widget", catId:catgId, 
+                                                        label: label,url:url});
+                    
                 }
+                 
             });
          }
     };

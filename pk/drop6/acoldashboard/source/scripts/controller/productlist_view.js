@@ -1,7 +1,7 @@
 app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productService", "util", 
   function ($scope, $route, $routeParams, productService, util) {
     $scope.enable_button = false;
-    productService.loadProductList();
+    
     $scope.doRemoveItem = function() {
         var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
         var index = prevSelect.attr("data-idx");
@@ -72,6 +72,7 @@ app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productServi
     $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
     $scope.predicate = predicate;
   };
+      productService.loadProductList();
     
 
 }]);

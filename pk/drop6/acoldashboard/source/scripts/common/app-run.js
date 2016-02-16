@@ -1,8 +1,8 @@
 app.run(['$rootScope', '$http', 'productService','widgetService', function ($rootScope, $http, productService,widgetService) {
     $rootScope.productCollection = [];
     $rootScope.initDone = false;
-    productService.loadProductList();
-    widgetService.getCategoryList();
+  //  productService.loadProductList();
+  //  widgetService.getCategoryList();
     /*$rootScope.$watch('productCollection', function(productCollection) {
         $rootScope.productCollectionAsJson = angular.toJson(productCollection, true);
         if($rootScope.initDone) {
@@ -68,6 +68,19 @@ app.run(['$rootScope', '$http', 'productService','widgetService', function ($roo
         dataObj.properties = obj.properties||[];
         dataObj.releases =obj.releases||[];
         dataObj.steps = obj.steps ||'';
+        return dataObj;
+    };
+     $rootScope.widgetDataJson = function(obj){
+        var dataObj={};
+        dataObj.descr ="";
+        dataObj.name = obj.name || '';
+        dataObj.widgets=[];
+         var widgetObj ={};
+        widgetObj.code=obj.code||'';
+        widgetObj.bundleCode = obj.bundleCode ||'';
+        widgetObj.position = obj.favorite ||'';
+       dataObj.widgets.push(widgetObj);
+       
         return dataObj;
     };
    

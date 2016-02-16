@@ -4,7 +4,7 @@ app.factory('widgetService', ['$http', '$rootScope', function($http, $rootScope)
     widgetAPI.getCategoryList = function(cbk){
         return $http({
                 method: 'GET',
-                url: '/api/category'
+                url: '/category'
             }).then(function successCallback(response) {
             if(cbk){cbk(response);}
                 var data = response.data && response.data.data||[];
@@ -14,13 +14,27 @@ app.factory('widgetService', ['$http', '$rootScope', function($http, $rootScope)
      widgetAPI.getWidgetList = function(category,cbk){
         return $http({
                 method: 'GET',
-                url: '/api/widget?category='+category
+                url: '/widget?category='+category
             }).then(function successCallback(response) {
               if(cbk){cbk(response);}
                 var data = response.data && response.data.data||[];
                 return data;
             });
     };
+    
+    widgetAPI.createStep = function(id,data, cbk) {
+        return $http({
+                method: 'POST',
+                data: angular.toJson(data),
+                headers: {'Content-Type': 'application/json'},
+                url: '/product/'+id+'/step'
+            }).then(function successCallback(response) {
+                productAPI.doCache(response);
+                if(cbk) { cbk(response)};
+                console.log("response :" + response);
+            });
+    };
+
     
     return widgetAPI;
 }]);
