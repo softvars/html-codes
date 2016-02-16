@@ -4,5 +4,9 @@ app.factory('util', ['$rootScope', function($rootScope){
       location.href = "#" + path;
     };
     
+    util.hasPath = function(param){ 
+        return location.hash.indexOf(param) != -1 ;
+    };
+    
     return util;
 }]);

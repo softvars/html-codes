@@ -1,4 +1,5 @@
-app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productService","util", function ($scope, $route, $routeParams, productService,util) {
+app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productService", "util", 
+  function ($scope, $route, $routeParams, productService, util) {
     $scope.enable_button = false;
     productService.loadProductList();
     $scope.doRemoveItem = function() {
@@ -31,17 +32,18 @@ app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productServi
     };
 
     $scope.setselectedData = function(data){
-          var idx = $scope.productCollection.indexOf(data);
-          var elt = event.currentTarget;
-          var angElt =angular.element(elt)
-          var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
-           prevSelect.removeClass("stSelected");
-           prevSelect.removeAttr("idx");
-           if(!angElt.hasClass("stSelected")){
-               angElt.addClass("stSelected");
-               angElt.attr("idx",idx);
-                $scope.enable_button=true;
-           }
+        var idx = $scope.productCollection.indexOf(data);
+        var elt = event.currentTarget;
+        var angElt =angular.element(elt)
+        var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
+        prevSelect.removeClass("stSelected");
+        prevSelect.removeAttr("idx");
+        if(!angElt.hasClass("stSelected")){
+           angElt.addClass("stSelected");
+           angElt.attr("idx",idx);
+            $scope.enable_button=true;
+        }
+        $scope.selected = data;
     };
   
     $scope.go = function(path){
@@ -49,30 +51,21 @@ app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productServi
     };
 
     $scope.doModifyItem = function(){
-        var selectedPrdtData = $scope.getSelectedData()
-        if(selectedPrdtData && selectedPrdtData.idx){
-           // $scope.setCurrentStep(1);
-           // productService.getProduct(selectedPrdtData.idx, true, function(res){
-           // $scope.selectedData.data =  res.data.data[0];
-            $scope.selectedData.currentStep =  1;
-            util.go("/editWidgets/"+ selectedPrdtData.idx +"/step/1");
-           }
-    };
-
-    $scope.doOpenItem = function(data){
-        if(data) {
-            $scope.setselectedData(data);
-            $scope.setCurrentStep(1);
-            $scope.proceedStep(data.id, "/viewWidgets/", true);
-
-        } else {
-            var selectedPrdtData = $scope.getSelectedData()
-            if(selectedPrdtData && selectedPrdtData.idx){
-                $scope.setCurrentStep(1);
-                $scope.proceedStep(selectedPrdtData.data.id, "/viewWidgets/", true);
-            }
+        var selectedPrdtData = $scope.selected;
+        if(selectedPrdtData && selectedPrdtData.id){
+            productService.doCache(null, selectedPrdtData);
+            util.go("/editWidgets/"+ selectedPrdtData.id +"/step/1");
         }
     };
+
+    $scope.doOpenItem = function(data) {
+        var selectedPtd = data || $scope.selected;
+        if(selectedPtd) {
+            productService.doCache(null, selectedPtd);
+            util.go("/viewWidgets/"+ selectedPtd.id +"/step/1");
+        }
+    };
+    
     $scope.predicate = 'prodCode';
     $scope.reverse = false;
     $scope.order = function(predicate) {

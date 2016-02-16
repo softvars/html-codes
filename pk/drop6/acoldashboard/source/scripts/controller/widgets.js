@@ -1,4 +1,5 @@
-app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams"  , "$uibModal","productService","widgetService", function($scope, $route, $routeParams, $uibModal, productService,widgetService) {
+app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", "$uibModal", "util", "productService","widgetService", function($scope, $route, $routeParams, $uibModal, util, productService,widgetService) {
+    $scope.isView = util.hasPath("viewWidgets");
     console.log("current step:" + $routeParams.currentStep);
     console.log("current pid:" + $routeParams.productId);
     $scope.setCurrentStep = function(step){
@@ -8,12 +9,41 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams"  
     $scope.getCurrentStep = function(){
         return $scope.currentStep;
     };
-    
+    $scope.setCurrentStep($routeParams.currentStep);
+    $scope.getSelectedWidgets = function(){
+        var selectedwidgets = [];
+        if($scope.selectedData) {
+            var currentStep = parseInt($scope.selectedData.currentStep);
+            if(!(currentStep)) {
+                util.go("/");
+            }
+            var widgets = ($scope.selectedData.data && $scope.selectedData.data["widgets"]) || [] ;
+            if(widgets) {
+                selectedwidgets =  widgets[currentStep];
+            }
+        }
+        return (angular.isArray(selectedwidgets) ? selectedwidgets : []);
+    };
+     
+    $scope.setSelectedWidgets = function(){
+        var idx = parseInt($scope.selectedData.currentStep) ;
+        if(idx >= 0) {
+            var widgets =  $scope.selectedData.data["widgets"];
+            if(!widgets) {
+                $scope.selectedData.data.widgets = {};
+            }
+            $scope.selectedData.data.widgets[$scope.selectedData.currentStep] = $scope.models.product_steps;
+            productService.updateProductStep($scope.selectedData.data.id, $scope.selectedData.currentStep, $scope.models.product_steps, function(res){
+                //res.data[0];
+            })
+        }
+    };
     $scope.getSelectedData = function(isAdd){
         productService.getProduct($routeParams.productId, true, function(res){
-            $scope.selectedData.data =  res.data.data[0];
-            $scope.selectedData.currentStep =  $routeParams.currentStep;
-             $scope.models.product_steps = [].concat($scope.getSelectedWidgets());
+            $scope.selectedData = {};
+            $scope.selectedData.data =  res.data[0];
+            $scope.selectedData.currentStep =  $scope.getCurrentStep();
+            $scope.models.product_steps = [].concat($scope.getSelectedWidgets());
         })
     };
     
@@ -30,7 +60,6 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams"  
     };
      $scope.widgetList = [];
      $scope.getWidgets = function(){
-        
          for(var i = 0; i< $scope.categories.length-1;i++){
               var catId = $scope.categories[i].code;
              $scope.models.lists[catId] =[];
@@ -45,10 +74,9 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams"  
                       wgtObj.type = "widget";
                       wgtObj.catId = resWidget[j].category.code;
                      $scope.models.lists[catId].push(wgtObj);
-                    }
-            })
+                }
+            });
          }
-        
     };
     $scope.getCategories()
     /*  $scope.widgetImages=[
@@ -85,62 +113,38 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams"  
     
     $scope.doNextClick = function(currentStep){
         $scope.setCurrentStep(parseInt($scope.getCurrentStep())+1);
-        $scope.proceedStep($scope.selectedData.data.id);
+        //$scope.proceedStep($scope.selectedData.data.id);
+         util.go("/editWidgets/" + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); 
          $scope.isEnableNext =  $scope.isEnableNext;
     };
     
     $scope.doPreviousClick = function(currentStep){
          $scope.setCurrentStep(parseInt($scope.getCurrentStep())-1);
-         $scope.proceedStep($scope.selectedData.data.id);
+         util.go("/editWidgets/" + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); 
+         //$scope.proceedStep($scope.selectedData.data.id);
     };
     
     $scope.doSaveClick = function() {
         $scope.setSelectedWidgets();
-      
-        if($scope.selectedData.data.numSteps>$scope.getCurrentStep()){
-            $scope.setCurrentStep($scope.getCurrentStep()+1);
-            $scope.proceedStep($scope.selectedData.data.id); 
+        var currentStep = parseInt($scope.getCurrentStep());
+        if($scope.selectedData.data.numSteps > currentStep){
+            $scope.setCurrentStep(currentStep + 1);
+            //$scope.proceedStep($scope.selectedData.data.id); 
+            util.go("/editWidgets/" + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); 
             $scope.isEnableNext=true;
         }
         else{
             $scope.isEnableNext=false;
             $scope.isEnableSave=false;
-            $scope.go('/');
+            util.go('/');
         }
     };
     
     $scope.doCancel = function(){
-        $scope.models.product_steps =[];
-        $scope.setSelectedWidgets();
-    };
-    
-    $scope.getSelectedWidgets = function(){
-        var selectedwidgets = [];
-        if($scope.selectedData) {
-            var currentStep = parseInt($scope.selectedData.currentStep);
-            if(!(currentStep)) {
-                $scope.go("/");
-            }
-            var widgetsForStep = ($scope.selectedData.data && $scope.selectedData.data["widgetsForStep"]) || [] ;
-            if(widgetsForStep) {
-                selectedwidgets =  widgetsForStep[currentStep];
-            }
-        }
-        return (angular.isArray(selectedwidgets) ? selectedwidgets : []);
-    };
-     
-    $scope.setSelectedWidgets = function(){
-        var idx = parseInt($scope.selectedData.idx) ;
-        if(idx >= 0) {
-            var widgetsForStep =  $scope.productCollection[idx]["widgetsForStep"];
-            if(!widgetsForStep) {
-                $scope.productCollection[idx].widgetsForStep = {};
-            }
-            $scope.productCollection[idx].widgetsForStep[$scope.selectedData.currentStep] = $scope.models.product_steps;
-        }
-    };
-        
-   
+        //$scope.models.product_steps =[];
+        //$scope.setSelectedWidgets();
+        util.go('/');
+    };   
     
 /*    $scope.containsObject = function(obj, list) {
         var i;
@@ -204,9 +208,6 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams"  
     $scope.animationsEnabled = !$scope.animationsEnabled;
   };
 
-    
-    
-    
     
 }]);
   app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance,pdtId) {

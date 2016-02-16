@@ -15,7 +15,7 @@ app.controller('addProductCtrl', ["$scope", "$rootScope", "util","productService
             var pid = resData && resData.data ? resData.data.id : "0";
             console.log("pid:" + pid);
             console.log("res.data:" + res.data);
-            util.go("/addWidgets/"+ pid +"/step:1");
+            util.go("/addWidgets/"+ pid +"/step/1");
         });
         //$scope.productCollection.push(json);//
         //$scope.setCurrentStep(1);//

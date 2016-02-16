@@ -1,6 +1,6 @@
 app.factory('productService', ['$http', '$rootScope', function($http, $rootScope){
     var productAPI = {};
-    
+    productAPI.productTemp = null;
     productAPI.loadProductList = function(){
         return $http({
                 method: 'GET',
@@ -15,13 +15,26 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
     };
     
     productAPI.addProduct = function(product, cbk) {
-        
         return $http({
                 method: 'POST',
                 data: angular.toJson(product),
                 headers: {'Content-Type': 'application/json'},
                 url: '/api/product'
             }).then(function successCallback(response) {
+                productAPI.doCache(response);
+                if(cbk) { cbk(response)};
+                console.log("response :" + response);
+            });
+    };
+
+    productAPI.updateProductStep = function(productid, step, widgets, cbk) {
+        return $http({
+                method: 'POST',
+                data: angular.toJson({step: step, widgets: widgets}),
+                headers: {'Content-Type': 'application/json'},
+                url: '/api/product/' + productid + '/step' 
+            }).then(function successCallback(response) {
+                productAPI.doCache(response);
                 if(cbk) { cbk(response)};
                 console.log("response :" + response);
             });
@@ -45,24 +58,41 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 headers: {'Content-Type': 'application/json'},
                 url: '/api/product/'+product.id+'/clone/'+mode
             }).then(function successCallback(response) {
-             if(cbk) {
+                productAPI.doCache(response);
+                if(cbk) {
                     cbk(response);
                 }
                 console.log("response :" + response);
             });
     };
     
-     productAPI.getProduct = function(productid, isFull, cbk) {
-        return $http({
+    productAPI.getProduct = function(productid, isFull, cbk) {
+        if(!productAPI.getFromCache(productid, isFull, cbk)) {
+            return $http({
                 method: 'GET',
                 headers: {'Content-Type': 'application/json'},
                 url: '/api/product/'+productid+'?full='+(isFull || false)
             }).then(function successCallback(response) {
+                productAPI.doCache(response);
                 if(cbk) {
                     cbk(response);
                 }
                 console.log("response :" + response);
             });
+        }
+    };
+    
+    productAPI.doCache = function(response, data) {
+        productAPI.productTemp = data || (response && response.data && response.data[0]);
+    };
+    
+    productAPI.getFromCache = function(productid, isFull, cbk) {
+        var isAvail = false;
+        if(productAPI.productTemp && productAPI.productTemp.id == productid && cbk) {
+            cbk({data:[productAPI.productTemp]});
+            isAvail = true;
+        } 
+        return isAvail; 
     };
 
    /* productAPI.saveProductList = function(){

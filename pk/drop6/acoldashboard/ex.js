@@ -82,6 +82,28 @@ app.get('/api/product/:id', function(req, res){
         });
     }
 });
+app.post('/api/product/:id/step', function(req, res){
+    var products = db.getCollection('products') || db.addCollection('products',{ indices: ['id'] });
+    var id = parseInt(req.params.id);
+    var reqData = req.body;
+    console.log("pid:" + id);
+    var product = "";
+   
+    if(id) {
+        db.loadDatabase({}, function () {
+            if(products && products.data){
+                product = products.find({"id": id});
+                product.widgets[reqData.step] = reqData.widgets;
+                products.update(product);
+                console.log("update product step :" + product);
+            }
+            res.set({"Content-Type": "application/json"});
+            res.type('application/json');
+            res.send(returnSuccessData(product));
+        });
+    }
+});
+
 app.delete('/api/product/:id', function (req, res) {
      var id = parseInt(req.params.id);
     console.log("pid:" + id);
