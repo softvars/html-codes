@@ -11,18 +11,27 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
     };
     $scope.setCurrentStep($routeParams.currentStep);
     $scope.getSelectedWidgets = function(){
+       
         var selectedwidgets = [];
         if($scope.selectedData) {
             var currentStep = parseInt($scope.selectedData.currentStep);
             if(!(currentStep)) {
                 util.go("/");
             }
-            var widgets = ($scope.selectedData.data && $scope.selectedData.data["widgets"]) || [] ;
+            if($scope.selectedData.data && $scope.selectedData.data.id){
+        widgetService.getStepWidgets($scope.selectedData.data.id,function(res){
+            var widgets = (res.data&& res.data.data[0] && 
+                           res.data.data[0].steps && res.data.data[0].steps) || [] ;
             if(widgets) {
-                selectedwidgets =  widgets[currentStep];
+                selectedwidgets =  widgets[$scope.selectedData.currentStep];
+            }
+            console.log('',selectedwidgets);
+            selectedwidgets = (angular.isArray(selectedwidgets)) ? selectedwidgets : []
+            $scope.models.product_steps = [].concat(selectedwidgets);
+              });
             }
         }
-        return (angular.isArray(selectedwidgets) ? selectedwidgets : []);
+           
     };
      
     $scope.setSelectedWidgets = function(){
@@ -38,12 +47,14 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
             })
         }
     };
-    $scope.getSelectedData = function(isAdd){
+    $scope.getSelectedData = function(isAdd,cbk){
         productService.getProduct($routeParams.productId, true, function(res){
             $scope.selectedData = {};
             $scope.selectedData.data =  isAdd && res.data && res.data.data[0] || res.data[0];
             $scope.selectedData.currentStep =  $scope.getCurrentStep();
-            $scope.models.product_steps = [].concat($scope.getSelectedWidgets());
+            $scope.getSelectedWidgets();
+            console.log( $scope.models.product_steps);
+            if(cbk)cbk();
         })
     };
     
@@ -119,13 +130,28 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
     $scope.doNextClick = function(currentStep){
         $scope.setCurrentStep(parseInt($scope.getCurrentStep())+1);
         //$scope.proceedStep($scope.selectedData.data.id);
-         util.go("/editWidgets/" + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); 
-         $scope.isEnableNext =  $scope.isEnableNext;
+        var cbk = function(){
+            util.go("/editWidgets/" + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); 
+         $scope.isEnableNext =  $scope.isEnableNext;}
+        if($scope.selectedData && $scope.selectedData.data){
+                cbk();
+        }
+        else{
+                $scope.getSelectedData(isAdd,cbk);
+        }
+         
     };
     
     $scope.doPreviousClick = function(currentStep){
-         $scope.setCurrentStep(parseInt($scope.getCurrentStep())-1);
-         util.go("/editWidgets/" + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); 
+          $scope.setCurrentStep(parseInt($scope.getCurrentStep())-1);                                    
+       var cbk = function(){
+           util.go("/editWidgets/" + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); }
+        if($scope.selectedData && $scope.selectedData.data){
+                cbk();
+        }
+        else{
+                $scope.getSelectedData(isAdd,cbk);
+        }
          //$scope.proceedStep($scope.selectedData.data.id);
     };
     

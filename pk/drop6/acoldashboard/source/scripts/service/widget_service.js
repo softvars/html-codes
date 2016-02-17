@@ -29,7 +29,15 @@ app.factory('widgetService', ['$http', '$rootScope', function($http, $rootScope)
                 headers: {'Content-Type': 'application/json'},
                 url: '/product/'+id+'/step'
             }).then(function successCallback(response) {
-                productAPI.doCache(response);
+                if(cbk) { cbk(response)};
+                console.log("response :" + response);
+            });
+    };
+     widgetAPI.getStepWidgets = function(id,cbk) {
+        return $http({
+                method: 'GET',
+                url: '/product/'+id+'/step'
+            }).then(function successCallback(response) {
                 if(cbk) { cbk(response)};
                 console.log("response :" + response);
             });
