@@ -4,6 +4,7 @@ var loki = require('lokijs');
 var app = express();
 var router = express.Router();
 var db = new loki('db4.json');
+db.loadDatabase();
 var productResponseData='';
 
 function returnSuccessData(data){
@@ -90,24 +91,57 @@ app.post('/product/:id/step', function(req, res){
    
     if(id) {
         db.loadDatabase({}, function () {
-            console.log("widgets:",widgets)
-             console.log("widgetsdata:",widgets.data)
+            //console.log("widgets:", widgets)
             if(widgets && widgets.data){
-                  console.log("widgetsdata:",widgets.data)
-               var widData = widgets.find({"id": id});
-                if(widData){
-                    widgets.update(reqData.widgets);
+                console.log("widgetsdata:", widgets.data);
+                var queryObj = {"id": id};
+                var widData = widgets.find(queryObj);
+                if(widData && widData.length){
+                    console.log("widData:", widData);
+                    widData.steps[reqData.step] = reqData.widgets;
+                    widgets.update(widData);
+                    console.log("update product step :" + widData);
                 }
-                
                 else{
-                widgets.insert(reqData.widgets);}
-               // products.update(product);
-                console.log("update product step :" + widgets);
+                    queryObj.steps = {}
+                    queryObj.steps[reqData.step] = reqData.widgets;
+                    widData = widgets.insert(queryObj);
+                    console.log("inserted product step :" + widData);
+                }
             }
+        });
             db.saveDatabase();
             res.set({"Content-Type": "application/json"});
             res.type('application/json');
             res.send(returnSuccessData(widgets));
+        //db.saveDatabase();//
+    }
+});
+app.get('/product/:id/step', function(req, res){
+    var widgets = db.getCollection('widgets');
+    var id = parseInt(req.params.id);
+    //var reqData = req.body;
+    console.log("pid:" + id);
+    var product = "";
+   
+    if(id) {
+        db.loadDatabase({}, function () {
+            console.log("widgets:", widgets)
+            if(widgets && widgets.data){
+                console.log("widgetsdata:",widgets.data);
+                var queryObj = {"id": id};
+                var widData = widgets.find(queryObj);
+                if(widData){
+                    //widData[widData.step] = reqData.widgets;
+                    //widgets.update(widData);
+                    console.log("product step :" + widData);
+                    console.log("product step :" + widData.step);
+                }
+            }
+            db.saveDatabase();
+            res.set({"Content-Type": "application/json"});
+            res.type('application/json');
+            res.send(returnSuccessData(widData));
         });
     }
 });
@@ -143,7 +177,7 @@ app.get('/category', function(req, res){
 
 app.get('/widget?:category', function(req, res){
     var catId = req.query.category;
-    console.log(req.query.category)
+    //console.log(req.query.category)
     var widgets = db.getCollection('widgetList');
    if(!widgets){
        widgets = db.addCollection('widgetList');
@@ -210,7 +244,7 @@ app.get('/widget?:category', function(req, res){
    }
  if(catId) {
     var resData = [];
- widgets.where(function( obj ){ if(obj.category.code == catId){ console.log(obj); resData.push(obj);} });
+ widgets.where(function( obj ){ if(obj.category.code == catId){ resData.push(obj);} });
 
 
 }

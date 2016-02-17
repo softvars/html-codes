@@ -7,6 +7,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 url: '/product'
             }).then(function successCallback(response) {
                 //productAPI.doCache(response);
+                productAPI.doClearCache();
                 var data = response.data && response.data.data||[];
                 if(data) {
                     $rootScope.productCollection = angular.isArray(data) ? data : [data];
@@ -35,7 +36,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 headers: {'Content-Type': 'application/json'},
                 url: '/product/' + productid + '/step' 
             }).then(function successCallback(response) {
-                productAPI.doCache(response);
+                productAPI.doClearCache();
                 if(cbk) { cbk(response)};
                 console.log("response :" + response);
             });
@@ -81,6 +82,10 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 console.log("response :" + response);
             });
         }
+    };
+    
+    productAPI.doClearCache = function(){
+        productAPI.productTemp = null;
     };
     
     productAPI.doCache = function(response, data) {
