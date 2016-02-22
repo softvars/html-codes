@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rest-client version="3.2.2"><request><http-version>1.1</http-version><http-follow-redirects/><URL>http://192.50.51.208:7001/hypehub/initiatPaymentRequestForUserGroup</URL><method>POST</method><headers><header key="Accept" value="application/xml"/></headers><body><string content-type="application/xml" charset="UTF-8">&lt;InitiatPaymentRequestForUserGrouoRequest&gt;
+ &lt;merchantId&gt;1001&lt;/merchantId&gt;
+ &lt;userGroupId&gt;105&lt;/userGroupId&gt;
+ &lt;totalAmount&gt;100&lt;/totalAmount&gt;
+&lt;/InitiatPaymentRequestForUserGrouoRequest&gt;</string></body></request></rest-client>

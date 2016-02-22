@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rest-client version="3.2.2"><request><http-version>1.1</http-version><http-follow-redirects/><URL>http://localhost:7001/hypehub/updatePaymentCodeTrxStatus</URL><method>POST</method><body><string content-type="application/xml" charset="UTF-8">&lt;UpdatePaymentCodeTrxStatusRequest&gt;
+	&lt;paymentCodeId&gt;1&lt;/paymentCodeId&gt;
+	&lt;status&gt;PAYMENT_FINISHED&lt;/status&gt;
+&lt;/UpdatePaymentCodeTrxStatusRequest&gt;</string></body></request></rest-client>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rest-client version="3.2.2"><request><http-version>1.1</http-version><http-follow-redirects/><URL>http://192.50.51.208:7001/hypehub/processPayment</URL><method>POST</method><body><string content-type="application/xml" charset="UTF-8">&lt;ProcessPaymentRequest&gt;
+	&lt;TransactionId&gt;4&lt;/TransactionId&gt;
+	&lt;VpayAmount&gt;30&lt;/VpayAmount&gt;
+	&lt;Status&gt;PROCESS&lt;/Status&gt;
+&lt;/ProcessPaymentRequest&gt;
+</string></body></request></rest-client>

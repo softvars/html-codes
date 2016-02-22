@@ -1,0 +1,19 @@
+<ion-view title="Group">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <h3>Group Payment</h3>
+        <div class="spacer" style="width: 284px; height: 19px;"></div>
+        <ion-list>
+            <ion-item class="item-divider">Code</ion-item>
+            <label class="item item-input" name="code">
+                <input type="text" placeholder="WATER0203">
+            </label>
+            <ion-item class="item-divider">Connected Hype Users</ion-item>
+            <label class="item item-input" name="usercount">
+                <span class="input-label">Count</span>
+                <input type="text" placeholder="1">
+            </label>
+        </ion-list>
+        <div class="spacer" style="width: 284px; height: 55px;"></div>
+        <a ui-sref="vPayRequestInitiated" class="button button-balanced button-block ">Send Request</a>
+    </ion-content>
+</ion-view>
