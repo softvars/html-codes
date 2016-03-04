@@ -20,20 +20,21 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
             }
             if($scope.selectedData.data && $scope.selectedData.data.id){
         widgetService.getStepWidgets($scope.selectedData.data.id,function(res){
-            var widgets = (res.data&& res.data.data[0] && 
-                           res.data.data[0].steps && res.data.data[0].steps) || [] ;
-            if(widgets) {
+            console.log(" res.data ",res.data);
+            var widgets = (res.data&& res.data.data && res.data.data[0] && res.data.data[0].widgets && res.data.data[0].widgets) || [] ;
+            console.log("widgets ",widgets);
+            /*if(widgets) {
                 selectedwidgets =  widgets[$scope.selectedData.currentStep];
-            }
-            console.log('',selectedwidgets);
-            selectedwidgets = (angular.isArray(selectedwidgets)) ? selectedwidgets : []
-            $scope.models.product_steps = [].concat(selectedwidgets);
-              });
+            }*/
+            console.log('selectedwidgets ',widgets);
+            selectedwidgets = (angular.isArray(widgets)) ? widgets : []
+            $scope.models.product_steps = [].concat(widgets);
+              },currentStep);
             }
         }
-           
+
     };
-     
+
     $scope.setSelectedWidgets = function(){
         var idx = parseInt($scope.selectedData.currentStep) ;
         if(idx >= 0) {
@@ -41,16 +42,35 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
             if(!widgets) {
                 $scope.selectedData.data.widgets = {};
             }
+            $scope.models.product_steps = $scope.createStepJson($scope.selectedData.data.id,$scope.models.product_steps);
             $scope.selectedData.data.widgets[$scope.selectedData.currentStep] = $scope.models.product_steps;
             productService.updateProductStep($scope.selectedData.data.id, $scope.selectedData.currentStep, $scope.models.product_steps, function(res){
                 //res.data[0];
             })
         }
     };
+    $scope.createStepJson =  function(id,input){
+        var widgets = [];
+        for(i=0;i<input.length;i++){
+            widgetInfo = {
+                code : input[i].id || input[i].code ||'',
+                bundleCode: null,
+                position: 1,
+                configurations: [],
+                components: [],
+                properties: []
+            }
+            widgets.push(widgetInfo);
+
+        }
+
+        return widgets;
+
+    };
     $scope.getSelectedData = function(isAdd,cbk){
         productService.getProduct($routeParams.productId, true, function(res){
             $scope.selectedData = {};
-            $scope.selectedData.data =  isAdd && res.data && res.data.data[0] || res.data[0];
+            $scope.selectedData.data =  isAdd && res.data && res.data.data && res.data.data[0] || res.data && res.data.data &&            res.data.data[0] ||res.data[0] ||[];
             $scope.selectedData.currentStep =  $scope.getCurrentStep();
             $scope.getSelectedWidgets();
             console.log( $scope.models.product_steps);
@@ -80,17 +100,18 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
                  var resWidget = res && res.data && res.data.data ||[];
                  
                   for(var j=0;j< resWidget.length;j++){
-                      var imgUrl = "source/images/"+resWidget[j].code+".JPG"
+                      var imgUrl = "/acol/app/images/"+resWidget[j].code+".JPG"
                       var id = resWidget[j].code;
                       var label = resWidget[j].name;
                       var url = imgUrl;
                       var catgId = resWidget[j].category.code;
-                   
-                     $scope.models.lists[catgId].push({id:id, type:"widget", catId:catgId, 
+
+                     $scope.models.lists[catgId].push({id:id, type:"widget", catId:catgId,
                                                         label: label,url:url});
-                    
+
                 }
-                 
+
+
             });
          }
     };
@@ -101,7 +122,7 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
                         {name:"Codice fiscale ",img:"cod_fiscale",catId:"A"},
                         {name:"Email",img:"email",catId:"B"},
                         {name:"Cittadinanza",img:"city",catId:"B"},
-                        
+
                 ];
     $scope.createWidgetData = function(){
         var widgetImg = $scope.widgetList;
@@ -114,7 +135,7 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
                 var categoryId = widgetCat[j]+"_"+widgetId;
                 var imgUrl = "source/images/"+widgetId+".JPG"
                if(widgetImg[i].catId==wCat){
-                $scope.models.lists[wCat].push({id:widgetId, type:"widget", catId:categoryId + i, 
+                $scope.models.lists[wCat].push({id:widgetId, type:"widget", catId:categoryId + i,
                                                         label: widgetImg[i].name,url:imgUrl});
                }
 
@@ -122,16 +143,18 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
         }
     };
     $scope.createWidgetData();*/
-  
-   
+
+
     //$scope.selectedData.currentStep = $scope.getCurrentStep();
-    
-    
+
+
     $scope.doNextClick = function(currentStep){
         $scope.setCurrentStep(parseInt($scope.getCurrentStep())+1);
         //$scope.proceedStep($scope.selectedData.data.id);
         var cbk = function(){
-            util.go("/editWidgets/" + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); 
+            var  path = util.hasPath("viewWidgets")  && "/viewWidgets/" || util.hasPath("editWidgets") && "/editWidgets/"||util.hasPath("addWidgets") &&"/addWidgets/" ||'';
+          
+            util.go(path + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); 
          $scope.isEnableNext =  $scope.isEnableNext;}
         if($scope.selectedData && $scope.selectedData.data){
                 cbk();
@@ -145,7 +168,9 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
     $scope.doPreviousClick = function(currentStep){
           $scope.setCurrentStep(parseInt($scope.getCurrentStep())-1);                                    
        var cbk = function(){
-           util.go("/editWidgets/" + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); }
+             var  path = util.hasPath("viewWidgets")  && "/viewWidgets/" || util.hasPath("editWidgets") && "/editWidgets/"||util.hasPath("addWidgets") &&"/addWidgets/" ||'';
+           
+           util.go(path + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); }
         if($scope.selectedData && $scope.selectedData.data){
                 cbk();
         }
@@ -161,7 +186,8 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
         if($scope.selectedData.data.numSteps > currentStep){
             $scope.setCurrentStep(currentStep + 1);
             //$scope.proceedStep($scope.selectedData.data.id); 
-            util.go("/editWidgets/" + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); 
+               var  path = util.hasPath("viewWidgets")  && "/viewWidgets/" || util.hasPath("editWidgets") && "/editWidgets/"||util.hasPath("addWidgets") &&"/addWidgets/" ||'';
+            util.go(path + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); 
             $scope.isEnableNext=true;
         }
         else{
@@ -219,7 +245,7 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
     $scope.pdtId =event.currentTarget.id;
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
-      templateUrl: 'source/templates/product_property.html',
+      templateUrl: '/acol/app/templates/product_property.html',
       controller: 'ModalInstanceCtrl',
       resolve: {
         pdtId: function () {
@@ -239,7 +265,7 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
     $scope.animationsEnabled = !$scope.animationsEnabled;
   };
 
-    
+
 }]);
   app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance,pdtId) {
       $scope.pdtId = pdtId;

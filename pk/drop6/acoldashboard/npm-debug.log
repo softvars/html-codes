@@ -1,0 +1,70 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\software\\nodejs\\\\node.exe',
+1 verbose cli   'D:\\software\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'angular-dataTables' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node symlink D:\software\nodejs\\node.exe
+5 verbose cache add [ 'angular-dataTables', null ]
+6 verbose cache add name=undefined spec="angular-dataTables" args=["angular-dataTables",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'angular-dataTables',
+7 verbose parsed url   path: 'angular-dataTables',
+7 verbose parsed url   href: 'angular-dataTables' }
+8 silly lockFile 59820a23-angular-dataTables angular-dataTables
+9 verbose lock angular-dataTables C:\Users\gbs03834\AppData\Roaming\npm-cache\59820a23-angular-dataTables.lock
+10 silly lockFile 59820a23-angular-dataTables angular-dataTables
+11 silly lockFile 59820a23-angular-dataTables angular-dataTables
+12 verbose addNamed [ 'angular-dataTables', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile fc6ba1d4-angular-dataTables angular-dataTables@
+15 verbose lock angular-dataTables@ C:\Users\gbs03834\AppData\Roaming\npm-cache\fc6ba1d4-angular-dataTables.lock
+16 silly addNameRange { name: 'angular-dataTables', range: '*', hasData: false }
+17 verbose request where is /angular-dataTables
+18 verbose request registry http://registry.npmjs.org/
+19 verbose request id 683f7566c4e5f697
+20 verbose url raw /angular-dataTables
+21 verbose url resolving [ 'http://registry.npmjs.org/', './angular-dataTables' ]
+22 verbose url resolved http://registry.npmjs.org/angular-dataTables
+23 verbose request where is http://registry.npmjs.org/angular-dataTables
+24 info trying registry request attempt 1 at 15:56:45
+25 http GET http://registry.npmjs.org/angular-dataTables
+26 http 404 http://registry.npmjs.org/angular-dataTables
+27 silly registry.get cb [ 404,
+27 silly registry.get   { 'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=0',
+27 silly registry.get     'content-length': '2',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     date: 'Wed, 02 Mar 2016 10:26:47 GMT',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     'x-served-by': 'cache-ams4120-AMS',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1456914406.458226,VS0,VE701',
+27 silly registry.get     connection: 'Keep-Alive',
+27 silly registry.get     age: '0' } ]
+28 silly lockFile fc6ba1d4-angular-dataTables angular-dataTables@
+29 silly lockFile fc6ba1d4-angular-dataTables angular-dataTables@
+30 error 404 Not Found
+30 error 404
+30 error 404 'angular-dataTables' is not in the npm registry.
+30 error 404 You should bug the author to publish it
+30 error 404
+30 error 404 Note that you can also install from a
+30 error 404 tarball, folder, or http url, or git url.
+31 error System Windows_NT 6.1.7601
+32 error command "D:\\software\\nodejs\\\\node.exe" "D:\\software\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "angular-dataTables"
+33 error cwd D:\software\nodejs\acoldashboard
+34 error node -v v0.10.33
+35 error npm -v 1.4.28
+36 error code E404
+37 verbose exit [ 1, true ]

@@ -1,6 +1,6 @@
 app.factory('widgetService', ['$http', '$rootScope', function($http, $rootScope){
     var widgetAPI = {};
-    
+
     widgetAPI.getCategoryList = function(cbk){
         return $http({
                 method: 'GET',
@@ -33,16 +33,17 @@ app.factory('widgetService', ['$http', '$rootScope', function($http, $rootScope)
                 console.log("response :" + response);
             });
     };
-     widgetAPI.getStepWidgets = function(id,cbk) {
+    widgetAPI.getStepWidgets = function(id,cbk,step) {
+        
         return $http({
                 method: 'GET',
-                url: '/product/'+id+'/step'
+                url: '/product/'+id+'/step/'+step
             }).then(function successCallback(response) {
                 if(cbk) { cbk(response)};
                 console.log("response :" + response);
             });
     };
 
-    
+
     return widgetAPI;
 }]);

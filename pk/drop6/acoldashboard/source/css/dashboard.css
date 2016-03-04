@@ -109,7 +109,7 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
-.newPrdtForm .table, .newPrdtForm .table tr, .newPrdtForm .table tbody>tr>td,.pdtProperty .table,.pdtProperty .table tr,.pdtProperty .table tbody>tr>td{
+.newPrdtForm .table, .newPrdtForm .table tr, .newPrdtForm .table tbody>tr>td,.pdtProperty .table,.pdtProperty .table tr,.pdtProperty .table tbody>tr>td .updatePrdtForm .table, .updatePrdtForm .table tr,.updatePrdtForm .table tbody>tr>td{
 border:none;
 }
 
@@ -155,7 +155,7 @@ table.productList > thead > tr:nth-child(2) th {
     padding: 11px 0;
     text-align: center;
 }
-table.productList > thead > tr:nth-child(2) {
+table.productList > thead  {
     background-color: #607D8B;
     border: 1px solid #607D88; 
     color: #fff;
@@ -231,3 +231,18 @@ content: '\25BC';
 .field-error{
      color: #ff0039;
 }
+a,a:visited {
+color: #00809b;
+text-decoration: none;
+}
+.table_icon{
+    padding:1px 6px;
+}
+.stSelected {
+    background-color: #428bca !important;
+    color: #fff !important;
+}
+.popover,.arrow {
+color: darkcyan;
+padding: 0px;
+};

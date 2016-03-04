@@ -1,4 +1,4 @@
-app.run(['$rootScope', '$http', 'productService','widgetService', function ($rootScope, $http, productService,widgetService) {
+app.run(['$rootScope', '$http', 'productService','widgetService',"$uibModal", function ($rootScope, $http, productService,widgetService,$uibModal) {
     $rootScope.productCollection = [];
     $rootScope.initDone = false;
   //  productService.loadProductList();
@@ -53,7 +53,7 @@ app.run(['$rootScope', '$http', 'productService','widgetService', function ($roo
         var selData = $rootScope.productCollection[index];
     
         var dataObj={};
-        dataObj.id =obj.id || ((selData && selData.id) && (selData.id+1)) || 1 ;
+        dataObj.id =obj.id || "";//((selData && selData.id) && (selData.id+1)) || 1 ;
         dataObj.prodCode = obj.prodCode || '';
         dataObj.name=obj.name||'';
         dataObj.version=obj.version||'';
@@ -80,10 +80,10 @@ app.run(['$rootScope', '$http', 'productService','widgetService', function ($roo
         widgetObj.bundleCode = obj.bundleCode ||'';
         widgetObj.position = obj.favorite ||'';
        dataObj.widgets.push(widgetObj);
-       
+
         return dataObj;
     };
-   
+
 
     $rootScope.getSelectedData = function(isNew){
         var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
@@ -94,22 +94,22 @@ app.run(['$rootScope', '$http', 'productService','widgetService', function ($roo
         var obj = {};
           if(isNew){
               index = $rootScope.productCollection.length-1;
-              
+
           }
           obj={'idx':index,'data':$rootScope.productCollection[index]}
         if (index && index !== -1) {
             $rootScope.selectedData =obj;
         return obj;}else{return false;}
     }
-    
+
     $rootScope.go = function(path){
        location.href="#"+path;
     }
-    
+
     $rootScope.setCurrentStep = function(step){
         $rootScope.currentStep = step;
     }
-    
+
     $rootScope.getCurrentStep = function(){
         return($rootScope.currentStep);
     }
@@ -135,26 +135,31 @@ app.run(['$rootScope', '$http', 'productService','widgetService', function ($roo
         }
     }
     
-    /*$rootScope.createModel = function(tempName,title,succClk,errClk){
-        
-      var alertInstance = $uibModal.open({
+    
+    
+    $rootScope.createModel = function(tempName,controller,succClk,errClk,obj){
+        var tempobj = Object.keys(obj) ;
+        $rootScope[tempobj[0]] = obj[tempobj];
+      $rootScope.alertInstance = $uibModal.open({
      
-      templateUrl: tempName,
-      controller: 'alertInstanceCtrl',
+      templateUrl: '/acol/app/templates/'+tempName,
+      controller: controller || 'alertInstanceCtrl',
       resolve: {
-       
+       obj:obj
       }
     });
 
-    alertInstance.result.then(function (clk) {
-       
+    $rootScope.alertInstance.result.then(function() {
+        if(succClk)succClk();
+      // $uibModalInstance.close();
     }, function () {
-     
+        if(errClk) errClk();
+       //  $uibModalInstance.dismiss('cancel');
     });
-    }*/
+    }
     
 }]);
-/* app.controller('alertInstanceCtrl', function ($scope, $uibModalInstance) {
+ app.controller('alertInstanceCtrl', function ($scope, $uibModalInstance) {
     
     $scope.ok = function () {
       $uibModalInstance.close();
@@ -163,4 +168,4 @@ app.run(['$rootScope', '$http', 'productService','widgetService', function ($roo
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-    });*/
+    });

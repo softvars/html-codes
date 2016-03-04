@@ -32,16 +32,16 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
     productAPI.updateProductStep = function(productid, step, widgets, cbk) {
         return $http({
                 method: 'POST',
-                data: angular.toJson({step: step, widgets: widgets}),
+            data: angular.toJson({number: step,name:"step"+step, widgets: widgets}),
                 headers: {'Content-Type': 'application/json'},
-                url: '/product/' + productid + '/step' 
+                url: '/product/' + productid + '/step'
             }).then(function successCallback(response) {
                 productAPI.doClearCache();
                 if(cbk) { cbk(response)};
                 console.log("response :" + response);
             });
     };
-    
+
      productAPI.deleteProduct = function(productId,cbk) {
         return $http({
                 method: 'DELETE',
@@ -52,7 +52,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 console.log("response :" + response);
             });
     };
-    
+
      productAPI.copyProduct = function(productId,mode,cbk) {
         return $http({
                 method: 'POST',
@@ -67,7 +67,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 console.log("response :" + response);
             });
     };
-    
+
     productAPI.getProduct = function(productid, isFull, cbk) {
         if(!productAPI.getFromCache(productid, isFull, cbk)) {
             return $http({
@@ -75,7 +75,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 headers: {'Content-Type': 'application/json'},
                 url: '/product/'+productid+'?full='+(isFull || false)
             }).then(function successCallback(response) {
-                productAPI.doCache(response);
+              //  productAPI.doCache(response);
                 if(cbk) {
                     cbk(response);
                 }
@@ -84,14 +84,28 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
         }
     };
     
+     productAPI.updateProduct = function(product,cbk) {
+        return $http({
+                method: 'POST',
+                data: angular.toJson(product),
+                headers: {'Content-Type': 'application/json'},
+                url: '/product/' + product.id
+            }).then(function successCallback(response) {
+               // productAPI.doClearCache();
+                if(cbk) { cbk(response)};
+                console.log("response :" + response);
+            });
+    };
+
+
     productAPI.doClearCache = function(){
         productAPI.productTemp = null;
     };
-    
+
     productAPI.doCache = function(response, data) {
         productAPI.productTemp = data || (response && response.data && response.data[0]);
     };
-    
+
     productAPI.getFromCache = function(productid, isFull, cbk) {
         var isAvail = false;
         if(productAPI.productTemp && productAPI.productTemp.id == productid && cbk) {

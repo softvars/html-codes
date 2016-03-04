@@ -83,69 +83,61 @@ app.get('/product/:id', function(req, res){
     }
 });
 app.post('/product/:id/step', function(req, res){
-    var widgets = db.getCollection('widgets') || db.addCollection('widgets',{ indices: ['id'] });
+    var widgets = db.getCollection('steps') || db.addCollection('steps',{ indices: ['id'] });
     var id = parseInt(req.params.id);
     var reqData = req.body;
-    console.log("pid:" + id);
     var product = "";
-   
+    console.log(" widgets ",widgets);
     if(id) {
-             if(widgets && widgets.data){
+        if(widgets && widgets.data){
                 var queryObj = {"id": id};
                 var widData = widgets.find(queryObj);
                 console.log("reqData",reqData)
                 if(widData && widData.length>0){
-                    console.log("widData:", widData);
-                    if(widData.steps){
-                        widData.steps[reqData.step] = reqData.widgets;}
-                    else{
-                         widData.steps = {}
-                        widData.steps[reqData.step] = reqData.widgets;
-                     
-                    }
-                    console.log("widgets1:",widgets);
+                     widData.widgets = reqData.widgets;
+                   
+                    console.log("widgets1:",reqData.widgets);
                     widgets.update(widData);
-                    
+
                     console.log("update product step :" + widData);
                      db.saveDatabase();
                 }
                 else{
-                       console.log("elsepart:",reqData.step);
-                    queryObj.steps = {}
-                    queryObj.steps[reqData.step] = reqData.widgets;
-                     
-                    var insertData = widgets.insert(queryObj);
+                 
+                                           console.log("elsepart:",widData);
+                 
+                   reqData.id = id;
+                    var insertData = widgets.insert(reqData);
                      db.saveDatabase();
-                    console.log("collectData:",db.getCollection('widgets').data);
-                    
+                    console.log("collectData:",db.getCollection('steps').data);
+
                 }
             }
-       
-           
+
+
             res.set({"Content-Type": "application/json"});
             res.type('application/json');
             res.send(returnSuccessData(widgets.data));
         //db.saveDatabase();//
     }
 });
-app.get('/product/:id/step', function(req, res){
-    var widgets = db.getCollection('widgets');
+app.get('/product/:id/step/:step', function(req, res){
+    var widgets = db.getCollection('steps');
     var id = parseInt(req.params.id);
+    var stepNo = req.params.step
     //var reqData = req.body;
     console.log("pid:" + id);
     var product = "";
-   
+
     if(id) {
         db.loadDatabase({}, function () {
             if(widgets && widgets.data){
                
-                var queryObj = {"id": id};
+                var queryObj = {"id": id,"number": stepNo};
+                console.log("####queryObj#######",queryObj) ;
                 var widData = widgets.find(queryObj);
-                if(widData){
-                    //widData[widData.step] = reqData.widgets;
-                    //widgets.update(widData);
-                   
-                }
+                console.log(widData);
+                
             }
             //db.saveDatabase();
             res.set({"Content-Type": "application/json"});
@@ -166,12 +158,41 @@ app.delete('/product/:id', function (req, res) {
                 collectData = db.getCollection('products')
                 collectData.remove(resData);
                 db.saveDatabase();
-                
+
             }
             res.set({"Content-Type": "application/json"});
             res.type('application/json');
             res.send( returnSuccessData([]));
         });
+    }
+});
+app.post('/product/:id', function (req, res) {
+     var products = db.getCollection('products');
+    var id = parseInt(req.params.id);
+    var reqData = req.body;
+    if(id) {
+        if(products && products.data){
+            var queryObj = {"id": id};
+                var prdData = products.find(queryObj);
+                console.log("reqData",reqData)
+                if(prdData && prdData.length>0){
+                    products.update(reqData);
+                    db.saveDatabase();
+                }
+                else{
+                    reqData.id=id;
+                    var insertData = products.insert(reqData);
+                     db.saveDatabase();
+                    
+
+                }
+            
+              res.set({"Content-Type": "application/json"});
+            res.type('application/json');
+            res.send(returnSuccessData(products.data));
+        
+        }
+       
     }
 });
 app.get('/category', function(req, res){
@@ -248,7 +269,7 @@ app.get('/widget?:category', function(req, res){
   }
 ];
        widgets.insert(data);
-   
+
    }
  if(catId) {
     var resData = [];
@@ -259,8 +280,8 @@ app.get('/widget?:category', function(req, res){
  res.set({"Content-Type": "application/json"});
             res.type('application/json');
             res.send( returnSuccessData(resData));
-       
-    
+
+
 });
 //app.use(router);
 app.listen(3000);

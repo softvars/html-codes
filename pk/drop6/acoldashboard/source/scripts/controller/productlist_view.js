@@ -1,27 +1,20 @@
-app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productService", "util", 
-  function ($scope, $route, $routeParams, productService, util) {
+app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productService", "util","DTOptionsBuilder","DTColumnDefBuilder","$uibModal",
+  function ($scope, $route, $routeParams, productService, util, DTOptionsBuilder, DTColumnDefBuilder,$uibModal) {
     $scope.enable_button = false;
     
-    $scope.doRemoveItem = function() {
-        var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
-        var index = prevSelect.attr("data-idx");
+    $scope.doRemoveItem = function(index) {
+    //    var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
+       // var index = prevSelect.attr("data-idx");
         if (index && index !== -1) {
             productService.deleteProduct(index, function(res){
             $scope.selectedData.data =  res.data.data[0];
             productService.loadProductList();
-            prevSelect.removeClass("stSelected");
-            prevSelect.removeAttr("idx");
+          /*  prevSelect.removeClass("stSelected");
+            prevSelect.removeAttr("idx");*/
              $scope.enable_button=false;
         })}
         
-        /*var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
-        var index = prevSelect.attr("idx");
-        if (index && index !== -1) {
-            $scope.productCollection.splice(index, 1);
-            prevSelect.removeClass("stSelected");
-            prevSelect.removeAttr("idx");
-             $scope.enable_button=false;
-        }*/
+     
     };
     $scope.doAddDublicate = function() {
         var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
@@ -50,7 +43,7 @@ app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productServi
        location.href = "#"+path;
     };
 
-    $scope.doModifyItem = function(){
+    $scope.doModifyItem = function(id){
         var selectedPrdtData = $scope.selected;
         if(selectedPrdtData && selectedPrdtData.id){
             productService.doCache(null, selectedPrdtData);
@@ -73,6 +66,36 @@ app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productServi
     $scope.predicate = predicate;
   };
       productService.loadProductList();
-    
 
+  $scope.rowCallback= function(data) {
+      $(".stSelected").removeClass("stSelected");
+      $(event.currentTarget).addClass("stSelected");
+       $scope.selected = data.row;
+       $scope.enable_button=true;
+      console.log($scope.selected);
+
+};
+$scope.doUpdateProduct =function(product){
+    $scope.product = product;
+    var  sucCbk = function(){
+          productService.loadProductList();
+    };
+    var  errCbk = function(){
+        $scope.alertInstance.close();
+    };
+    $scope.createModel('confirmAlert.html','productsCtrl',sucCbk,errCbk,{product : $scope.product});
+};
+  $scope.ok = function (elt) {
+   
+        productService.updateProduct($scope.product,function(res){ 
+        $scope.alertInstance.close();
+          util.go("/editWidgets/"+$scope.product.id+"/step/1" );
+        })
+ 
+
+  };
 }]);
+
+
+
+
