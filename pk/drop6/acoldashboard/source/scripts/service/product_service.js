@@ -34,7 +34,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 method: 'POST',
             data: angular.toJson({number: step,name:"step"+step, widgets: widgets}),
                 headers: {'Content-Type': 'application/json'},
-                url: '/product/' + productid + '/step'
+                url: '/product/' + productid + '/step/'+step
             }).then(function successCallback(response) {
                 productAPI.doClearCache();
                 if(cbk) { cbk(response)};
@@ -53,7 +53,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
             });
     };
 
-     productAPI.copyProduct = function(productId,mode,cbk) {
+     productAPI.copyProduct = function(product,mode,cbk) {
         return $http({
                 method: 'POST',
                 data: angular.toJson(product),

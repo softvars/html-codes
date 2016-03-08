@@ -82,16 +82,17 @@ app.get('/product/:id', function(req, res){
         });
     }
 });
-app.post('/product/:id/step', function(req, res){
+app.post('/product/:id/step/:step', function(req, res){
     var widgets = db.getCollection('steps') || db.addCollection('steps',{ indices: ['id'] });
     var id = parseInt(req.params.id);
+     var stepNo = req.params.step;
     var reqData = req.body;
     var product = "";
     console.log(" widgets ",widgets);
     if(id) {
         if(widgets && widgets.data){
                 var queryObj = {"id": id};
-                var widData = widgets.find(queryObj);
+                var widData = widgets.find({'$and':[{"id": id},{"number": stepNo}]});
                 console.log("reqData",reqData)
                 if(widData && widData.length>0){
                      widData.widgets = reqData.widgets;
@@ -103,8 +104,7 @@ app.post('/product/:id/step', function(req, res){
                      db.saveDatabase();
                 }
                 else{
-                 
-                                           console.log("elsepart:",widData);
+                    console.log("elsepart:",widData);
                  
                    reqData.id = id;
                     var insertData = widgets.insert(reqData);
@@ -121,6 +121,28 @@ app.post('/product/:id/step', function(req, res){
         //db.saveDatabase();//
     }
 });
+app.post('/product/:id/clone/:mode', function(req, res){
+    var products = db.getCollection('products');
+    var reqData = req.body;
+    console.log("inserting data ",reqData);
+    //var reqData = JSON.parse(body);
+    
+    var id = db.getCollection('products') && db.getCollection('products').maxId || 0;
+    console.log("@@@@@@@@@reqData ",reqData);
+    reqData.id = id + 1;
+    delete reqData['$loki'];
+    delete reqData['meta'];
+    reqData.createDate =new Date().getTime();
+    reqData.updateDate = new Date().getTime();
+    console.log("inserting data ",reqData);
+    var insertData = products.insert(reqData);
+    console.log("insertData ",insertData);
+
+    db.saveDatabase();
+
+    res.json(returnSuccessData(reqData));
+        //db.saveDatabase();//
+    });
 app.get('/product/:id/step/:step', function(req, res){
     var widgets = db.getCollection('steps');
     var id = parseInt(req.params.id);
@@ -132,10 +154,10 @@ app.get('/product/:id/step/:step', function(req, res){
     if(id) {
         db.loadDatabase({}, function () {
             if(widgets && widgets.data){
-               
+ 
                 var queryObj = {"id": id,"number": stepNo};
                 console.log("####queryObj#######",queryObj) ;
-                var widData = widgets.find(queryObj);
+                var widData = widgets.find({'$and':[{"id": id},{"number": stepNo}]});
                 console.log(widData);
                 
             }
@@ -202,6 +224,25 @@ app.get('/category', function(req, res){
         res.set({"Content-Type": "application/json"});
         res.type('application/json');
         res.send(returnSuccessData(data));
+});
+app.post('/product', function(req, res){
+     var products = db.getCollection('products') || db.addCollection('products',{ indices: ['id'] });
+    var reqData = req.body;
+    console.log("inserting data ",reqData);
+    //var reqData = JSON.parse(body);
+    
+    var id = db.getCollection('products') && db.getCollection('products').maxId || 0;
+    console.log("Id ",id);
+    reqData['id'] = id + 1;
+    reqData.createDate =new Date().getTime();
+    reqData.updateDate = new Date().getTime();
+    console.log("inserting data ",reqData);
+    var insertData = products.insert(reqData);
+    console.log("insertData ",insertData);
+
+    db.saveDatabase();
+
+    res.json(returnSuccessData(reqData));
 });
 
 app.get('/widget?:category', function(req, res){

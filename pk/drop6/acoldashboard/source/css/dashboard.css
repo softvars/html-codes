@@ -245,4 +245,21 @@ text-decoration: none;
 .popover,.arrow {
 color: darkcyan;
 padding: 0px;
-};
+}
+.addProduct{
+float: left;
+top: 13%;
+position: absolute;
+    z-index:100;
+}
+[type="search"]{
+display: inline !important;
+width: 70% !important;}
+.dataTables_length .form-control{
+width: 40% !important;
+display: inline !important;
+}
+.dataTables_length{
+float: right !important;
+margin-left: 4%;
+}

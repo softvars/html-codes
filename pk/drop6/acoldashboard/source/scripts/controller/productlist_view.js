@@ -1,7 +1,7 @@
 app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productService", "util","DTOptionsBuilder","DTColumnDefBuilder","$uibModal",
   function ($scope, $route, $routeParams, productService, util, DTOptionsBuilder, DTColumnDefBuilder,$uibModal) {
     $scope.enable_button = false;
-    
+      $(".side-bar-view").hide();
     $scope.doRemoveItem = function(index) {
     //    var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
        // var index = prevSelect.attr("data-idx");
@@ -17,10 +17,18 @@ app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productServi
      
     };
     $scope.doAddDublicate = function() {
-        var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
-        var index = prevSelect.attr("idx");
+        var prevSelect= $(".stSelected");
+        var prevSelectData= $(".stSelected").data();
+        var selctObj = prevSelectData.$scope.row;
+         $scope.selectedData.data = selctObj;
+        var index = prevSelect.attr("data-idx");
         if (index && index !== -1) {
-            $scope.productCollection.push($scope.productCollection[index]);
+             productService.copyProduct($scope.selectedData.data,"light",function(res){
+                 productService.loadProductList();
+             })
+        }
+        else{
+            alert("Please select the product");
         }
     };
 
@@ -85,11 +93,14 @@ $scope.doUpdateProduct =function(product){
     };
     $scope.createModel('confirmAlert.html','productsCtrl',sucCbk,errCbk,{product : $scope.product});
 };
+ $scope.cancel = function(){
+      $scope.alertInstance.close();
+ };
   $scope.ok = function (elt) {
    
         productService.updateProduct($scope.product,function(res){ 
         $scope.alertInstance.close();
-          util.go("/editWidgets/"+$scope.product.id+"/step/1" );
+        
         })
  
 

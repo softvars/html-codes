@@ -3,7 +3,7 @@
 <div class="col-sm-12 col-md-12 main">
     <div class="row">
         <h2></h2>
-        <div class="col-sm-4" style="float:right;">
+        <div class="col-sm-3 addProduct">
          <button type="button" 
                             class="btn btn-sm btn-success btn-block" ng-click="go('/addProduct')" ng-controller="addProductCtrl">
                             <i class="glyphicon glyphicon-plus"> </i> Aggiungi nuovo prodotto
@@ -30,12 +30,12 @@
                         
                     </th>
                     
-                    <th>Data ultima pubblicazione
+                    <!--th>Data ultima pubblicazione
                        
                     </th>
                     <th>Ambiente
                         
-                    </th>
+                    </th-->
                     <th>Actions</th>
                 </tr>
 
@@ -47,8 +47,8 @@
                     <td>{{row.descr}}</td>
                     <td>{{row.numSteps}}</td>
                     <td>{{row.templateCode}}</td>
-                    <td></td>
-                    <td></td>
+                    <!--td></td>
+                    <td></td-->
                     <td>
                         
                         
@@ -67,7 +67,7 @@
     <div class="row">
         <div class="table-footer col-md-9">
             <span class="col-md-2 col-md-offset-4"> 
-                <button class="btn btn-primary" type="button" ng-click="doOpenItem()" ng-disabled='!enable_button'>Apri 
+                <button class="btn btn-info" type="button" ng-click="doOpenItem()" ng-disabled='!enable_button'>Apri 
                     <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
                 </button>
             </span>
@@ -77,15 +77,15 @@
                 </button>
             </span>
             <span class="col-md-2"> 
-                <button class="btn btn-primary" type="button" ng-click="doModifyItem()"  ng-disabled='!enable_button'>Modifica 
+                <button class="btn btn-warning" type="button" ng-click="doModifyItem()"  ng-disabled='!enable_button'>Modifica 
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 </button>
             </span>
-            <span class="col-md-2"> 
+            <!--span class="col-md-2"> 
                 <button class="btn btn-danger" type="button" ng-click="doRemoveItem()"  ng-disabled='!enable_button'>Elimina 
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
-            </span>
+            </span-->
         </div>
     </div>
 </div>

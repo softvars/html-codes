@@ -1,5 +1,7 @@
 app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", "$uibModal", "util", "productService","widgetService", function($scope, $route, $routeParams, $uibModal, util, productService,widgetService) {
     $scope.isView = util.hasPath("viewWidgets");
+    if(!$scope.isView){
+    $(".side-bar-view").show();}
     console.log("current step:" + $routeParams.currentStep);
     console.log("current pid:" + $routeParams.productId);
     $scope.setCurrentStep = function(step){

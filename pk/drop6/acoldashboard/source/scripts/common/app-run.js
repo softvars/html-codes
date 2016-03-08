@@ -67,7 +67,7 @@ app.run(['$rootScope', '$http', 'productService','widgetService',"$uibModal", fu
         dataObj.updateUser =obj.updateUser ||'';
         dataObj.properties = obj.properties||[];
         dataObj.releases =obj.releases||[];
-        dataObj.steps = obj.steps ||'';
+        dataObj.steps = obj.steps ||[];
         return dataObj;
     };
      $rootScope.widgetDataJson = function(obj){

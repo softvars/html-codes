@@ -1,5 +1,5 @@
 <ul class="nav nav-sidebar">
-    <li class="active"><a href="#">Widgets<span class="sr-only"></span></a></li>
+    <li class="active"><a>  Widgets<span class="sr-only"></span></a></li>
     <li><input class="widget_search form-control" type="text" placeholder="Cerca" ng-model="searchText"/></li>
 </ul>
 
@@ -7,7 +7,7 @@
     <div ng-repeat="(listName, list) in models.lists">
         <div class="panel panel-info">
             <div class="panel-heading">
-                <h3 class="panel-title">Categoria Widget {{listName}}</h3>
+                <h3 class="panel-title">{{listName}}</h3>
             </div>
             <div class="panel-body" ng-include="'source/templates/widgets.html'"></div>
         </div>

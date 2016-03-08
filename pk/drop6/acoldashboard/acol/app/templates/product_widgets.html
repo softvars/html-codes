@@ -1,4 +1,4 @@
-<div ng-controller="addWidgetsForproductCtrl" class="row">
+<div  class="row">
 	<div class="col-sm-3 col-md-2 sidebar"
 		ng-include="'source/templates/sidebar_widgets.html'" ng-show="!isView">
 	</div>
@@ -8,8 +8,7 @@
 	
 		<h1></h1>
 		<div class="row">
-			<div id="outerContainer" class="col-md-11"
-				ng-controller="addWidgetsForproductCtrl">
+			<div id="outerContainer" class="col-md-11">
 				<div id="previousData">
 					<lable class="lead col-sm-3">Codice:
 					{{selectedData.data.prodCode}}</lable>
@@ -39,7 +38,7 @@
 						dnd-effect-allowed="move"
 						dnd-moved="models.product_steps.splice($index, 1)">
 						<div class="product-step">
-							<div ng-include="'source/templates/product_step_widget.html'">Step
+							<div ng-include="'/acol/app/templates/product_step_widget.html'">Step
 								{{step.id}}</div>
 						</div>
 					</li>
@@ -59,7 +58,7 @@
 					<div class="col-md-6">
 						<button class="btn btn-primary" type="button"
 							ng-click="doSaveClick()"
-							ng-disabled="{{selectedData.currentStep}} > {{selectedData.data.numSteps}}">
+							ng-disabled="selectedData.currentStep > selectedData.data.numSteps">
                             <span class="glyphicon glyphicon-save" aria-hidden="true"></span> &#32; Conferma
                         </button>
 					</div>
@@ -69,15 +68,15 @@
 				<div class="col-md-8">
 					<div class="col-md-3 col-md-offset-3">
 						<button id="prevBtn" class="btn btn-primary" type="button"
-							ng-click="doPreviousClick('{{selectedData.currentStep}}')"
-							ng-disabled="{{selectedData.currentStep}} == 1 ">
+							ng-click="doPreviousClick(selectedData.currentStep)"
+							ng-disabled="selectedData.currentStep == 1">
 							<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> &#32; Precedente
                         </button>
 					</div>
 					<div class="col-md-3">
 						<button id="nextBtn"  class="btn btn-primary" type="button"
-							ng-click="doNextClick('{{selectedData.currentStep}}')"
-							ng-disabled="{{selectedData.currentStep}} == {{selectedData.data.numSteps}}">
+							ng-click="doNextClick(selectedData.currentStep)"
+							ng-disabled="selectedData.currentStep == selectedData.data.numSteps">
                             Successivo &#32; <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
                         </button>
 					</div>
