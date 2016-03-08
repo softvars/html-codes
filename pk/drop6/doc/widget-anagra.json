@@ -1,0 +1,2485 @@
+
+
+{
+  "status": "OK",
+  "message": null,
+  "data": [
+    {
+      "name": "Nome e Cognome",
+      "description": "Widget Nome e Cognome",
+      "code": "NOME_COGNOME",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "VALIDAZIONE",
+          "name": "Validazione",
+          "description": "Validazione",
+          "multi": false,
+          "status": [
+            {
+              "code": "VALIDARE",
+              "description": "Il widget/componente viene validato",
+              "style": null
+            },
+            {
+              "code": "NON_VALIDARE",
+              "description": "Il widget/componente non viene validato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "NON_OBBLIGATORIO",
+              "description": "Il widget/componente non e obbligatorio",
+              "style": null
+            },
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "UTENTE_LOGGATO",
+          "name": "Cliente loggato",
+          "description": "Cliente loggato",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            },
+            {
+              "code": "SOLA_LETTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati e non modificabili",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "SECONDO_INTESTATARIO",
+          "name": "Secondo intestatario",
+          "description": "Secondo intestatario",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            },
+            {
+              "code": "SOLA_LETTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati e non modificabili",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "DATI_PREACQUISITI",
+          "name": "Dati preacquisiti",
+          "description": "Dati preacquisiti",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            },
+            {
+              "code": "SOLA_LETTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati e non modificabili",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "NOME",
+          "name": "nome",
+          "description": "Nome",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "COGNOME",
+          "name": "cognome",
+          "description": "Cognome",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Codice Fiscale",
+      "description": "Widget Codice Fiscale",
+      "code": "CODICE_FISCALE",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "VALIDAZIONE",
+          "name": "Validazione",
+          "description": "Validazione",
+          "multi": false,
+          "status": [
+            {
+              "code": "VALIDARE",
+              "description": "Il widget/componente viene validato",
+              "style": null
+            },
+            {
+              "code": "NON_VALIDARE",
+              "description": "Il widget/componente non viene validato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "UTENTI_ABILITATI",
+          "name": "Tipologia di clienti",
+          "description": "Tipologia di clienti",
+          "multi": true,
+          "status": [
+            {
+              "code": "MAGGIORENNE",
+              "description": "Il widget/componente prevede abilitazione per gli utenti maggiorenni",
+              "style": null
+            },
+            {
+              "code": "MINORENNE",
+              "description": "Il widget/componente prevede abilitazione per gli utenti minorenni",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "CLIENTE_HYPE",
+          "name": "Cliente Hype",
+          "description": "Verifica se e cliente hype",
+          "multi": false,
+          "status": [
+            {
+              "code": "HYPE",
+              "description": "Il widget/componente prevede la verifica se il cliente e cliente hype",
+              "style": null
+            },
+            {
+              "code": "NO_HYPE",
+              "description": "Il widget/componente esclude la verifica se il cliente e cliente hype",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "VERIFICA_RICHIESTE_IN_CORSO",
+          "name": "Richieste dallo stesso CF",
+          "description": "Verifica se vi sono richieste in corso per lo stesso CF",
+          "multi": false,
+          "status": [
+            {
+              "code": "NO_RICHIESTE_IN_CORSO",
+              "description": "Il widget/componente esclude la verifica della presenza di richieste gia avviate",
+              "style": null
+            },
+            {
+              "code": "RICHIESTE_IN_CORSO",
+              "description": "Il widget/componente prevede la verifica della presenza di richieste gia avviate",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "NON_OBBLIGATORIO",
+              "description": "Il widget/componente non e obbligatorio",
+              "style": null
+            },
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "UTENTE_LOGGATO",
+          "name": "Cliente loggato",
+          "description": "Cliente loggato",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            },
+            {
+              "code": "SOLA_LETTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati e non modificabili",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "SECONDO_INTESTATARIO",
+          "name": "Secondo intestatario",
+          "description": "Secondo intestatario",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            },
+            {
+              "code": "SOLA_LETTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati e non modificabili",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "DATI_PREACQUISITI",
+          "name": "Dati preacquisiti",
+          "description": "Dati preacquisiti",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            },
+            {
+              "code": "SOLA_LETTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati e non modificabili",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "CF",
+          "name": "cf",
+          "description": "Codice Fiscale",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Email",
+      "description": "Widget email",
+      "code": "EMAIL",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "VALIDAZIONE",
+          "name": "Validazione",
+          "description": "Validazione",
+          "multi": false,
+          "status": [
+            {
+              "code": "INSERIMENTO_CODICE",
+              "description": "Il widget/componente viene validato con codice",
+              "style": null
+            },
+            {
+              "code": "INSERIMENTO_DOPPIO",
+              "description": "Il widget/componente viene validato con reinserimento",
+              "style": null
+            },
+            {
+              "code": "NON_VALIDARE",
+              "description": "Il widget/componente non viene validato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "NON_OBBLIGATORIO",
+              "description": "Il widget/componente non e obbligatorio",
+              "style": null
+            },
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "CONTROLLO_P2P",
+          "name": "Servizio P2P",
+          "description": "Verifica se gia P2P",
+          "multi": false,
+          "status": [
+            {
+              "code": "NO_P2P",
+              "description": "Il widget/componente esclude la verifica P2P",
+              "style": null
+            },
+            {
+              "code": "P2P",
+              "description": "Il widget/componente prevede la verifica P2P",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "UTENTE_LOGGATO",
+          "name": "Cliente loggato",
+          "description": "Cliente loggato",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "SECONDO_INTESTATARIO",
+          "name": "Secondo intestatario",
+          "description": "Secondo intestatario",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            },
+            {
+              "code": "SOLA_LETTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati e non modificabili",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "DATI_PREACQUISITI",
+          "name": "Dati preacquisiti",
+          "description": "Dati preacquisiti",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "EMAIL",
+          "name": "email",
+          "description": "Email",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "CONFERMA_EMAIL",
+          "name": "conferma email",
+          "description": "Conferma Email",
+          "properties": []
+        },
+        {
+          "code": "CODICE_EMAIL",
+          "name": "codice email",
+          "description": "Codice Email",
+          "properties": []
+        }
+      ],
+      "properties": [
+        {
+          "code": "TEMPLATE",
+          "name": "Codice invia mail"
+        },
+        {
+          "code": "TEMPLATE_OTP",
+          "name": "Codice validazione mail"
+        }
+      ]
+    },
+    {
+      "name": "Cellulare",
+      "description": "Widget cellulare",
+      "code": "CELLULARE",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "VALIDAZIONE",
+          "name": "Validazione",
+          "description": "Validazione",
+          "multi": false,
+          "status": [
+            {
+              "code": "INSERIMENTO_CODICE",
+              "description": "Il widget/componente viene validato con codice",
+              "style": null
+            },
+            {
+              "code": "INSERIMENTO_DOPPIO",
+              "description": "Il widget/componente viene validato con reinserimento",
+              "style": null
+            },
+            {
+              "code": "NON_VALIDARE",
+              "description": "Il widget/componente non viene validato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "NON_OBBLIGATORIO",
+              "description": "Il widget/componente non e obbligatorio",
+              "style": null
+            },
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "CONTROLLO_P2P",
+          "name": "Servizio P2P",
+          "description": "Verifica se gia P2P",
+          "multi": false,
+          "status": [
+            {
+              "code": "NO_P2P",
+              "description": "Il widget/componente esclude la verifica P2P",
+              "style": null
+            },
+            {
+              "code": "P2P",
+              "description": "Il widget/componente prevede la verifica P2P",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "UTENTE_LOGGATO",
+          "name": "Cliente loggato",
+          "description": "Cliente loggato",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "DATI_PREACQUISITI",
+          "name": "Dati preacquisiti",
+          "description": "Dati preacquisiti",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "CONFERMA_PREF_CELLULARE",
+          "name": "conferma prefisso",
+          "description": "Conferma prefisso cellulare",
+          "properties": []
+        },
+        {
+          "code": "CONFERMA_NUM_CELLULARE",
+          "name": "conferma cellulare",
+          "description": "Conferma numero cellulare",
+          "properties": []
+        },
+        {
+          "code": "PREF_CELLULARE",
+          "name": "prefisso",
+          "description": "Prefisso cellulare",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "NUM_CELLULARE",
+          "name": "num cellulare",
+          "description": "Numero cellulare",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "CODICE_CELLULARE",
+          "name": "codice cellulare",
+          "description": "Codice cellulare",
+          "properties": []
+        }
+      ],
+      "properties": [
+        {
+          "code": "SERVIZIO",
+          "name": "Codice servizio cellulare"
+        },
+        {
+          "code": "TEMPLATE_OTP",
+          "name": "Codice validazione cellulare"
+        }
+      ]
+    },
+    {
+      "name": "Privacy ricontatto",
+      "description": "Widget privacy ricontatto",
+      "code": "PRIVACY",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "VALIDAZIONE",
+          "name": "Validazione",
+          "description": "Validazione",
+          "multi": false,
+          "status": [
+            {
+              "code": "VALIDARE",
+              "description": "Il widget/componente viene validato",
+              "style": null
+            },
+            {
+              "code": "NON_VALIDARE",
+              "description": "Il widget/componente non viene validato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "NON_OBBLIGATORIO",
+              "description": "Il widget/componente non e obbligatorio",
+              "style": null
+            },
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "DATI_PREACQUISITI",
+          "name": "Dati preacquisiti",
+          "description": "Dati preacquisiti",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "PRIVACY",
+          "name": "privacy",
+          "description": "Privacy",
+          "properties": [
+            {
+              "code": "CHECKED"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Verifica Dati CF",
+      "description": "Widget Verifica dati da codice fiscale",
+      "code": "VERIFICA_DATI_DA_CF",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "UTENTE_LOGGATO",
+          "name": "Cliente loggato",
+          "description": "Cliente loggato",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            },
+            {
+              "code": "SOLA_LETTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati e non modificabili",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "SECONDO_INTESTATARIO",
+          "name": "Secondo intestatario",
+          "description": "Secondo intestatario",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            },
+            {
+              "code": "SOLA_LETTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati e non modificabili",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "DATI_PREACQUISITI",
+          "name": "Dati preacquisiti",
+          "description": "Dati preacquisiti",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            },
+            {
+              "code": "SOLA_LETTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati e non modificabili",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "NOME",
+          "name": "nome",
+          "description": "Nome",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "COGNOME",
+          "name": "cognome",
+          "description": "Cognome",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "CF",
+          "name": "cf",
+          "description": "Codice Fiscale",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "SESSO",
+          "name": "sesso",
+          "description": "Sesso",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "DATA",
+          "name": "data",
+          "description": "Data",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "CITTA",
+          "name": "citta",
+          "description": "Citta",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "PROVINCIA",
+          "name": "provincia",
+          "description": "Provincia",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Cittadinanza",
+      "description": "Widget cittadinanza",
+      "code": "CITTADINANZA",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "VALIDAZIONE",
+          "name": "Validazione",
+          "description": "Validazione",
+          "multi": false,
+          "status": [
+            {
+              "code": "VALIDARE",
+              "description": "Il widget/componente viene validato",
+              "style": null
+            },
+            {
+              "code": "NON_VALIDARE",
+              "description": "Il widget/componente non viene validato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "NON_OBBLIGATORIO",
+              "description": "Il widget/componente non e obbligatorio",
+              "style": null
+            },
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "UTENTE_LOGGATO",
+          "name": "Cliente loggato",
+          "description": "Cliente loggato",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "SECONDO_INTESTATARIO",
+          "name": "Secondo intestatario",
+          "description": "Secondo intestatario",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "DATI_PREACQUISITI",
+          "name": "Dati preacquisiti",
+          "description": "Dati preacquisiti",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "CITTADINANZA",
+          "name": "cittadinanza",
+          "description": "Cittadinanza",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Residenza",
+      "description": "Widget residenza",
+      "code": "RESIDENZA",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "VALIDAZIONE",
+          "name": "Validazione",
+          "description": "Validazione",
+          "multi": false,
+          "status": [
+            {
+              "code": "VALIDARE",
+              "description": "Il widget/componente viene validato",
+              "style": null
+            },
+            {
+              "code": "NON_VALIDARE",
+              "description": "Il widget/componente non viene validato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "NON_OBBLIGATORIO",
+              "description": "Il widget/componente non e obbligatorio",
+              "style": null
+            },
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "UTENTE_LOGGATO",
+          "name": "Cliente loggato",
+          "description": "Cliente loggato",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "SECONDO_INTESTATARIO",
+          "name": "Secondo intestatario",
+          "description": "Secondo intestatario",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "DATI_PREACQUISITI",
+          "name": "Dati preacquisiti",
+          "description": "Dati preacquisiti",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "CITTA",
+          "name": "citta",
+          "description": "Citta",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "PROVINCIA",
+          "name": "provincia",
+          "description": "Provincia",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "NAZIONE",
+          "name": "nazione",
+          "description": "Nazione",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "INDIRIZZO",
+          "name": "indirizzo",
+          "description": "Indirizzo",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "CAP",
+          "name": "cap",
+          "description": "Cap",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Domicilio",
+      "description": "Widget domicilio",
+      "code": "DOMICILIO",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "VALIDAZIONE",
+          "name": "Validazione",
+          "description": "Validazione",
+          "multi": false,
+          "status": [
+            {
+              "code": "VALIDARE",
+              "description": "Il widget/componente viene validato",
+              "style": null
+            },
+            {
+              "code": "NON_VALIDARE",
+              "description": "Il widget/componente non viene validato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "NON_OBBLIGATORIO",
+              "description": "Il widget/componente non e obbligatorio",
+              "style": null
+            },
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "UTENTE_LOGGATO",
+          "name": "Cliente loggato",
+          "description": "Cliente loggato",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            },
+            {
+              "code": "SOLA_LETTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati e non modificabili",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "SECONDO_INTESTATARIO",
+          "name": "Secondo intestatario",
+          "description": "Secondo intestatario",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            },
+            {
+              "code": "SOLA_LETTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati e non modificabili",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "DATI_PREACQUISITI",
+          "name": "Dati preacquisiti",
+          "description": "Dati preacquisiti",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            },
+            {
+              "code": "SOLA_LETTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati e non modificabili",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "CITTA",
+          "name": "citta",
+          "description": "Citta",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "PROVINCIA",
+          "name": "provincia",
+          "description": "Provincia",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "NAZIONE",
+          "name": "nazione",
+          "description": "Nazione",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "INDIRIZZO",
+          "name": "indirizzo",
+          "description": "Indirizzo",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "RESIDENZA",
+          "name": "residenza",
+          "description": "Residenza",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        },
+        {
+          "code": "CAP",
+          "name": "cap",
+          "description": "Cap",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "ALTRO",
+          "name": "altro",
+          "description": "Altro",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Riferimento Postale",
+      "description": "Widget Riferimento Postale",
+      "code": "RIF_POSTALE",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "VALIDAZIONE",
+          "name": "Validazione",
+          "description": "Validazione",
+          "multi": false,
+          "status": [
+            {
+              "code": "VALIDARE",
+              "description": "Il widget/componente viene validato",
+              "style": null
+            },
+            {
+              "code": "NON_VALIDARE",
+              "description": "Il widget/componente non viene validato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "NON_OBBLIGATORIO",
+              "description": "Il widget/componente non e obbligatorio",
+              "style": null
+            },
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "SECONDO_INTESTATARIO",
+          "name": "Secondo intestatario",
+          "description": "Secondo intestatario",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "CITTA",
+          "name": "citta",
+          "description": "Citta",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "PROVINCIA",
+          "name": "provincia",
+          "description": "Provincia",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "NAZIONE",
+          "name": "nazione",
+          "description": "Nazione",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "INDIRIZZO",
+          "name": "indirizzo",
+          "description": "Indirizzo",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "RESIDENZA",
+          "name": "residenza",
+          "description": "Residenza",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        },
+        {
+          "code": "DOMICILIO",
+          "name": "domicilio",
+          "description": "Domicilio",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        },
+        {
+          "code": "CAP",
+          "name": "cap",
+          "description": "Cap",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "ALTRO",
+          "name": "altro",
+          "description": "Altro",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Invito intestatari",
+      "description": "Widget invito intestatariPostale",
+      "code": "INVITO_INTESTATARI",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "INVITO",
+          "name": "Invito",
+          "description": "Invito",
+          "multi": false,
+          "status": [
+            {
+              "code": "INVITO_EMAIL",
+              "description": "Il widget/componente prevede la configurazione di invito tramite email",
+              "style": null
+            },
+            {
+              "code": "INVITO_SMS",
+              "description": "Il widget/componente prevede la configurazione di invito tramite sms",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "CF_COINTESTATARIO",
+          "name": "CF cointestatario",
+          "description": "Viene richiesto il codice fiscale del cointestatario",
+          "multi": false,
+          "status": [
+            {
+              "code": "CF",
+              "description": "Il widget/componente richiede il CF",
+              "style": null
+            },
+            {
+              "code": "NO_CF",
+              "description": "Il widget/componente non richiede il CF",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "VALIDAZIONE",
+          "name": "Validazione",
+          "description": "Validazione",
+          "multi": false,
+          "status": [
+            {
+              "code": "VALIDARE",
+              "description": "Il widget/componente viene validato",
+              "style": null
+            },
+            {
+              "code": "NON_VALIDARE",
+              "description": "Il widget/componente non viene validato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "NON_OBBLIGATORIO",
+              "description": "Il widget/componente non e obbligatorio",
+              "style": null
+            },
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "SECONDO_INTESTATARIO",
+          "name": "Secondo intestatario",
+          "description": "Secondo intestatario",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "NOME",
+          "name": "nome",
+          "description": "Nome",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "COGNOME",
+          "name": "cognome",
+          "description": "Cognome",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "CF",
+          "name": "cf",
+          "description": "Codice Fiscale",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "EMAIL",
+          "name": "email",
+          "description": "Email",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "PREF_CELLULARE",
+          "name": "prefisso",
+          "description": "Prefisso cellulare",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "NUM_CELLULARE",
+          "name": "num cellulare",
+          "description": "Numero cellulare",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "NOME_1",
+          "name": "nome",
+          "description": "Nome",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "COGNOME_1",
+          "name": "cognome",
+          "description": "Cognome",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "CF_1",
+          "name": "cf",
+          "description": "Codice Fiscale",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "EMAIL_1",
+          "name": "email",
+          "description": "Email",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "PREF_CELLULARE_1",
+          "name": "prefisso",
+          "description": "Prefisso cellulare",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "NUM_CELLULARE_1",
+          "name": "num cellulare",
+          "description": "Numero cellulare",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "code": "SERVIZIO",
+          "name": "Codice servizio cellulare"
+        },
+        {
+          "code": "TEMPLATE",
+          "name": "Codice invia mail"
+        }
+      ]
+    },
+    {
+      "name": "Dati sensibili",
+      "description": "Widget Trattamento dati sensibili",
+      "code": "DATI_SENSIBILI",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "VALIDAZIONE",
+          "name": "Validazione",
+          "description": "Validazione",
+          "multi": false,
+          "status": [
+            {
+              "code": "VALIDARE",
+              "description": "Il widget/componente viene validato",
+              "style": null
+            },
+            {
+              "code": "NON_VALIDARE",
+              "description": "Il widget/componente non viene validato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "NON_OBBLIGATORIO",
+              "description": "Il widget/componente non e obbligatorio",
+              "style": null
+            },
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "UTENTE_LOGGATO",
+          "name": "Cliente loggato",
+          "description": "Cliente loggato",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "VISIONE",
+          "name": "visione",
+          "description": "flag di presa visione",
+          "properties": [
+            {
+              "code": "CHECKED"
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "code": "LINK",
+          "name": "Link documentazione"
+        }
+      ]
+    },
+    {
+      "name": "Professione e Attivita",
+      "description": "Widget professioni e attivita",
+      "code": "PROFESSIONE_ATTIVITA",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "VALIDAZIONE",
+          "name": "Validazione",
+          "description": "Validazione",
+          "multi": false,
+          "status": [
+            {
+              "code": "VALIDARE",
+              "description": "Il widget/componente viene validato",
+              "style": null
+            },
+            {
+              "code": "NON_VALIDARE",
+              "description": "Il widget/componente non viene validato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "NON_OBBLIGATORIO",
+              "description": "Il widget/componente non e obbligatorio",
+              "style": null
+            },
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "UTENTE_LOGGATO",
+          "name": "Cliente loggato",
+          "description": "Cliente loggato",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "PROFESSIONE",
+          "name": "professione",
+          "description": "input professione",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "ATTIVITA",
+          "name": "attivita",
+          "description": "input attivita economica",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "SETTORE",
+          "name": "settore",
+          "description": "input settore economico",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Residenza Fiscale",
+      "description": "Widget Residenza fiscale",
+      "code": "RESIDENZA_FISCALE",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "VALIDAZIONE",
+          "name": "Validazione",
+          "description": "Validazione",
+          "multi": false,
+          "status": [
+            {
+              "code": "VALIDARE",
+              "description": "Il widget/componente viene validato",
+              "style": null
+            },
+            {
+              "code": "NON_VALIDARE",
+              "description": "Il widget/componente non viene validato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "NON_OBBLIGATORIO",
+              "description": "Il widget/componente non e obbligatorio",
+              "style": null
+            },
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "UTENTE_LOGGATO",
+          "name": "Cliente loggato",
+          "description": "Cliente loggato",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "SECONDO_INTESTATARIO",
+          "name": "Secondo intestatario",
+          "description": "Secondo intestatario",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "DATI_PREACQUISITI",
+          "name": "Dati preacquisiti",
+          "description": "Dati preacquisiti",
+          "multi": false,
+          "status": [
+            {
+              "code": "LETTURA_SCRITTURA",
+              "description": "Il widget/componente viene mostrato con dati prepopolati ma modificabili",
+              "style": null
+            },
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "NAZIONE",
+          "name": "nazione",
+          "description": "Nazione",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "NAZIONE_2",
+          "name": "nazione",
+          "description": "Nazione",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "NAZIONE_3",
+          "name": "nazione",
+          "description": "Nazione",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "CF_2",
+          "name": "cf",
+          "description": "Codice Fiscale",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "CF_3",
+          "name": "cf",
+          "description": "Codice Fiscale",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "STESSA_NAZIONE",
+          "name": "Stessa Nazione",
+          "description": "Stessa Nazione",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        },
+        {
+          "code": "ALTRA_NAZIONE",
+          "name": "Altra Nazione",
+          "description": "Altra Nazione",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        },
+        {
+          "code": "NO_ALTRE_RESIDENZE",
+          "name": "No Altre residenze",
+          "description": "no altre residenze",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        },
+        {
+          "code": "ALTRE_RESIDENZE",
+          "name": "Altre residenze",
+          "description": "altre residenze",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Documento",
+      "description": "Widget Documento",
+      "code": "DOCUMENTO",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "TIPO_DOCUMENTO",
+          "name": "Tipo documento",
+          "description": "Tipo del documento",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "ENTE_RILASCIO",
+          "name": "ente rilascio",
+          "description": "ente di emissione",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "LUOGO_RILASCIO",
+          "name": "luogo rilascio",
+          "description": "luogo di emissione",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "NUMERO_DOCUMENTO",
+          "name": "numero documento",
+          "description": "numero del documento",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "DATA_RILASCIO",
+          "name": "data rilascio",
+          "description": "data di rilascio",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "DATA_SCADENZA",
+          "name": "data scadenza",
+          "description": "data di scadenza",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "DOCF_UPLOAD",
+          "name": "fronte documento",
+          "description": "upload fronte documento",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "DOCR_UPLOAD",
+          "name": "retro documento",
+          "description": "upload retro documento",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Secondo Documento",
+      "description": "Widget Secondo documento",
+      "code": "DOCUMENTO_2",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "GIA_CLIENTE",
+          "name": "Gia cliente",
+          "description": "verifica se utente gia cliente",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "ENTE_RILASCIO",
+          "name": "ente rilascio",
+          "description": "ente di emissione",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "LUOGO_RILASCIO",
+          "name": "luogo rilascio",
+          "description": "luogo di emissione",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "NUMERO_DOCUMENTO",
+          "name": "numero documento",
+          "description": "numero del documento",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "DATA_RILASCIO",
+          "name": "data rilascio",
+          "description": "data di rilascio",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "DATA_SCADENZA",
+          "name": "data scadenza",
+          "description": "data di scadenza",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "DOCF_UPLOAD",
+          "name": "fronte documento",
+          "description": "upload fronte documento",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "DOCR_UPLOAD",
+          "name": "retro documento",
+          "description": "upload retro documento",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "BOLLETTA",
+          "name": "bolletta",
+          "description": "bolletta",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        },
+        {
+          "code": "BUSTA_PAGA",
+          "name": "busta paga",
+          "description": "busta paga",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        },
+        {
+          "code": "ESTRATTO_CONTO",
+          "name": "estratto conto",
+          "description": "estratto conto",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        },
+        {
+          "code": "CARTA_IDENTITA",
+          "name": "carta identita",
+          "description": "carta identita",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        },
+        {
+          "code": "PATENTE",
+          "name": "patente",
+          "description": "patente",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        },
+        {
+          "code": "PASSAPORTO",
+          "name": "passaporto",
+          "description": "passaporto",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        },
+        {
+          "code": "PERMESSO_SOGGIORNO",
+          "name": "permesso di soggiorno",
+          "description": "permesso di soggiorno",
+          "properties": [
+            {
+              "code": "SELECTED"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Succursale identificazione",
+      "description": "Widget succursale identificazione",
+      "code": "SUCCURSALE_IDENTIFICAZIONE",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "SUCCURSALE",
+          "name": "succursale",
+          "description": "succursale",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "TIPO_DOCUMENTO",
+          "name": "Tipo documento",
+          "description": "Tipo del documento",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "ENTE_RILASCIO",
+          "name": "ente rilascio",
+          "description": "ente di emissione",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "LUOGO_RILASCIO",
+          "name": "luogo rilascio",
+          "description": "luogo di emissione",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "NUMERO_DOCUMENTO",
+          "name": "numero documento",
+          "description": "numero del documento",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "DATA_RILASCIO",
+          "name": "data rilascio",
+          "description": "data di rilascio",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        },
+        {
+          "code": "DATA_SCADENZA",
+          "name": "data scadenza",
+          "description": "data di scadenza",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Termina procedura",
+      "description": "Widget termina procedura",
+      "code": "TERMINA_PROCEDURA",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [],
+      "components": [],
+      "properties": [
+        {
+          "code": "MESSAGGIO_FINALE",
+          "name": "Messaggio finale"
+        },
+        {
+          "code": "TEMPLATE_BONIFICO",
+          "name": "Template mail se bonifico"
+        },
+        {
+          "code": "TEMPLATE_CLIENTE",
+          "name": "Template mail se cliente"
+        },
+        {
+          "code": "TEMPLATE_SELFIE",
+          "name": "Template mail se selfie"
+        },
+        {
+          "code": "TEMPLATE_SUCCURSALE",
+          "name": "Template mail se succursale"
+        }
+      ]
+    },
+    {
+      "name": "Selfie",
+      "description": "Widget Selfie",
+      "code": "SELFIE",
+      "category": {
+        "name": "Anagrafica",
+        "code": "ANAGRAFE"
+      },
+      "configurations": [
+        {
+          "code": "GIA_CLIENTE",
+          "name": "Gia cliente",
+          "description": "verifica se utente gia cliente",
+          "multi": false,
+          "status": [
+            {
+              "code": "NASCONDI",
+              "description": "Il widget/componente non viene mostrato",
+              "style": null
+            }
+          ]
+        },
+        {
+          "code": "OBBLIGATORIETA",
+          "name": "Obbligatorieta",
+          "description": "Obbligatorieta",
+          "multi": false,
+          "status": [
+            {
+              "code": "OBBLIGATORIO",
+              "description": "Il widget/componente e obbligatorio",
+              "style": null
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "code": "SELFIE_UPLOAD",
+          "name": "selfie",
+          "description": "upload selfie",
+          "properties": [
+            {
+              "code": "VALUE"
+            }
+          ]
+        }
+      ],
+      "properties": []
+    }
+  ]
+}// JavaScript Document
