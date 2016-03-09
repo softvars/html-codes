@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rest-client version="3.2.2"><request><http-version>1.1</http-version><http-follow-redirects/><URL>http://192.50.51.208:7001/hypehub/checkHyperPaymentRequest?email=murali.p@sella.it</URL><method>GET</method></request></rest-client>

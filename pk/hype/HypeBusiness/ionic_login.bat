@@ -1,1 +1,0 @@
-ionic login --email prakemail@gmail.com --password prak1402

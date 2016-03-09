@@ -1,1 +1,0 @@
-var app = angular.module('acolApp', ['ngAnimate', 'ui.bootstrap','ngRoute', 'dndLists']);
