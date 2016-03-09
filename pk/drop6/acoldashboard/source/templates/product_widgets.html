@@ -32,12 +32,12 @@
 					dnd-allowed-types="models.product_allowed_types"
 					dnd-drop="dropCallback(event, index, item, external, type, models.product_allowed_types)">
 					<li ng-repeat="step in models.product_steps" dnd-draggable="step"
-						dnd-type="step.type" dnd-external-sources="true"
+						dnd-type="'widget'" dnd-external-sources="true"
 						dnd-effect-allowed="move"
 						dnd-moved="models.product_steps.splice($index, 1)">
 						<div class="product-step">
 							<div ng-include="'/acol/app/templates/product_step_widget.html'">Step
-								{{step.id}}</div>
+								{{step.code}}</div>
 						</div>
 					</li>
 				</ul>

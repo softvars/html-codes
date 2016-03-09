@@ -19,36 +19,62 @@ app.run(['$rootScope', '$http', 'productService','widgetService',"$uibModal", fu
         lists: {}       
     };
     
-    /*Mock widget creation [needs to updated the model based on the real widget data]*/
-  /*  $rootScope.categories=["A","B"];
-    $rootScope.widgetImages=[
-                        {name:"Nome e Cognome",img:"nome_cognome",catId:"A"},
-                        {name:"Codice promozionale",img:"codice_promo",catId:"A"},
-                        {name:"Codice fiscale ",img:"cod_fiscale",catId:"A"},
-                        {name:"Email",img:"email",catId:"B"},
-                        {name:"Cittadinanza",img:"city",catId:"B"},
-                        
-                ];
-    $rootScope.createWidgetData = function(){
-        var widgetImg = $rootScope.widgetImages;
-        var widgetCat= $rootScope.categories;
-        for(var j=0;j<widgetCat.length;j++){
-             var wCat = widgetCat[j];
-            $rootScope.models.lists[wCat]=[];
-            for (var i = 0; i < widgetImg.length; i++) {
-                var widgetId = widgetImg[i].img;
-                var categoryId = widgetCat[j]+"_"+widgetId;
-                var imgUrl = "source/images/"+widgetId+".JPG"
-               if(widgetImg[i].catId==wCat){
-                $rootScope.models.lists[wCat].push({id:widgetId, type:"widget", catId:categoryId + i, 
-                                                        label: widgetImg[i].name,url:imgUrl});
-               }
+     $rootScope.getCategories = function(){
+        widgetService.getCategoryList(function(res){
+           $rootScope.categories = res && res.data && res.data.data ||[];
+           $rootScope.getWidgets();
+        })
+    };
+     $rootScope.widgetList = [];
+     $rootScope.getWidgets = function(){
+         for(var i = 0; i< $rootScope.categories.length;i++){
+             var catList = $rootScope.categories[i];
+             var catId =catList.code;
+             $rootScope.models.lists[catId] =new Array();
+             
+             widgetService.getWidgetList(catId,function(res){
+                 var resWidget = res && res.data && res.data.data ||[];
+                 
+                  for(var j=0;j< resWidget.length;j++){
+/*                      var imgUrl = "/acol/app/images/"+resWidget[j].code+".JPG"
+                      var id = resWidget[j].code;
+                      var label = resWidget[j].name;
+                      var url = imgUrl;
+                      var catgId = resWidget[j].category.code;
 
+                     $rootScope.models.lists[catgId].push({id:id, type:"widget", catId:catgId,
+                                                        label: label,url:url, });*/
+                      resWidget[j].type = "widget";
+                      if(angular.isArray($rootScope.models.lists[resWidget[j].category.code])) {
+                        $rootScope.models.lists[resWidget[j].category.code].push(resWidget[j]);
+                      }
+
+                }
+
+
+            });
+         }
+    };
+    $rootScope.getCategories();
+    
+    $rootScope.isWidgetAdded = function(item) {
+        if(item) {
+            var list = $rootScope.models.product_steps;
+            if(list && list.length){
+                for (i = 0; i < list.length; i++) {
+                    if (list[i] && list[i].code === item.code) {
+                        item["isDisabled"] = true;
+                        return true;
+                    } else {
+                        item["isDisabled"] = false;
+                    }
+                }
             }
         }
+        return false;
     };
-    $rootScope.createWidgetData();
-  */  $rootScope.createDataJson = function(obj){
+    
+    $rootScope.createDataJson = function(obj){
         var index = $rootScope.productCollection.length-1;
         var selData = $rootScope.productCollection[index];
     

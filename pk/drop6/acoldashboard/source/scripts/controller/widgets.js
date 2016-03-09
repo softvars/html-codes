@@ -51,22 +51,23 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
             })
         }
     };
-    $scope.createStepJson =  function(id,input){
-        var widgets = [];
-        for(i=0;i<input.length;i++){
+    $scope.createStepJson =  function(id, widgets){
+        var resWidgets = [];
+        for(i=0; i<widgets.length; i++){
+            var widget = widgets[i];
             widgetInfo = {
-                code : input[i].id || input[i].code ||'',
+                code : widget.code,
                 bundleCode: null,
-                position: 1,
-                configurations: [],
-                components: [],
-                properties: []
-            }
-            widgets.push(widgetInfo);
-
+                position: (i + 1),
+                configurations: widget.configurations,
+                components: widget.components,
+                properties: widget.properties,
+                name: widget.name,
+                description: widget.description
+            };
+            resWidgets.push(widgetInfo);
         }
-
-        return widgets;
+        return resWidgets;
 
     };
     $scope.getSelectedData = function(isAdd,cbk){
@@ -85,71 +86,6 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
     
     $scope.getSelectedData(isAdd);
     
-    $scope.getCategories = function(){
-        widgetService.getCategoryList(function(res){
-           $scope.categories = res && res.data && res.data.data ||[];
-           $scope.getWidgets();
-        })
-    };
-     $scope.widgetList = [];
-     $scope.getWidgets = function(){
-         for(var i = 0; i< $scope.categories.length;i++){
-             var catList = $scope.categories[i];
-             var catId =catList.code;
-             $scope.models.lists[catId] =new Array();
-             
-             widgetService.getWidgetList(catId,function(res){
-                 var resWidget = res && res.data && res.data.data ||[];
-                 
-                  for(var j=0;j< resWidget.length;j++){
-                      var imgUrl = "/acol/app/images/"+resWidget[j].code+".JPG"
-                      var id = resWidget[j].code;
-                      var label = resWidget[j].name;
-                      var url = imgUrl;
-                      var catgId = resWidget[j].category.code;
-
-                     $scope.models.lists[catgId].push({id:id, type:"widget", catId:catgId,
-                                                        label: label,url:url});
-
-                }
-
-
-            });
-         }
-    };
-    $scope.getCategories()
-    /*  $scope.widgetImages=[
-                        {name:"Nome e Cognome",img:"nome_cognome",catId:"A"},
-                        {name:"Codice promozionale",img:"codice_promo",catId:"A"},
-                        {name:"Codice fiscale ",img:"cod_fiscale",catId:"A"},
-                        {name:"Email",img:"email",catId:"B"},
-                        {name:"Cittadinanza",img:"city",catId:"B"},
-
-                ];
-    $scope.createWidgetData = function(){
-        var widgetImg = $scope.widgetList;
-        var widgetCat= $scope.categories;
-        for(var j=0;j<widgetCat.length;j++){
-             var wCat = widgetCat[j];
-            $scope.models.lists[wCat]=[];
-            for (var i = 0; i < widgetImg.length; i++) {
-                var widgetId = widgetImg[i].img;
-                var categoryId = widgetCat[j]+"_"+widgetId;
-                var imgUrl = "source/images/"+widgetId+".JPG"
-               if(widgetImg[i].catId==wCat){
-                $scope.models.lists[wCat].push({id:widgetId, type:"widget", catId:categoryId + i,
-                                                        label: widgetImg[i].name,url:imgUrl});
-               }
-
-            }
-        }
-    };
-    $scope.createWidgetData();*/
-
-
-    //$scope.selectedData.currentStep = $scope.getCurrentStep();
-
-
     $scope.doNextClick = function(currentStep){
         $scope.setCurrentStep(parseInt($scope.getCurrentStep())+1);
         //$scope.proceedStep($scope.selectedData.data.id);
@@ -222,22 +158,6 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
             }
         }*/
         return item;
-    };
-    $scope.isWidgetAdded = function(item) {
-        if(item) {
-            var list = $scope.models.product_steps;
-            if(list && list.length){
-                for (i = 0; i < list.length; i++) {
-                    if (list[i] && list[i].id === item.id) {
-                        item["isDisabled"] = true;
-                        return true;
-                    } else {
-                        item["isDisabled"] = false;
-                    }
-                }
-            }
-        }
-        return false;
     };
     
   $scope.animationsEnabled = true;

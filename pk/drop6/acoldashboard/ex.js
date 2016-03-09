@@ -259,9 +259,9 @@ app.get('/widget?:category', function(req, res){
       "name": "Anagrafica",
       "code": "ANAGRAFE"
     },
-    "configurations": [],
-    "components": [],
-    "properties": []
+    "configurations": ['testMail', 'testMail2' ],
+    "components": ['testMailComp'],
+    "properties": ['testprop']
   },{
     "name": "Nome e Cognome",
     "description": "Widget Nome e Cognome",
@@ -326,3 +326,4 @@ app.get('/widget?:category', function(req, res){
 });
 //app.use(router);
 app.listen(3000);
+console.log("Server Started http://localhost:3000");
