@@ -1,0 +1,461 @@
+@charset "UTF-8";
+
+@media (max-width: 767px) {
+	/*html, body {overflow: hidden;}*/
+	* {
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		-o-backface-visibility: hidden;
+		backface-visibility: hidden;
+	}
+	label {font-size: 12px;}
+	.modify,
+	.add {
+		height: 16px;
+		width: 16px;
+	}
+	.navbar-header {height: 44px;}
+	.navbar-default .navbar-toggle,
+	.modal .head .num,
+	.movements .card .name,
+	.movements .card .type,
+	.modal .head .title,
+	button.filter,
+	.showfilter .filters .filter-apply-button {display: block;}
+	.filters {display: none;}
+	.navbar > .container .navbar-brand,
+	.navbar > .container-fluid .navbar-brand {margin: 0 auto;}
+	.logo {
+		float: none;
+		top: 8px;
+		display: block;
+		width: 70px;
+		height: 22.5px;
+		background: url('../img/logo-big.png') center center no-repeat;
+		-webkit-background-size: contain;
+		-moz-background-size: contain;
+		-ms-background-size: contain;
+		-o-background-size: contain;
+		background-size: contain;
+		position: relative;
+		text-indent: 9999999px;
+		margin: 0 auto;
+	}
+	.show #drawer-menu {left: 0;}
+	.show .navbar,
+	.show #page-content  {margin-left: 235px;}
+	.show .navbar-default .navbar-toggle .icon-bar {background-color: #30b093;}
+	.show #dimmer-drawer {
+		background-color: rgba(0,0,0,0.0001);
+		position: fixed;
+		top: 45px;
+		bottom: 0;
+		right: 0;
+		left: 235px;
+		z-index: 10;
+	}
+	.showfilter #dimmer-filter {
+		background-color: rgba(0,0,0,0.0001);
+		position: fixed;
+		top: 0;
+		height: 45px;
+		right: 0;
+		left: 0;
+		z-index: 10;
+	}
+	.main {top: 15px;}
+	
+	.container,
+	.container-fluid,
+	.row,
+	div[class^="col-"] {padding: 0;}
+
+	.content-wrap .container .row.head .col-xs-2 {text-align: right;}
+	.movements,
+	.personal-data-panel {padding: 0 0 25px 0;}
+	.personal-data-panel {margin-top: 15px;}
+	.movements .row .divider {margin: 0 10px;}
+	.movements .row.even, 
+	.movements .row.odd {height: 65px;}
+	.notify > .row,
+	.movements .row.even, 
+	.movements .row.odd, 
+	.movements .row.head, 
+	.modal .container > .row,
+	.paging .row,
+	.profile-menu .col-md-12,
+	.personal-data-panel .container-fluid .row,
+	.form-container {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.modal .row,
+	.content-wrap .container .row,
+	.notify > .row,
+	.profile-header .row,
+	.profile-menu .row,
+	.form-container .row {margin: 0;}
+	.form-container .head.long-title {margin: 70px 0 0 0;}
+	.form-container.landing .head.long-title {margin: -20px 0 0 0;}
+	.notify {
+		top: -15px;
+		margin-bottom: -15px;
+		height: 195px;
+	}
+	.notify .close {
+		top: 15px;
+		right: 0;
+	}
+	.notify .welcome {
+		font-size: 18px;
+		display: block;
+		width: 290px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.notify .welcome.up {margin-top: 35px;}
+	.row.head {
+		font-size: 18px;
+		height: 47.5px;
+		line-height: 47.5px;
+	}
+	.movements .row.even.denied,
+	.movements .row.odd.denied,
+	.movements .row.even.reversed
+,	.movements .row.odd.reversed {border-right: transparent;}
+	.content-wrap {
+		top: 44px;
+		padding-top: 15px;
+	}	
+	.movements .beneficiary {
+		font-size: 14px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.movements .card .name,
+	.movements .card .type {font-size: 9px;}
+	.movements .lower {line-height: inherit;}
+	.movements .day {top: -6px;}
+	.credit-cards,
+	.email-panel {margin-top: 30px;}
+	.credit-card,
+	.credit-cards .row.favorite-credit-card {
+		margin: 15px auto 0 auto;
+		width: 300px;
+	}
+	
+	.notify .app-store,
+	.notify .google-play {
+    	width: 170px;
+		margin: 0 auto;
+	}
+	.footer .col-xs-12 .link-utils {text-align: center;}
+	.footer .col-xs-12 .link-utils,
+	.footer .col-xs-12 .copyright {
+		display: block;
+		width: 300px;
+		margin: 0 auto;
+	}
+	.footer .col-xs-12 .link-utils a,
+	.footer .col-xs-12 .link-utils span {
+		margin-bottom: 18px;
+		margin-left: 0;
+	}
+	.footer .col-xs-12 .link-utils a,
+	.footer .col-xs-12 .link-utils span,
+	.footer .col-xs-12 .copyright span {
+		display: block;
+		text-align: center
+	}
+	.footer .col-xs-12 .copyright .terms {margin: 13px 0 15px 0;}
+	.footer .col-xs-12 .link-utils a:hover {
+		text-decoration: none;
+		border-bottom: none;
+	}
+	.footer .col-xs-12 .link-utils .lang-list {
+		right: 110px;
+		top: 0;
+	}
+	.footer .col-xs-12 .link-utils .lang-selector {display: inline-block;}
+	.footer .col-xs-12 .link-utils span.lang-selector .lang-selector-arrow {
+		right: -14px;
+		top: 7px;
+	}
+	.footer .col-xs-12 .link-utils span#lang-selector {
+		margin-right: 0;
+	}
+
+	.paging .page-num {margin-bottom: 20px;}
+	.paging .page-num span {font-size: 17px;}
+
+	.showfilter .filters {
+		display: block;
+		position: fixed;
+		top: 44px;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 2000;
+		overflow-y: auto;
+		margin-bottom: 0;
+		-webkit-box-shadow: inset 0px 3px 1px 0px rgba(0,0,0,0.25);
+		-moz-box-shadow: inset 0px 3px 1px 0px rgba(0,0,0,0.25);
+		-ms-box-shadow: inset 0px 3px 1px 0px rgba(0,0,0,0.25);
+		-o-box-shadow: inset 0px 3px 1px 0px rgba(0,0,0,0.25);
+		box-shadow: inset 0px 3px 1px 0px rgba(0,0,0,0.25);
+	}
+	.filters .filter-type .from {margin-right: 15px;}
+	.filters .filter-type .to {margin-left: 15px;}
+
+	.profile-header {
+		margin-top: -15px;
+		height: 92px;
+	}
+	.profile-header .profile-pic {
+		width: 65px;
+		height: 65px;
+		margin-top: 0;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	.profile-header .profile-pic img {height: 55px;}
+	.profile-header .profile-username {
+		height: 92px;
+		line-height: 92px;
+		margin-top: 0;
+		font-size: 20px;
+	}
+	.profile-menu {
+		height: 45px;
+		line-height: 45px;
+	}
+	.profile-menu .menu ul li {
+		width: auto;
+		margin-right: 35px;
+	}
+	.profile-menu .menu ul li a {font-size: 16px;}
+	.personal-data-panel .data, 
+	.personal-data-panel .value,
+	.email-panel .mail-address {font-size: 16px;}
+	.delete-account {text-align: center;}
+	
+	.picker {right: 0}
+	.picker .picker__holder .picker__frame .picker__wrap .picker__box .picker__header .picker__nav--next, 
+	.picker .picker__holder .picker__frame .picker__wrap .picker__box .picker__header .picker__nav--prev {
+		top: 0.6em;
+	}
+	.modal .close-wrap {
+	    height: 45px;
+	}
+	.modal .close {
+		float: right;
+		z-index: 3000;
+		top: 15px;
+        right: 10px;
+	}
+	.modal .head {
+		height: auto;
+		line-height: normal;
+		margin-top: 10px;
+		font-size: 25px;
+	}
+	.modal .head .title {
+		margin-top: 35px;
+		font-size: 25px;
+	}
+	.modal .head .num {font-size: 17px;}
+	.modal .transaction .date {
+		width: 130px;
+		height: 19px;
+		line-height: 19px;
+		font-size: 12px;
+		margin-top: 25px;
+		padding-left: 15px; 
+		padding-right: 15px;
+		border-bottom: 1px solid transparent;
+	}
+	.modal .transaction .upper {
+		margin-right: 0;
+		margin-left: 0;
+		border-left: 1px solid #e0e6e9;
+	}
+	.modal .transaction .lower {
+		margin-right: 0;
+		margin-left: 0;
+		border-left: 1px solid #e0e6e9;
+	}
+	.modal .transaction .lower.border-right, 
+	.modal .transaction .upper.border-right {border-left: 1px solid transparent;}
+	.modal .transaction .lower .card .name,
+	.modal .transaction .lower .card .type {
+		display: block;
+		font-size: 9px;
+	}
+	.modal .transaction .upper .amount,
+	.modal .transaction .upper .state {right: 10px;}
+	.modal .transaction .lower .card .name,
+	.modal .transaction .lower .card .type,
+	.modal .transaction .beneficiary {margin-left: 15px;}
+	.modal .transaction .upper .beneficiary {
+		font-size: 19px;
+		margin-left: 15px;
+	}
+	.modal .head .reject-payment {
+		position: relative;
+		width: 170px;
+		top: auto;
+		left: auto;
+		right: auto;
+		margin-top: 22px;
+	}
+	.modal .middletitle {
+		margin-top: 30px;
+		text-align: center;
+		font-size: 22px;
+	}
+	.modal .submiddletitle {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	.modal .details {margin-bottom: 7px !important;}
+	.modal .details .qrcode {text-align: center;}
+	.modal .details .grid-details {margin-top: 30px;}
+	.modal .details .grid-details .divider {margin: 7px 0;}
+	.paging .page-num {margin-bottom: auto;}
+	.address_container{margin-top: 15px;}
+	/*.popover{left: 0!important;}*/
+	.terms-and-conditions .full-terms {margin-top: 20px;}
+	.terms-and-conditions .short-terms .title {margin-bottom: 13px;}
+
+	.faq .panel-group .panel-heading {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	.faq .panel-group .panel-title a {font-size: 15px;}
+	.faq .panel-group .panel-body {font-size: 14px;}
+
+	#modal-support .support .row.head {font-size: 25px;}
+	#modal-support .support label {font-size: 11px;}
+	.form-container .logo,
+	.form-container.landing .logo {
+		margin: 8px auto 35px auto;
+		top: auto;
+	}
+	.form-container .head {
+		margin-top: 70px;
+		font-size: 25px;
+	}
+	.form-container.landing .head {margin: -20px 0 0 0;}
+	.form-container .login-form {margin-top: 40px;}
+	.form-container .registration-user-form,
+	.form-container .registration-card-form {margin-top: 0;}
+	.form-container input[type="submit"] {margin-top: 40px;}
+	.form-container .copyright {margin-top: 45px;}
+
+	#modal-add-card .head{
+		font-size: 25px;
+	}
+	.credit-card .hidden-element.card-info {
+		top: -5px;
+		left: 0;
+		right: 0;
+	}
+	.form-container.landing {background-color: #fff;}
+	.form-container.landing .col-md-4 {
+		/*padding-left: 15px !important;
+		padding-right: 15px !important;*/
+	}
+	.form-container.landing .head {
+		font-size: 25px;
+		margin-bottom: 0;
+	}
+	.credit-card-container{
+		border-bottom: 1px solid #eff2f4;
+	}
+	.credit-card-container:last-child{
+		border-bottom: 0;
+	}
+	.credit-card .empty {
+		margin-top: 25px;
+	}
+	.credit-card .status {
+		margin-bottom: 10px;
+	}
+	#modal-card-info .modal-content{
+		background:#fff;
+	}
+	#modal-edit-card .head{
+		font-size: 30px;
+	}
+	#edit-cards-carousel .carousel-control{
+		top: -60px;
+	}
+	#edit-cards-carousel .carousel-control.right{
+		left: 70px;
+	}
+	.modal .edit-card-form{
+		margin-top: 25px;
+	}
+	.card-plate .card-code {
+		font-size: 23px;
+		letter-spacing: 2.0px;
+	}
+	.landing .carousel {
+		height: 100%;
+		width: 100%;
+		margin: 44px auto 40px auto;
+	}
+	.logo-wrap {
+		position: fixed;
+		top: 0;
+		background-color: #fff;
+		width: 101%;
+		height: 44px;
+		z-index: 20;
+	}
+	.landing .carousel .carousel-caption {bottom: 20px;}
+	.landing .carousel .carousel-indicators {
+		background-color: #FFF;
+		width: 100%;
+		top: auto;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		margin-left: 0;
+		height: 40px;
+	}
+	.landing .carousel .carousel-indicators li {
+		width: 10px;
+		height: 10px;
+		margin: 15px 5px 0 5px;
+	}
+	.landing .carousel-indicators li.active {
+		background-color: #30b093;
+		border: 1px solid #30b093;
+	}
+	.landing .carousel .carousel-image-mask img {width: 100%;}
+	.landing .carousel .carousel-caption .text {
+		text-transform: uppercase;
+		font-size: 16px;
+		line-height: 20px;
+		margin-bottom: 10px;
+	}
+	.landing .carousel .carousel-image-mask .opacity {background-color: rgba(0,0,0,0.2);}
+	.landing .carousel .carousel-control {bottom: 50px;}
+
+	.alert{
+		margin-bottom: 15px;
+		margin-top: -15px;
+	}
+	.alert-dismissable .close, .alert-dismissible .close{
+		right: -21px;
+	}
+
+	.confirm-modal .popover.registered-user{
+		margin-left: -134px;
+		max-width: 268px;
+		width: 268px;
+	}
+}

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+@media (min-width: 992px) and (max-width: 1200px) {
+	.navbar-collapse {display: block;}
+	#card-plate .middle .asterisk {	font-size: 21px;}
+	#card-plate .middle .lastdigit {font-size: 20px;}
+	.badge.app-store {background:  #0c303c url('../img/ios.png') 9px center no-repeat;}
+	.badge.google-play {background:  #0c303c url('../img/android.png') 9px center no-repeat;}
+	.badge {padding-left: 38px;}
+	.badge .label {font-size: 9px;}
+	.badge .store {font-size: 16px}
+	.notify .welcome.down {font-size: 20px;}
+	.filters .filter-type .check-all label:before {left:0;}
+	.state .row .col-md-12.col-lg-4 {margin-bottom: 15px;}
+	.filters .filter-type .card-small .card,
+	.filters .filter-type .card-small .detail {display: block;}
+	.filters .filter-type .card-small .detail {padding-left: 0;}
+	.filters .filter-type .state .denied {margin: 0;}
+	.filters .filter-type .state .rejected {float: none;}
+	.filters .filter-type .state {margin-bottom: 10px;}
+}

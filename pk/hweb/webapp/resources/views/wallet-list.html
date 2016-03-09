@@ -1,0 +1,48 @@
+<div ng-repeat="card in wallet.cards track by card.id" class="col-sm-6 col-md-4 col-xs-12 credit-card-container">
+    <div class="credit-card">
+        <div class="row">
+            <div class="col-xs-9">
+                <span class="card-name">{{ card.cardAlias }}</span>
+            </div>
+        <div class="col-xs-3 align-right" ng-hide="card.preferred == 'N'" ><div class="star"></div></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card-plate hover" ng-init="card.showCardInfo = false" ng-mouseenter="card.showCardInfo = true">
+                    <div class="top">
+                        <div class="chip"></div>
+                        <div class="type">
+                            <div class="{{card.circuitName.toLowerCase()}}"></div>
+                        </div>
+                    </div>
+                    <div class="middle">
+                        <div class="lastdigit digits">{{ card.maskedPan }}</div>
+                    </div>
+                    <div class="bottom">
+                        <div class="holder">
+                            <div class="label">intestata</div>
+                            <div class="name">{{ card.cardHolderName }} {{card.cardHolderSurName}}</div>
+                        </div>
+                        <div class="expiry-date align-right">
+                            <div class="label">validit&#224;</div>
+                            <div class="name">{{ card.expiryMonth }}/{{ card.expiryYear }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plate hidden-element card-info" ng-mouseover="card.showCardInfo = true" ng-mouseleave="card.showCardInfo = false" ng-show="card.showCardInfo==true">
+                    <div class="middle">
+                        <a href="#edit_card" class="open-edit-cards"  data-card-id="card-{{$index}}" alt="modifica carta">
+                            <div class="edit"></div>
+                            <div class="text">Modifica carta</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="status"></div>
+            </div>
+        </div>
+    </div>
+</div>

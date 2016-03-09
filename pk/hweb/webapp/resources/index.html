@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html  ng-app="hypeweb">
+  <head>
+    <title>Hype</title>
+      
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+    <meta name="description" content="HYPE application">
+      
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+      
+    <link rel="stylesheet" type="text/css" href="/resources/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/classic.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/classic.date.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/global-large.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/global-tablet.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/global-smartphone.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/project.css" />
+      
+
+  </head>
+  <body>
+		<!--[if lt IE 9]>
+		    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+      
+    <div ng-include="templates.header"></div>
+    
+    <div id="page-content">
+        <div ng-include="templates.navmenu"></div>
+        <div class="content-wrap">
+            <!-- <div ng-include="templates.msg_container"></div> -->
+            <div ng-include="templates.profilo_header"></div>
+            <div ng-include="templates.app_ad"></div>
+            <div class="container main">
+                <!--<div ng-include="templates.body"></div>-->
+                <div class="container" >
+                    <section ng-view></section>
+                </div>
+            </div>
+            <div ng-include="templates.footer"></div>
+        </div>
+    </div>
+    <!-- <div ng-include="templates.overlay"></div>
+    <div ng-include="templates.contacts"></div>
+    <div ng-include="templates.support"></div>
+    <div ng-include="templates.faq"></div>
+    <div ng-include="templates.tnc"></div>
+    <div ng-include="templates.privacy"></div> -->
+    <div class="modal bottom" id="modal-faq" tabindex='-1'></div>
+      
+
+      
+    <!-- App script & lib -->
+      
+    <script src="/resources/js/vendor/lodash/lodash.js"></script>
+    <script src="/resources/js/vendor/angular/angular.js"></script>
+    <script src="/resources/js/vendor/angular/angular-route.min.js"></script>
+    <script src="/resources/js/vendor/angular/angular-animate.js"></script>
+    <script src="/resources/js/vendor/angular/angular-resource.js"></script>
+    <script src="/resources/js/vendor/angular/angular-sanitize.js"></script>
+    <!--<script src="/resources/js/vendor/jquery-1.11.2.min.js"></script>-->
+<!--    <script src="/resources/js/vendor/bootstrap/bootstrap.js"></script>-->
+    <!--<script src="/resources/js/vendor/angular-ui/angular-ui-router.min.js"></script>-->
+    <script src="/resources/js/vendor/angular-ui/ui-bootstrap-tpls-1.2.4.min.js"></script>
+      
+<!--    <script src="/resources/js/app0/shims.js"></script>
+    <script src="/resources/js/app0/util.js"></script>-->
+<!--    <script src="/resources/js/app0/common.js"></script>
+    <script src="/resources/js/app0/script.js"></script>-->
+      
+    <script src="/resources/js/app.js"></script>
+    <script src="/resources/js/constant/constant.js"></script>
+    <script src="/resources/js/constant/faq.js"></script>
+    <script src="/resources/js/common/local-storage-service.js"></script>
+    <script src="/resources/js/common/query-service.js"></script>
+    <script src="/resources/js/directives/directives.js"></script>
+    <script src="/resources/js/app/services.js"></script>
+    <script src="/resources/js/app/factory.js"></script>
+    <script src="/resources/js/app/controller.js"></script>
+    <script src="/resources/js/app/navigation/NavigationController.js"></script>
+    <script src="/resources/js/app/wallet/WalletController.js"></script>
+    <script src="/resources/js/app/wallet/WalletServices.js"></script>
+    <script src="/resources/js/app/dashboard/DashboardController.js"></script>
+    <script src="/resources/js/app/dashboard/DashboardServices.js"></script>
+    <!-- <script src="/resources/js/app/profile/ProfileController.js"></script> -->
+  </body>
+</html>

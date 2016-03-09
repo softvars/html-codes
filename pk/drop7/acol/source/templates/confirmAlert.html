@@ -1,0 +1,88 @@
+<!--div class="row">
+    <div class="col-sm-3 col-md-2 sidebar" ng-include="'source/templates/templ_sidebar.html'"> </div-->
+   
+          <form name="form" class="css-form" novalidate>
+            <div class="modal-header">
+                <h3 class="modal-title">Modifica</h3>
+            </div>
+            <div class="modal-body col-sm-12 updatePrdtForm">
+
+                <table class="col-sm-12 table">
+                    <tr>
+                        <td colspan="2"><label for="prodCode"> Codice Prodotto:</label></td>
+                        <td colspan="3">
+                            <input class="col-sm-12 form-control" ng-model="product.prodCode" name="prodCode" type="text" id="prodCode" required />
+                            <br />
+                            <div ng-show="form.$submitted || form.prodCode.$touched" class="field-error">
+                              <div ng-show="form.prodCode.$error.required">Provide Codice Prodotto.</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><label for="name">Nome prodotto:</label></td>
+                        <td colspan="3">
+                            <input class="col-sm-12 form-control" ng-model="product.name" name="name" type="text" id="name" required />
+                            <br />
+                            <div ng-show="form.$submitted || form.name.$touched" class="field-error">
+                              <div ng-show="form.name.$error.required">Provide Nome Prodotto.</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><label for="descr">Descrizione prodotto:</label></td>
+                        <td colspan="3">
+                            <input class="col-sm-12 form-control" ng-model="product.descr" name="descr" type="text" id="descr" required />
+                            <br />
+                            <div ng-show="form.$submitted || form.descr.$touched" class="field-error">
+                              <div ng-show="form.descr.$error.required">Provide Descrizione Prodotto.</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="numberofSteps">Numero di step:</label></td>
+                        <td><select class="col-sm-12 form-control" type="text"  ng-model="product.numSteps" name="numberofSteps"
+                            id="numberofSteps" required>
+                            <option val=1>1</option>
+                            <option val=2>2</option>
+                            <option val=3>3</option>
+                            <option val=4>4</option>
+                            <option val=5>5</option>
+                            <option val=6>6</option>
+                            <select>
+                        </td>
+                        <td><label for="templateCode">Template Grafico:</label></td>
+                        <td><select class="col-sm-12 form-control" type="text"  ng-model="product.templateCode" name="templateCode" 
+                            id="templateCode" required>
+                            <option val="GRAF1">GRAF1</option>
+                            <option val="GRAF2">GRAF2</option>
+                            <option val="GRAF3">GRAF3</option>
+                            <option val="GRAF4">GRAF4</option>
+                            <option val="GRAF5">GRAF5</option>
+                            <option val="GRAF6">GRAF6</option>
+                        <select></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div ng-show="form.$submitted || form.numberofSteps.$touched" style="float: right" class="field-error">
+                              <span ng-show="form.numberofSteps.$error.required">Provide Numero di step.</span>
+                            </div>
+                        </td>
+                        <td colspan="2">
+                            <div ng-show="form.$submitted || form.templateCode.$touched" style="float: right" class="field-error">
+                              <span ng-show="form.templateCode.$error.required">Provide Template Grafico.</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+
+            </div>
+            <div class="modal-footer">
+                 <button class="btn btn-warning" type="button" ng-click="cancel()">
+                    <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> &#32; Annulla</button>
+                <button class="btn btn-primary" type="submit" ng-click="ok(this)" ng-disabled="form.$invalid">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> &#32; Conferma</button>
+            </div>
+          </form>
+    
+<!--/div-->

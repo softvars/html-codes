@@ -1,0 +1,255 @@
+@charset"UTF-8";
+
+/*img, div, a, input {behavior: url(iepngfix.htc);}*/
+.logout, .badge, .card-plate {behavior: url(PIE.htc);}
+
+/*.col-md-1, 
+.col-md-2, 
+.col-md-3, 
+.col-md-4, 
+.col-md-5, 
+.col-md-6, 
+.col-md-7, 
+.col-md-8, 
+.col-md-9, 
+.col-md-10, 
+.col-md-11, 
+.col-md-12,
+.col-xs-1, 
+.col-xs-2, 
+.col-xs-3, 
+.col-xs-4, 
+.col-xs-5, 
+.col-xs-6, 
+.col-xs-7, 
+.col-xs-8, 
+.col-xs-9, 
+.col-xs-10, 
+.col-xs-11, 
+.col-xs-12,
+.col-sm-1, 
+.col-sm-2, 
+.col-sm-3, 
+.col-sm-4, 
+.col-sm-5, 
+.col-sm-6, 
+.col-sm-7, 
+.col-sm-8, 
+.col-sm-9, 
+.col-sm-10, 
+.col-sm-11, 
+.col-sm-12,
+.navbar .navbar-header a.navbar-brand.logo,
+.navbar .navbar-header,
+.navbar .navbar-collapse {
+	display: inline-block;
+	display: inline;
+	zoom: 1;
+	vertical-align: top;
+}
+.rowpadded-ie {padding-left: 10px;padding-right: 10px;}
+input,
+textarea {
+	width: 93%;
+	margin: 0;
+	display: block;
+	font-family: Arial;
+}
+.row {width: 100%;}
+#drawer-menu,
+.navbar-toggle.toggle-drawer,
+#modal {display: none;}
+#page-content {position: relative;}
+.divider-ie {
+	padding-left: 10px;
+	padding-right:10px;
+	height: 1px;
+	line-height: 1px;
+	overflow: hidden;
+}
+.divider {
+	border-top: 1px solid #e0e6e9;
+	border-bottom: 0;
+	width: 100%;	
+}
+.container {
+	position: relative;
+	width: 1024px !important;
+	margin: 0 auto;
+}
+.badge {
+	width: 125px;
+	margin-top: 20px;
+	margin-right: 30px;
+	border-radius: 4px;
+}
+.badge .label {
+	margin-top: 7px;
+}
+.badge .store {
+	margin-top: 3px;
+}
+.content-wrap {top: 0;}
+
+.navbar .navbar-header {
+	width: 100px;
+	height: 80px;
+}
+.navbar .navbar-collapse {
+	height: 80px;
+	width: 924px;
+	top: 0 !important;
+	margin: 0;
+	padding: 0;
+}
+.navbar .navbar-collapse .nav.sections.navbar-nav,
+.navbar .navbar-collapse .nav.navbar-nav.navbar-right,
+.navbar .navbar-collapse .nav.sections.navbar-nav li,
+.navbar .navbar-collapse .nav.navbar-nav.navbar-right li {
+	display: inline-block;
+	display: inline;
+	zoom: 1;
+	line-height: 80px;
+}
+.navbar .navbar-collapse .nav.sections.navbar-nav li a,
+.navbar .navbar-collapse .nav.navbar-nav.navbar-right li a {
+	display: inline-block;
+	display: inline;
+	zoom: 1;
+	margin-top: 25px;
+	top: 0;
+}
+.navbar .navbar-collapse .nav.sections.navbar-nav {float: left;}
+.navbar .navbar-collapse .nav.navbar-nav.navbar-right {float: right;}
+
+.nav li a.purchase-log {background-image: url(../img/menu-cron-off-ie.png);}
+.nav li a.cards {background-image: url(../img/menu-cards-off-ie.png);}
+.nav li a.logged-user{background-image: url(../img/profile-ie.png);}
+.nav li a.dashboard {background-image: url(../img/menu-dashboard-off-ie.png);}
+.nav li.active a.dashboard, .nav li a.dashboard:hover {background-image: url(../img/menu-dashboard-on-ie.png);}
+.nav li.active a.purchase-log, .nav li a.purchase-log:hover {background-image: url(../img/menu-cron-on-ie.png);}
+.nav li.active a.cards, .nav li a.cards:hover {background-image: url(../img/menu-cards-on-ie.png);}
+.nav li.active a.dashboard, .nav li a.dashboard:hover {background-image: url(../img/menu-dashboard-on-ie.png);}
+.show-all {background-image: url(../img/arrow-green-ie.png);}
+..modify {background-image: url(../img/edit-ie.png);}
+.favorite-credit-card .star {background-image: url(../img/star-ie.png);}
+.logo {background-image: url(../img/logo-ie.png);}
+.notify .close {background-image: url(../img/close-white-ie.png);}
+.badge.app-store {background-image: url(../img/ios-ie.png);}
+.badge.google-play {background-image: url(../img/android-ie.png);}
+.link-utils span.lang-selector .lang-selector-arrow {background-image: url(../img/arrow-down-ie.png);}
+#card-plate .top .chip {background-image: url(../img/chip-ie.png);}
+#card-plate .top .type .visa {background-image: url(../img/type-visa-ie.png);}
+
+.notify #notify-welcome {
+	width: 700px;
+	display: inline-block;
+	display: inline;
+	zoom: 1;
+}
+.notify #notify-close {
+	width: 324px;
+	display: inline-block;
+	display: inline;
+	zoom: 1;
+}
+.notify #notify-close .close {
+	top: 20px;
+	right: 0;
+}
+.notify .welcome.up {margin-top: 30px;}
+.notify .smartphones {
+	top: 40px;
+	right: 50px;
+}
+
+.movements {
+	width: 600px;
+	margin-right: 30px
+}
+.movements .row.head,
+.movements .row.even,
+.movements .row.odd  {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.movements .row.even,
+.movements .row.odd  {height: 57px;}
+.movements .row.head .col-xs-10 {width: 565px;}
+.movements .row.head .col-xs-2 {width: 35px;margin-top: 25px;}
+.movements .row.even .col-xs-2.col-sm-2,
+.movements .row.odd .col-xs-2.col-sm-2 {width: 50px;}
+.movements .row.even .col-xs-5.col-sm-7,
+.movements .row.odd .col-xs-5.col-sm-7 {width: 430px;}
+.movements .row.even .col-xs-5.col-sm-3,
+.movements .row.odd .col-xs-5.col-sm-3 {width: 120px;}
+.movements .col-md-8 {padding: 0;}
+.credit-cards,
+.support {width: 310px;}
+.credit-cards .row.head .col-xs-10,
+.support .row.head .col-xs-10 {width: 270px;}
+.credit-cards .row.head .col-xs-2{width: 35px;margin-top: 25px;}
+
+#card-plate .top,
+#card-plate .bottom {height: 50px;}
+#card-plate .top .chip {
+	top: 15px;
+	left: 15px;
+}
+#card-plate .top .type {
+	top: 15px;
+	right: 15px;
+}
+#card-plate .middle {
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+#card-plate .middle .asterisk {
+	display: inline-block;
+	display: inline;
+	zoom: 1;
+	width: 220px;
+	font-size: 25px;
+}
+#card-plate .middle .lastdigit {
+	display: inline-block;
+	display: inline;
+	zoom: 1;
+	width: 75px;
+}
+#card-plate .bottom .holder {
+	bottom: 15px;
+	left: 15px;
+}
+#card-plate .bottom .expiry-date {
+	bottom: 15px;
+	right: 15px;
+}
+
+.favorite-credit-card .col-xs-9 {width: 270px;}
+.favorite-credit-card .col-xs-3 {width: 35px;}
+#card-plate {padding: 0;}
+#wrap-select {display: none;}
+select#area-ie {display: block;}
+.support fieldset input {
+	height: 20px;
+	padding: 10px;
+}
+.support input#submit-ie {
+	width: 100%;
+	margin-top: 15px;
+	background-color: #30b093;
+	color: #fff;
+	border: 1px solid #30b093;
+	font-size: 1.1em;
+	font-weight: bold;
+	border-radius: 4px;
+	height: 40px;
+}
+.footer .badge {margin-top: 0;}
+.footer .link-utils,
+.footer .copyright {
+	width: 450px;
+	margin-left: 145px;
+	text-align: right;
+}*/

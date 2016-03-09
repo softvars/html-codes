@@ -1,0 +1,40 @@
+<div id="cards-body-container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="personal-data-panel">
+                <div class="container-fluid min_height">
+                    <div class="row head">
+                        <div class="col-xs-12">Carte di credito</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="divider"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="profilocarteDiv" data-preferred-card="{{preferredCard_id}}" ng-include="templates.wallet_list"></div>
+                        <div id="staticHypeData" ng-hide="wallet.cards.length > 4">
+                            <div class="col-sm-6  col-md-4 col-xs-12 credit-card-container">
+                                <div class="credit-card">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="card-plate empty">
+                                                <div class="middle">
+                                                    <a ng-click="wallet.showAddCard()" data-toggle="modal" data-target="#modal-add-card" class="add-card" alt="Collega una carta">
+                                                        <div class="plus">+</div>
+                                                        <div class="text">Collega una carta</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div ng-include="templates.wallet_add"></div>-->

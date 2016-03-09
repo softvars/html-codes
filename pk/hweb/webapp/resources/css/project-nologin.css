@@ -1,0 +1,99 @@
+@charset "UTF-8";
+body, html { height: 100%; }
+
+/* Fixes to remove IE10's “clear field” X button */
+::-ms-clear  { display: none; width : 0; height: 0; }
+::-ms-reveal { display: none; width : 0; height: 0; }
+
+.hide-it, .hide { display: none; }
+.show { display: block; }
+.container.main { min-height: 400px; }
+#browser-not-supported {
+    display: none;
+    top: 0px;
+    background-color: #e9474e;
+    color: white;
+    text-align: center;
+    margin-top: 6px;
+    padding: 8px 34px 8px 4px;
+}
+#browser-not-supported .close {
+    background: url('../img/close-gray.png') center center no-repeat;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -ms-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    width: 10.5px;
+    height: 9.5px;
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    cursor: pointer;
+}
+.content-wrap.unsupported-browser { top: 122px; }
+
+.message-body {
+    background-color: #F4F5F7;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -ms-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    /* height: 190px; */
+    width: 87%;
+    padding: 15px;
+    padding-left: 30px;
+    border-radius: 7px;
+    border: 1px solid #D8E2E7;
+    margin-top: 45px;
+    margin-left: 26px;
+}
+
+ .message-head {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 14px;
+  color: #FF0000;
+  /* text-transform: capitalize; */
+  margin-top: 10px;
+}
+
+.message {
+  margin-top: 17px;
+  min-height: 72px;
+  font-family: "Lato";
+  font-size: 16px;
+  color: #898997;
+}
+
+.message-body .form-footer {
+  margin-top: 11px;
+  text-align: right;
+}
+.page-404 .head {
+  margin-top: 100px;
+}
+
+.reg-message-body {
+    width: 100%;
+}
+
+.message-head.no-error {
+	color: #0c303c;
+}
+
+@media (max-width: 767px) {
+	.message-body{
+		margin-top: 55%;
+		padding: 10px;
+	}
+	.message {
+		padding-left: 10px;
+		padding-right: 10px;
+		min-height: 12%;
+	 }
+	 .message-body .form-footer {
+	 	padding-right: 10px;
+	 }
+}

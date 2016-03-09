@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.navbar-collapse {display: block;}
+	.nav li {
+		margin-left: 10px;
+		font-size: 12px;
+	}
+	
+	.credit-card,
+	.credit-cards .row.favorite-credit-card {
+		margin: 15px auto 0 auto;
+		width: 340px;
+	}
+	
+	.badge {padding-left: 50px;}
+	.notify .smarthphones {display: none;}
+	.notify .welcome {font-size: 18px;}
+	.notify .welcome.up,
+	.credit-cards,
+	.credit-card, 
+	.filters, 
+	.email-panel {margin-top: 30px;}
+	.movements {padding-bottom: 25px;}
+	.paging .page-num {margin-bottom: auto;}
+	.link-utils a, .link-utils span {margin-left: 20px;}
+	.picker {right: 0}
+}

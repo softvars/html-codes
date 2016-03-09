@@ -1,0 +1,14 @@
+<div id="drawer-menu" ng-controller="NavigationController as header">
+    <ul>
+        <li><a class="logged-user" title="Profilo" href="#profilo" ng-bind="header.user.displayName"></a></li>
+        <li class="wrap-divider">
+            <div class="divider"></div>
+        </li>
+        <li><a class="dashboard" title="Dashboard" href="#dashboard">dashboard</a>
+        </li>
+        <li><a class="purchase-log" title="Cronologia acquisti" href="#transaction"/>'>cronologia acquisti</a></li>
+        <li><a class="cards" title="Carte" href="#carte">carte</a></li>
+        <li><a class="logout" title="Logout" href="/AuthenticationDelegatedServlet?delegated_service=217">logout</a>
+        </li>
+    </ul>
+</div>

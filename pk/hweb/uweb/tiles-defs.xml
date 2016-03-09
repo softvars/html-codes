@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="baselayout" template="/WEB-INF/layout/main-layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="css" value="" />
+        <put-attribute name="javascript" value="" />
+        <put-attribute name="javascript-logout-handler" value="/WEB-INF/layout/logout-handler-scripts.jsp" />
+        <put-attribute name="javascript-datepicker" value="" />
+        <put-attribute name="header" value="" />
+        <put-attribute name="msg-container" value="/WEB-INF/layout/msg-container.jsp" />
+        <put-attribute name="profiloheader" value="" />
+        <put-attribute name="navmenu" value="" />
+        <put-attribute name="app-add" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="" />
+        <put-attribute name="overlay" value="/WEB-INF/layout/overlay.jsp" />
+        <put-attribute name="hiddendata" value="" />
+        <put-attribute name="support" value="" />
+        <put-attribute name="privacy" value="/WEB-INF/layout/privacy.jsp" />
+        <put-attribute name="contacts" value="" />
+        <put-attribute name="faq" value="" />
+        <put-attribute name="tnc" value="" />
+        <put-attribute name="transaction-details" value="" />
+        <put-attribute name="templates" value="" />
+        <put-attribute name="terms-and-conditions-privacy-policy" value=""/>
+        <put-attribute name="editpassword" value="" />
+        <put-attribute name="web-attack-prevention" value="/WEB-INF/layout/web-attack-prevention.jsp" />
+        <put-attribute name="payment-alert-container" value="" />
+    </definition>
+    
+    <definition name="errorlayout" extends="baselayout" template="/WEB-INF/layout/error-layout.jsp">
+    </definition>
+    
+     <definition name="privacylayout" extends="baselayout" template="/WEB-INF/layout/privacy-layout.jsp">
+    </definition>
+    
+    <definition name="loginlayout" extends="baselayout" template="/WEB-INF/layout/login-layout.jsp">
+    </definition>
+    
+    <definition name="registrationlayout" extends="baselayout" template="/WEB-INF/layout/registration-layout.jsp">
+    	<put-attribute name="templates" value="/WEB-INF/layout/notification-template.jsp" />
+    </definition>
+    
+    <definition name="registration.pagam.layout" extends="registrationlayout">
+    	<put-attribute name="body" value="/WEB-INF/view/reg-profile-form.jsp" />
+    </definition>
+    
+    <definition name="pagam.token.layout" extends="registrationlayout">
+    	<put-attribute name="body" value="/WEB-INF/view/sms-token-form.jsp" />
+    </definition>
+    
+    <definition name="reply.card.layout" extends="registrationlayout">
+    	<put-attribute name="body" value="/WEB-INF/view/masked-card-form.jsp" />
+    </definition>
+    <definition name="gestpay.card.layout" extends="registrationlayout">
+    	<put-attribute name="body" value="/WEB-INF/view/masked-card-gestpay-form.jsp" />
+    </definition>
+    <definition name="pagam.new.registration" extends="registrationlayout">
+    	<put-attribute name="body" value="/WEB-INF/view/pagam-new-user-reg-form.jsp" />
+    </definition>
+    
+    <definition name="mainlayout" extends="baselayout">
+        <put-attribute name="header" value="/WEB-INF/layout/header.jsp" />
+        <put-attribute name="navmenu" value="/WEB-INF/layout/nav-menu.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
+        <put-attribute name="contacts" value="/WEB-INF/layout/contacts-info.jsp" />
+        <put-attribute name="support" value="/WEB-INF/layout/support.jsp" />
+        <put-attribute name="faq" value="/WEB-INF/layout/faq.jsp" />
+        <put-attribute name="tnc" value="/WEB-INF/layout/terms-conditions-and-privacy-policy.jsp" />
+    </definition>
+
+    <definition name="main.dashboard_and_transactions" extends="mainlayout">
+        <put-attribute name="hiddendata" value="/WEB-INF/layout/transaction-details.jsp" />
+        <put-attribute name="templates" value="/WEB-INF/layout/transaction-templates.jsp" />        
+    </definition>
+
+    <definition name="main.transactions" extends="main.dashboard_and_transactions">
+        <put-attribute name="javascript-datepicker" value="/WEB-INF/layout/datepicker-scripts.jsp" />
+    </definition>
+
+    <definition name="profilolayout" extends="mainlayout">
+        <put-attribute name="javascript-datepicker" value="/WEB-INF/layout/datepicker-scripts.jsp" />
+        <put-attribute name="profiloheader" value="/WEB-INF/layout/profile-header.jsp" />
+        <put-attribute name="templates" value="/WEB-INF/layout/profile-templates.jsp" />
+        <put-attribute name="editpassword" value="/WEB-INF/layout/edit-password.jsp" />
+    </definition>
+    
+    <definition name="paymentlayout" extends="baselayout">
+        <put-attribute name="templates" value="/WEB-INF/layout/payment-cards-template.jsp" />
+        <put-attribute name="payment-alert-container" value="/WEB-INF/layout/payment-alert-container.jsp" />
+    </definition>
+</tiles-definitions>

@@ -1,0 +1,109 @@
+.content-wrap{
+    top:0;
+    min-height: 100%
+}
+.main { padding-bottom: 30px; }
+
+.head {
+  font-family: "Lato";
+  font-size: 30px;
+  color: #0c303c;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.head .username {
+    float: right;
+    text-transform: uppercase;
+    font-family: "Lato";
+    /* font-weight: 700; */
+    font-size: 19px;
+}
+
+#cards-body-container .transaction-info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 28px;
+}
+.transaction-info .label {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #30b093;
+  text-align: right;
+}
+
+.transaction-info .amount {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 18px;
+  color: #0c303c;
+  text-align: right;
+}
+
+.card_cvv {
+  margin-top: 12px;
+  padding-right: 0;
+}
+.centered.card_cvv_submit_btn { left: 25%; }
+
+.select-card-done-btn.readonly {
+  cursor: default;
+}
+
+.select-card {
+    width: 18%;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 35px;
+}
+.select-card .cancel{
+    text-align: center;
+    padding: 20px 0;
+}
+.select-card .cancel span{
+    color: #0c303c;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.select-card .cancel span:hover { border-bottom: 2px solid #30b093; }
+
+.confirm-modal .popover.payment-flow .popover-title {text-transform: uppercase;}
+.confirm-modal .popover.payment-flow .popover-actions div.positive {background-color: #e9474e;}
+.confirm-modal .popover.payment-flow .popover-actions div.positive:hover {background-color: #b7424b;}
+
+.popover.payment-cancel .popover-actions div.positive {
+    margin-left: 0;
+    margin-right: 3%;
+}
+
+.popover.payment-cancel .popover-actions div.negative {
+    margin-right: 0;
+    margin-left: 3%;
+}
+/* #close-payment-cardselection a { color: #0c303c; } */
+
+.transaction-info .label.insegna {
+    text-align: left;
+    color: black;
+    text-transform: none;
+} 
+
+@media (max-width: 767px) {
+    .logo-wrap {
+      position: relative;
+    }
+    .content-wrap {
+	  padding-top: 0;
+	}
+	.personal-data-panel {
+	  margin-top: 0;
+	}
+	div[class^="col-"].card_cvv_input_div {
+	  padding: 0 10px;
+    }
+}

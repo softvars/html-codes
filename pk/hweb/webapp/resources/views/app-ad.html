@@ -1,0 +1,39 @@
+<div class="container-fluid notify" ng-controller="NavigationController as appad" ng-show="appad.showAppAd">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12" id="notify-welcome">
+                    <div class="welcome up">
+                        Ciao <span class="user-name text-capitalize">{{userInfo.firstName.toLowerCase()}}</span>!
+                    </div>
+                    <div class="welcome down">Scarica gratuitamente l'applicazione Hype Wallet sul tuo smartphone.</div>
+                </div>
+                <div class="col-md-4" id="notify-close">
+                    <div>
+                        <div class="close"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1 hidden-sm hidden-md hidden-lg">
+                    <div class="smartphones"></div>
+                </div>
+                <div class="col-md-2 col-sm-3 col-xs-5">
+                    <a href="https://itunes.apple.com/us/app/hype-wallet-up-mobile/id475738173?ls=1&mt=8" target="_blank" title="App Store" class="app-store badge">
+                        <div class="label">disponibile su</div>
+                        <div class="store">app store</div>
+                    </a>
+                </div>
+                <div class="col-md-2 col-sm-3 col-xs-5">
+                    <a href="https://play.google.com/store/apps/details?id=it.reply.up.mobile.android" target="_blank" title="Google Play" class="google-play badge">
+                        <div class="label">android app on</div>
+                        <div class="store">google play</div>
+                    </a>
+                </div>
+                <div class="col-md-8 col-sm-6">
+                    <div class="smartphones hidden-xs"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div ng-controller="NavigationController as profile" ng-show="profile.showProfileHeader">
+    <div class="container-fluid profile-header">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="profile-pic">
+                            <div class="profile-pic-wrap">
+                                <img src="/resources/img/profile-big.png" alt="Immagine profilo" />
+                            </div>
+                        </div>
+                        <div class="profile-username text-capitalize" ng-bind="profile.user.displayName"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid profile-menu">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="menu" id="profile-menu">
+                            <ul>
+                                <li>
+                                    <a class="profile" title="Profilo" href="#profilo">profilo</a>
+                                </li>
+                                <li>
+                                    <a class="cards inner" title="Carte" href="#carte">carte</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
