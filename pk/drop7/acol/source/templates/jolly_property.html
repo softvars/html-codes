@@ -1,0 +1,34 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">TIPO PARAMETRO:<span>{{property.code}}</span></h3>
+    </div>
+    <div class="modal-body jollyProperty">
+        <table class="table "> 
+            <tr>
+                <td colspan="2">IMPOSTA TITOLO E DESCRIZIONE DEL PARAMETRO</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="col-sm-12" type="text" id="id_desc" ng-model="property.desc"></td>
+            </tr>
+            <tr>
+                <td>SCEGLI MODALITA</td>
+                <td>IMPOSTA VALORI</td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="id_mode" ng-model="property.mode">
+                        <option ng-repeat="mode in jolly.mode" value="{{mode}}">{{mode}}</option>
+                    </select>
+                </td>
+                 <td>
+                    <select id="id_value" ng-model="property.value">
+                        <option ng-repeat="value in jolly.value" value="{{value}}">{{value}}</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+       <button class="btn btn-primary" type="button" ng-click="ok(pdtId)">Conferma</button>
+    </div>
+</div>

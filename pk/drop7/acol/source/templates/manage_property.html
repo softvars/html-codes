@@ -1,0 +1,94 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Proprietà configurate su prodotto <span>{{prop.prodCode}}</span></h3>
+    </div>
+    <div class="modal-body manageProperty">
+         
+        <table class="table col-md-12"> <thead class="col-md-12">
+           
+            <tr class="col-md-12">
+            <!--th class="col-md-1"></th-->
+            <th class="col-md-5">Porprietà</th>
+            <th class="col-md-6">Valore di default</th>
+            <th class="col-md-1">
+            <button type="button" ng-click="addNewProperty()"class="btn btn-small btn-success table_icon" >
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true">    
+            </th></tr>
+            </thead>
+            <tbody class="col-md-12" ng-model="prop">
+            
+            <tr ng-repeat="property in prop.properties" ng-dblclick="updateProperty(property)" id="{{property.id}}" class="col-md-12">
+                <!--td class="col-md-1"> 
+               </td-->
+                <td class="col-md-5">
+                    <input type="text"  class="form-control prodCode" ng-class="{property_read : property.id!= readOnly}" 
+                        ng-model="property.code" ng-readonly="property.id!= readOnly"/>
+                </td>
+                <td class="col-md-5">
+                    <input type="text"  class="form-control"  ng-class="{property_read : property.id!= readOnly}"  
+                           ng-model="property.value" ng-readonly="property.id!= readOnly"/>
+                </td>
+                <td class="col-md-2">
+                    <button type="button" ng-click="property.id!= readOnly && deleteProperty(prop,$index) || doDoneProperty(prop)" 
+                            class="btn btn-small table_icon" 
+                            ng-class="{'btn-danger' : property.id!= readOnly, 'btn-success' :property.id== readOnly}">
+                    <span class="glyphicon"
+                          ng-class="{'glyphicon-remove' : property.id!= readOnly, 'glyphicon-ok' :property.id== readOnly}"
+                        aria-hidden="true"></button>
+                    <button type="button" ng-click="updateProperty(property,this)" class="btn btn-small btn-info table_icon"
+                            ng-show="property.id!= readOnly" id="{{property.id}}" >
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true">
+                        
+                    </td>
+                </td>
+            </tr>
+            <tr ng-show="newProperty || prop.properties.length==0"  class="col-md-12">
+                <td></td>
+                <td class="col-md-4">
+                    <input type="text"  class="form-control prodCode" value='' ng-model="model_property.code"/>
+                </td>
+                <td class="col-md-6">
+                    <input type="text"  class="form-control" value='' ng-model="model_property.value"/>
+                </td>
+                <td class="col-md-1" >
+                    <button type="button" ng-click="doDoneProperty(prop,true)" class="btn btn-small table_icon btn-success">
+                    <span class="glyphicon glyphicon-ok"
+                        aria-hidden="true"></button>
+                </td>
+            </tr>
+           </tbody>
+            <tfoot>
+            <tr>
+                <td class="col-md-12" ng-model="prop">
+               <span class="col-md-2"> Prodotto:</span>
+                <select class="form-control" type="text" ng-if="newProperty" ng-model="model_property.prod" name="productcode" 
+                            id="productcode" class="col-md-7">
+                           <option value =""></option>
+                    
+                <option  ng-repeat = "property in prop.properties" value="{{property.prod}}" >{{property.prod}}</option>
+            <select>
+                <select class="form-control" type="text"  ng-if="!newProperty" ng-model="property.prod" name="productcode" 
+                            id="productcode" class="col-md-7">
+                           <option value =""></option>
+                    
+                <option  ng-repeat = "property in prop.properties" value="{{property.prod}}" >{{property.prod}}</option>
+                            
+            <select>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+       
+       <!-- <label for="productcode" class="col-md-3">Prodotto:</label>
+          <select class="form-control" type="text"  ng-model="model_property.prod" name="productcode" 
+                            id="productcode" class="col-md-7">
+                           <option val=""></option>
+                            <option val="{{prop.prodCode}}">{{prop.prodCode}}</option>
+                            
+            <select>-->
+    </div>
+    <div class="modal-footer">
+     
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Annulla e chiudi</button>
+    </div>
+</div>

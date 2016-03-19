@@ -17,8 +17,6 @@ app.controller('addProductCtrl', ["$scope", "$rootScope", "util","productService
             console.log("res.data:" + res.data);
             util.go("/addWidgets/"+ pid +"/step/1");
         });
-        //$scope.productCollection.push(json);//
-        //$scope.setCurrentStep(1);//
-        //$scope.proceedStep();//
+    
     };
 }]);

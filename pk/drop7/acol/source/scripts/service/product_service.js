@@ -5,7 +5,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
           $rootScope.startLoading();
         return $http({
                 method: 'GET',
-                url: '/product'
+                url: 'product'
             }).then(function successCallback(response) {
               $rootScope.stopLoading();
                 //productAPI.doCache(response);
@@ -27,7 +27,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 method: 'POST',
                 data: angular.toJson(product),
                 headers: {'Content-Type': 'application/json'},
-                url: '/product'
+                url: 'product'
             }).then(function successCallback(response) {
              //   productAPI.doCache(response);
             $rootScope.stopLoading();
@@ -45,7 +45,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 method: 'POST',
             data: angular.toJson({number: step,name:"step"+step, widgets: widgets}),
                 headers: {'Content-Type': 'application/json'},
-                url: '/product/' + productid + '/step/'+step
+                url: 'product/' + productid + '/step/'+step
             }).then(function successCallback(response) {
             //    productAPI.doClearCache();
                 $rootScope.stopLoading();
@@ -62,7 +62,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
         return $http({
                 method: 'DELETE',
                 headers: {'Content-Type': 'application/json'},
-                url: '/product/'+productId
+                url: 'product/'+productId
             }).then(function successCallback(response) {
              $rootScope.stopLoading();
                if(cbk) { cbk(response)};
@@ -79,7 +79,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 method: 'POST',
                 data: angular.toJson(product),
                 headers: {'Content-Type': 'application/json'},
-                url: '/product/'+product.id+'/clone/'+mode
+                url: 'product/'+product.id+'/clone/'+mode
             }).then(function successCallback(response) {
             //    productAPI.doCache(response);
              $rootScope.stopLoading();
@@ -99,7 +99,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
             return $http({
                 method: 'GET',
                 headers: {'Content-Type': 'application/json'},
-                url: '/product/'+productid+'?full='+(isFull || true)
+                url: 'product/'+productid+'?full='+(isFull || true)
             }).then(function successCallback(response) {
               //  productAPI.doCache(response);
                  $rootScope.stopLoading();
@@ -120,7 +120,7 @@ app.factory('productService', ['$http', '$rootScope', function($http, $rootScope
                 method: 'POST',
                 data: angular.toJson(product),
                 headers: {'Content-Type': 'application/json'},
-                url: '/product/' + product.id
+                url: 'product/' + product.id
             }).then(function successCallback(response) {
                // productAPI.doClearCache();
              $rootScope.stopLoading();

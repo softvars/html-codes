@@ -1,6 +1,9 @@
 app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productService", "util","DTOptionsBuilder","DTColumnDefBuilder","$uibModal",
   function ($scope, $route, $routeParams, productService, util, DTOptionsBuilder, DTColumnDefBuilder,$uibModal) {
     $scope.enable_button = false;
+    $scope.readOnly= null;
+    $scope.newProperty= false;
+    $scope.model_property={};
       $(".side-bar-view").hide();
     $scope.doRemoveItem = function(index) {
     //    var prevSelect= angular.element(document.getElementsByClassName("stSelected"));
@@ -74,13 +77,14 @@ app.controller('productsCtrl', ["$scope", "$route", "$routeParams","productServi
     $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
     $scope.predicate = predicate;
   };
-      productService.loadProductList();
+    productService.loadProductList();
 
   $scope.rowCallback= function(data) {
       $(".stSelected").removeClass("stSelected");
       $(event.currentTarget).addClass("stSelected");
        $scope.selected = data.row;
-       $scope.enable_button=true;
+      if($(".stSelected").length>0){
+       $scope.enable_button=true;}
       console.log($scope.selected);
 
 };
@@ -92,20 +96,60 @@ $scope.doUpdateProduct =function(product){
     var  errCbk = function(){
         $scope.alertInstance.close();
     };
-    $scope.createModel('confirmAlert.html','productsCtrl',sucCbk,errCbk,{product : $scope.product});
+   $scope.enable_button=false;
+    $scope.createModel('update_product.html','productsCtrl',sucCbk,errCbk,{product : $scope.product});
+    
 };
  $scope.cancel = function(){
       $scope.alertInstance.close();
  };
   $scope.ok = function (elt) {
-   
+
         productService.updateProduct($scope.product,function(res){ 
         $scope.alertInstance.close();
-        
         })
- 
-
   };
+  $scope.doManageProperty = function(product){
+      $scope.product = product;
+      console.log($scope.product)
+      $scope.enable_button=false;
+    $scope.createModel('manage_property.html','productsCtrl',null,null,{prop:$scope.product});
+    
+  };
+ $scope.addNewProperty = function(product){
+     $scope.model_property={};
+   $scope.newProperty= true;
+    $scope.readOnly= false;
+ };
+  $scope.updateProperty = function(product,elt){
+     var code = $(event.currentTarget).attr('id');
+    
+   $scope.readOnly= code;
+       $scope.newProperty= false;
+    
+      
+ };
+  $scope.deleteProperty = function(product,index){
+      product.properties.splice(index,1);
+        productService.updateProduct(product,function(res){
+        $scope.readOnly= product.id;
+       });
+ };
+  $scope.doDoneProperty = function(product,isAdd){
+      if(isAdd){
+      var propertyObj = {}
+      propertyObj.value =$scope.model_property.value||'';
+      propertyObj.code =$scope.model_property.code||'';
+      propertyObj.prod =$scope.model_property.prod||'';
+      product.properties.push(propertyObj);
+      }
+       productService.updateProduct(product,function(res){
+        $scope.readOnly=product.id;
+           $scope.newProperty= false;
+       });
+     
+}
+    
 }]);
 
 

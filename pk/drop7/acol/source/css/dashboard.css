@@ -89,6 +89,22 @@ body {
 .main .page-header {
   margin-top: 0;
 }
+/*common*/
+.btn-info{
+    box-shadow: inset -3px -3px 15px #00a4ec;
+}
+.btn-danger{
+    box-shadow: inset -3px -3px 15px #c93131;
+}
+.btn-primary{
+    box-shadow: inset -3px -3px 15px #1A4FB0;
+}
+.btn-warning{
+    box-shadow: inset -3px -3px 15px #D19235;
+}
+.btn-success{
+    box-shadow: inset -3px -3px 15px #377E37;
+}
 
 
 /*
@@ -156,17 +172,17 @@ table.productList > thead > tr:nth-child(2) th {
     text-align: center;
 }
 table.productList > thead  {
-    background-color: #607D8B;
+   /* background-color: #607D8B;
     border: 1px solid #607D88; 
-    color: #fff;
+    color: #fff;*/
+    background-color: #006078;
+border: #006078;
+color: #fff;
+box-shadow: inset -3px -3px 15px #006078;
 }
 
 table.productList > tbody > tr:hover {
     background-color: rgba(66, 139, 202, 0.4);
-}
-table.productList > tbody > tr.stSelected {
-    background-color: #428bca;
-    color: #fff;
 }
 .table-footer button {
     min-width: 60%;
@@ -185,6 +201,9 @@ table.productList > tbody > tr.stSelected {
       width: 90%;
 }
 .modal-body.pdtProperty table>tbody>tr>th{
+    border:none;
+}
+.modal-footer{
     border:none;
 }
 /*
@@ -239,7 +258,7 @@ text-decoration: none;
     padding:1px 6px;
 }
 .stSelected {
-    background-color: #428bca !important;
+    background-color: #6980A2 !important;
     color: #fff !important;
 }
 .popover,.arrow {
@@ -248,9 +267,9 @@ padding: 0px;
 }
 .addProduct{
 float: left;
-top: 13%;
+padding:0;
 position: absolute;
-    z-index:100;
+z-index:100;
 }
 [type="search"]{
 display: inline !important;
@@ -399,4 +418,33 @@ z-index: 1200;
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+/*Property Management*/
+.manageProperty .table{
+ border:1px solid #e5e5e5; 
+}
+.manageProperty .table > thead,.manageProperty .table  tr{
+ border-bottom:1px solid #e5e5e5; 
+}
+.manageProperty .table  tr,.manageProperty .table ,.manageProperty .table > thead,.manageProperty .table > tbody{
+ padding-left:none !important;
+ padding-right:none !important;
+}
+/*.manageProperty .table .table_icon{
+position: absolute;
+}*/
+.property_read{
+  border:none;
+  background:white !important;
+  box-shadow:none !important;
+}
+/*.manageProperty .table > thead th{
+    padding-left: 5%
+}    */
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    padding:0.25em 0.5em;
+}
+.selectSearch,.selectSearch:active{
+box-shadow: inset 0px 3px 5px #c4d8ff;
+-webkit-box-shadow: inset 0px 3px 5px #c4d8ff;
 }

@@ -1,0 +1,28 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title"></h3>
+    </div>
+    <div class="modal-body confirmProperty" ng-model="model_jolly">
+        
+        <table class="table col-md-12" >
+            <thead class="col-md-12">
+            <tr class="col-md-12">
+            <!--th class="col-md-1"></th-->
+            <th class="col-md-6">Parametro</th>
+            <th class="col-md-6">Valore di default</th>
+            
+            </tr>
+            </thead>
+            <tbody class="col-md-12">
+            <tr ng-repeat="property in model_jolly.properties" id="{{property.id}}" ng-click ="doPropertyChange()">
+                <td class="col-md-7" ng-model="property.code"><span class="col-md-12"> {{property.code}}</span></td>
+                <td class="col-md-6" ng-model="property.value"><span class="col-md-12">{{property.value}}</span></td>
+                
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" type="button" ng-click="confirmProperty()">Conferma</button>
+    </div>
+</div>

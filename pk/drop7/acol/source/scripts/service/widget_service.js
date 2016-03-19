@@ -5,7 +5,7 @@ app.factory('widgetService', ['$http', '$rootScope', function($http, $rootScope)
          $rootScope.startLoading();
         return $http({
                 method: 'GET',
-                url: '/category'
+                url: 'category'
             }).then(function successCallback(response) {
              $rootScope.stopLoading();
             if(cbk){cbk(response);}
@@ -20,7 +20,7 @@ app.factory('widgetService', ['$http', '$rootScope', function($http, $rootScope)
             $rootScope.startLoading();
         return $http({
                 method: 'GET',
-                url: '/widget?category='+category
+                url: 'widget?category='+category
             }).then(function successCallback(response) {
              $rootScope.stopLoading();
               if(cbk){cbk(response);}
@@ -38,7 +38,7 @@ app.factory('widgetService', ['$http', '$rootScope', function($http, $rootScope)
                 method: 'POST',
                 data: angular.toJson(data),
                 headers: {'Content-Type': 'application/json'},
-                url: '/product/'+id+'/step'
+                url: 'product/'+id+'/step'
             }).then(function successCallback(response) {
              $rootScope.stopLoading();
                 if(cbk) { cbk(response)};
@@ -52,7 +52,7 @@ app.factory('widgetService', ['$http', '$rootScope', function($http, $rootScope)
            $rootScope.startLoading();
         return $http({
                 method: 'GET',
-                url: '/product/'+id+'/step/'+step
+                url: 'product/'+id+'/step/'+step
             }).then(function successCallback(response) {
              $rootScope.stopLoading();
                 if(cbk) { cbk(response)};

@@ -33,7 +33,27 @@ app.run(['$rootScope', '$http', 'productService','widgetService',"$uibModal", fu
         return($rootScope.currentStep);
     }
     
-   
+    $rootScope.proceedStep = function(id,srcpath,isView) {
+        var hasPath = function(param){ return location.hash.indexOf(param) !=-1};
+        $rootScope.isView = hasPath("viewWidgets") || isView;
+        var selectData = $rootScope.getSelectedData() && $rootScope.getSelectedData().data || null;
+        var id = id || selectData && selectData.id ||'';
+        var path = '';
+        if(srcpath){
+            path = id && srcpath && srcpath+id ||srcpath
+        }
+        else{
+            path = id && (hasPath("viewWidgets")  && "/viewWidgets/"+id || hasPath("editWidgets") && "/editWidgets/"+id )
+            ||"/addWidgets" ||'';
+            path = (isView && "/viewWidgets/" + id) || path;
+        }
+        if(selectData || path=="/addWidgets"){
+            $rootScope.go(path +'/step:'+$rootScope.getCurrentStep());}
+        else{
+         $rootScope.go('/');
+        }
+    }
+    
     $rootScope.startLoading = function(){
         $(".loading_overlay").show();
     }
@@ -55,18 +75,16 @@ app.run(['$rootScope', '$http', 'productService','widgetService',"$uibModal", fu
 
     $rootScope.alertInstance.result.then(function() {
         if(succClk)succClk();
-     
+      // $uibModalInstance.close();
     }, function () {
         if(errClk) errClk();
-      
+       //  $uibModalInstance.dismiss('cancel');
     });
     }
      $rootScope.getCategories = function(){
         widgetService.getCategoryList(function(res){
            $rootScope.categories = res && res.data && res.data.data ||[];
-            $rootScope.categories.push({"name":"Custom","code":"CUSTOM"});
            $rootScope.getWidgets();
-            $rootScope.addWidgetJolly();
         })
     };
      $rootScope.widgetList = [];
@@ -75,10 +93,10 @@ app.run(['$rootScope', '$http', 'productService','widgetService',"$uibModal", fu
              var catList = $rootScope.categories[i];
              var catId =catList.code;
              $rootScope.models.lists[catId] =new Array();
-
+             
              widgetService.getWidgetList(catId,function(res){
                  var resWidget = res && res.data && res.data.data ||[];
-     
+                 
                   for(var j=0;j< resWidget.length;j++){
 /*                      var imgUrl = "/acol/app/images/"+resWidget[j].code+".JPG"
                       var id = resWidget[j].code;
@@ -91,11 +109,12 @@ app.run(['$rootScope', '$http', 'productService','widgetService',"$uibModal", fu
                       resWidget[j].type = "widget";
                       if(angular.isArray($rootScope.models.lists[resWidget[j].category.code])) {
                         $rootScope.models.lists[resWidget[j].category.code].push(resWidget[j]);
-                  }
+                      }
 
                 }
-                 });
 
+
+            });
          }
     };
     $rootScope.getCategories();
@@ -170,12 +189,6 @@ app.run(['$rootScope', '$http', 'productService','widgetService',"$uibModal", fu
             $rootScope.selectedData =obj;
         return obj;}else{return false;}
     }
-    $rootScope.addWidgetJolly = function(){
-        var widgetStr = '{"name":"Widget Jolly","description":"Widget Jolly","code":"WIDGET_JOLLY","category":{"name":"Custom","code":"CUSTOM"},"configurations":[],"components":[],"properties":[],"type":"widget"}'
-      var widgetJollyData = JSON.parse(widgetStr);
-        
-        $rootScope.models.lists['CUSTOM'].push(widgetJollyData);
-    }
 }]);
  app.controller('alertInstanceCtrl', function ($scope, $uibModalInstance) {
     
@@ -186,5 +199,4 @@ app.run(['$rootScope', '$http', 'productService','widgetService',"$uibModal", fu
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-    
     });

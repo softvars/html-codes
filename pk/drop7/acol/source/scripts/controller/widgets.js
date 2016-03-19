@@ -24,7 +24,7 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
             if($scope.selectedData.data && $scope.selectedData.data.id){
         widgetService.getStepWidgets($scope.selectedData.data.id,function(res){
             console.log(" res.data ",res.data);
-            var widgets = (res.data&& res.data.data && res.data.data[0] && res.data.data[0].widgets && res.data.data[0].widgets) || [] ;
+            var widgets = (res.data.data&& res.data.data.widgets) || [] ;
             console.log("widgets ",widgets);
             $scope.oldData = widgets;
             /*if(widgets) {
@@ -49,9 +49,7 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
             }
             $scope.models.product_steps = $scope.createStepJson($scope.selectedData.data.id,$scope.models.product_steps);
             $scope.selectedData.data.widgets[$scope.selectedData.currentStep] = $scope.models.product_steps;
-            productService.updateProductStep($scope.selectedData.data.id, $scope.selectedData.currentStep, $scope.models.product_steps, function(res){
-                //res.data[0];
-            })
+            productService.updateProductStep($scope.selectedData.data.id, $scope.selectedData.currentStep, $scope.models.product_steps)
         }
     };
     $scope.createStepJson =  function(id, widgets){
@@ -77,7 +75,7 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
     $scope.getSelectedData = function(isAdd,cbk){
         productService.getProduct($routeParams.productId, true, function(res){
             $scope.selectedData = {};
-            $scope.selectedData.data =  isAdd && res.data && res.data.data && res.data.data[0] || res.data && res.data.data &&            res.data.data[0] ||res.data[0] ||[];
+            $scope.selectedData.data = isAdd && res.data.data || res.data.data ||[];
             $scope.selectedData.currentStep =  $scope.getCurrentStep();
             $scope.getSelectedWidgets();
             console.log( $scope.models.product_steps);
@@ -107,7 +105,8 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
       
         //$scope.proceedStep($scope.selectedData.data.id);
         var cbk = function(){
-            var  path = util.hasPath("viewWidgets")  && "/viewWidgets/" || util.hasPath("editWidgets") && "/editWidgets/"||util.hasPath("addWidgets") &&"/addWidgets/" ||'';
+            var  path = util.hasPath("viewWidgets")  && "/viewWidgets/" || 
+                util.hasPath("editWidgets") && "/editWidgets/"||util.hasPath("addWidgets") &&"/addWidgets/" ||'';
           
             util.go(path + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); 
          $scope.isEnableNext =  $scope.isEnableNext;}
@@ -134,7 +133,8 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
         }
       
        var cbk = function(){
-             var  path = util.hasPath("viewWidgets")  && "/viewWidgets/" || util.hasPath("editWidgets") && "/editWidgets/"||util.hasPath("addWidgets") &&"/addWidgets/" ||'';
+             var  path = util.hasPath("viewWidgets")  && "/viewWidgets/" ||
+                 util.hasPath("editWidgets") && "/editWidgets/"||util.hasPath("addWidgets") &&"/addWidgets/" ||'';
            
            util.go(path + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); }
         if($scope.selectedData && $scope.selectedData.data){
@@ -143,7 +143,7 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
         else{
                 $scope.getSelectedData(isAdd,cbk);
         }
-         //$scope.proceedStep($scope.selectedData.data.id);
+         
     };
     
     $scope.doSaveClick = function() {
@@ -151,8 +151,9 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
         var currentStep = parseInt($scope.getCurrentStep());
         if($scope.selectedData.data.numSteps > currentStep){
             $scope.setCurrentStep(currentStep + 1);
-            //$scope.proceedStep($scope.selectedData.data.id); 
-               var  path = util.hasPath("viewWidgets")  && "/viewWidgets/" || util.hasPath("editWidgets") && "/editWidgets/"||util.hasPath("addWidgets") &&"/addWidgets/" ||'';
+          
+               var  path = util.hasPath("viewWidgets")  && "/viewWidgets/" ||
+                   util.hasPath("editWidgets") && "/editWidgets/"||util.hasPath("addWidgets") &&"/addWidgets/" ||'';
             util.go(path + $scope.selectedData.data.id +"/step/" + $scope.getCurrentStep()); 
             $scope.isEnableNext=true;
         }
@@ -183,11 +184,14 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
   $scope.isDone = false;
   $scope.pdtId = '';
   $scope.addProductProperty = function (widget) {
+      if(widget.code=="WIDGET_JOLLY"){
+          $scope.onClickWgtJolly();
+      }else{
     $scope.pdtId =event.currentTarget.id;
       var sucCbk= function(){};
       var errCbk= function(){};
     $scope.createModel('product_property.html','addWidgetsForproductCtrl',sucCbk,errCbk,{product : $scope.product});
-  
+      }
                                         
 }  
     $scope.cancel = function(){
@@ -196,17 +200,18 @@ app.controller("addWidgetsForproductCtrl", ["$scope", "$route", "$routeParams", 
   $scope.ok = function (elt) {
         $scope.alertInstance.close($scope.pdtId); 
 
-  };   
-
+  };  
+$scope.onClickWgtJolly = function () {
+    $scope.pdtId =event.currentTarget.id;
+      var sucCbk= function(){};
+      var errCbk= function(){};
+    $scope.createModel('widget_property.html','addWidgetsForproductCtrl',sucCbk,errCbk,{model_jolly : $scope.selectedData.data});
+} 
+$scope.doPropertyChange = function(){
+      var sucCbk= function(){};
+      var errCbk= function(){};
+    $scope.createModel('jolly_property.html','addWidgetsForproductCtrl',sucCbk,errCbk,{model_jolly : $scope.selectedData.data});
+}
+   
 }]);
-  /*app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance,pdtId) {
-      $scope.pdtId = pdtId;
-    $scope.doClkPropertyConfirm = function (pdtId) {
-      $uibModalInstance.close($scope.pdtId);
-  };
-
-  $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
-  };
-});
-*/
+  
