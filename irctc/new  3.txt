@@ -1,0 +1,58 @@
+How to fake a IRCTC SMS ticket
+How to show TT or railway employee that your ticket in sent by IRCTC not forwarded to you.
+Trick is simole, just forward or send a fake ticket to the mobile number Which you are going to carry with you in journey. 
+The thing that reveals your ticket is fake is sender's name or phone number on sms, so set contact name of sender phone no. In your mobile to 
+LM-IRCTCi
+Or
+MD-IRCTCi
+Or
+DT-IRCTCi
+Or
+DM-IRCTCi
+
+Caution : this can be caught if checker checks your ticket thoroughly or already know the trick.
+Also do not make fake ticket a confirm ticket because TT has chart with them. This works best for waiting room or waiting list tickets as these are not matched with chart. You can convert your sleeper ticket to first class and wait in 1st class waiting room. The guy outside waiting room or TT usually does not know that much about cell phones. 
+Also use basic phone if possible as it only shows contact name above sms. There are some phones which show mobile number with contact name above sms, avoid them as they can be easily caught.
+
+Following are some sms ticket formats, modify them according to your need. You will need to change details like train number,Departure time, Class, fare details etc. But all of this information can be easily found on websites.
+
+(1)
+PNR:6429524418,TRAIN:15609,DOJ:22-06-2014,TIME:22:00,3A,GHY TO ROK,RAJAN,B1 35,FARE:1670,SC:22.47+PG CHGS.
+
+(2)
+PNR:6524078359,TRAIN:12724,DOJ:14-12-2013,TIME:17:30,SL,NDLS TO HYB,RAJAN,WL 50,FARE:670,SC:22.47+PG CHGS.Catering comp no.1800-111-321
+
+(3)
+PNR:2359045186,TRAIN:12506,DOJ:28-07-2014,TIME:06:50,2A,ANVT TO GHY,Rajan,A1 45,FARE:2720,SC:22.47+PG CHGS.Catering comp no.1800-111-321
+
+You would need these Abbreviations
+
+Abbreviation-Full form
+1A-First AC Sleeper (Executive Class if the train is a Shatabdi)
+2A-Second AC Sleeper
+FC-First Class Non-AC
+3A-Three-tier AC Sleeper
+3E-AC Sleeper Economy
+SL-Sleeper Class Non-AC
+CC-AC Chair Car
+2S-Second Class Sitting
+
+Different Symbols in the PNR status
+
+Symbol : Description
+CAN / MOD : Cancelled or Modified Passenger
+CNF / Confirmed : Confirmed (Coach/Berth number will be available after chart preparation)
+RAC : Reservation Against Cancellation. Seat is guaranteed but berth needs to be shared between two persons. Individual berths will be allotted only if RAC becomes a CNF ticket.
+WL #Waiting List Number
+CK : Tatkal Quota
+CKWL : Tatkal Waiting List. CKWL means when the waiting list moves up you can expect confirmed berth. But when the normal waiting list moves up, it goes to the  RAC category.
+GNWL : General Wait List
+PQWL : Pooled Quota Wait List
+REGRET/WL : No More Booking Permitted
+RELEASED : Ticket Not Cancelled but Alternative Accommodation Provided 
+R# # : RAC Coach Number Berth Number. 
+
+Want to know more about tickets
+http://trainstuff.in/understanding-your-ticket
+
+share your thoughts, do not forget to comment.

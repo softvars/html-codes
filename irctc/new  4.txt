@@ -1,0 +1,17 @@
+SMS tickets
+
+You can save paper and travel with the SMS sent to your mobile number when you book tickets online.  This only works if you have an Indian mobile number.
+
+The confirmation SMS is unfortunately rather cryptic.  This is the format in which it appears:
+
+<PNR Number><Train Number><Date of Journey><Departure Time><Class><Codes of Origin and Destination Stations><Name of First Passenger><Coach and Seat Numbers><Fare>
+
+The name of the train is not mentioned.  The names of the stations aren't mentioned either - their respective station codes are mentioned.  
+
+The SMS that I received when I booked the e-ticket in the previous section was as follows:
+
+PNR:4501508534,TRAIN:16558,DOJ:23-09-2013,TIME:11:30,2S,SBC TO KGI,Old Guy,D1 67,FARE:35,SC:11.24+PG CHGS.
+
+If there is more than one passenger travelling, the SMS will mention the name of the first passenger followed by a plus and the number of extra passengers.  For example, if three passengers were travelling, this message would read "Old Guy +2" and mention their coach and seat numbers as well.  If the ticket is RAC/waitlisted, the ticket will only mention the running RAC/waitlist number.
+
+Last updated on 14 November 2013.

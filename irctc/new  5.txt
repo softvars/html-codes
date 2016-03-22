@@ -1,0 +1,35 @@
+Format of E-Ticket SMS Sent to Your Mobile From IRCTC
+25 August, 2012 - 04:49 — admin
+
+Using Aam Aadmi Tatkal Chrome Browser Plugin you can send Ticket SMS to ANY mobile number in India and it costs only 38 paisa/SMS.
+
+Here is the train ticket detail format in which SMS is sent to your mobile if you've correctly entered your number. If you have lost your printout of e-ticket or don't have your SMS then simply send a SMS to yourself making your ticket in this format and show it to TTE!
+
+SMS e-Ticket Details
+Waitlisted(single person)
+PNR:2438941616,TRAIN:12138,DOJ:25-08-2012,TIME:05:15,SL,NDLS TO FDB,RAMESH KUMAR,RLWL 103,FARE:140,SC:10+PG CHGS.
+
+Confirmed(multiple persons)
+PNR:2438941616,TRAIN:12138,DOJ:25-08-2012,TIME:05:15,SL,NDLS TO FDB,RAMESH KUMAR+2,S7 49 S7 52 S7 55,FARE:140,SC:10+PG CHGS.
+
+Explanation
+PNR
+Contains your 10 digit PNR number
+TRAIN
+Contains your 5 digit train number
+DOJ
+Date of journey in dd-mm-yyy format
+TIME
+Train departure time in hh:mm 24 hour railway time formal
+SL
+Sleeper(2A for 2nd AC, 3A for 3rd AC, 2S for sitting, CC for Chair car
+NDLS
+Boarding station New Delhi
+FDB
+Destination station Faridabad
+RAMESH KUMAR
+Name of passenger
++2
+Number of passengers except for RAMESH KUMAR
+SC
+Booking charges( Rs. 10 for sleeper IRCTC charges, PG CHGS means payment gateway
