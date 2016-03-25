@@ -1,0 +1,82 @@
+app.factory('productFactory', ['$http', '$rootScope','productService', function($http, $rootScope,productService){
+    var productAPI = {};
+    productAPI.productTemp = null;
+    productAPI.loadProductList = function(){
+        var responseObj = productService.loadProductList();
+    };
+    
+    productAPI.deleteProduct = function(productId,cbk) {
+          $rootScope.startLoading();
+        return $http({
+                method: 'DELETE',
+                headers: {'Content-Type': 'application/json'},
+                url: 'product/'+productId
+            }).then(function successCallback(response) {
+             $rootScope.stopLoading();
+               if(cbk) { cbk(response)};
+                console.log("response :" + response);
+            },function errorCallback(response){
+                console.log(response);
+             $rootScope.stopLoading();
+            });
+    };
+
+     productAPI.copyProduct = function(product,mode,cbk) {
+          $rootScope.startLoading();
+        return $http({
+                method: 'POST',
+                data: angular.toJson(product),
+                headers: {'Content-Type': 'application/json'},
+                url: 'product/'+product.id+'/clone/'+mode
+            }).then(function successCallback(response) {
+            //    productAPI.doCache(response);
+             $rootScope.stopLoading();
+                if(cbk) {
+                    cbk(response);
+                }
+                console.log("response :" + response);
+            },function errorCallback(response){
+                console.log(response);
+             $rootScope.stopLoading();
+            });
+    };
+  
+     productAPI.updateProduct = function(product,cbk) {
+          $rootScope.startLoading();
+        return $http({
+                method: 'POST',
+                data: angular.toJson(product),
+                headers: {'Content-Type': 'application/json'},
+                url: 'product/' + product.id
+            }).then(function successCallback(response) {
+               // productAPI.doClearCache();
+             $rootScope.stopLoading();
+                if(cbk) { cbk(response)};
+                console.log("response :" + response);
+            },function errorCallback(response){
+                console.log(response);
+             $rootScope.stopLoading();
+            });
+    };
+
+
+    productAPI.doClearCache = function(){
+        productAPI.productTemp = null;
+    };
+
+    productAPI.doCache = function(response, data) {
+        productAPI.productTemp = data || (response && response.data && response.data[0]);
+    };
+
+    productAPI.getFromCache = function(productid, isFull, cbk) {
+        var isAvail = false;
+        if(productAPI.productTemp && productAPI.productTemp.id == productid && cbk) {
+            cbk({data:[productAPI.productTemp]});
+            isAvail = true;
+        } 
+        return isAvail; 
+    };
+
+  
+    return productAPI;
+}]);
