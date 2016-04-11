@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html  ng-app="hypeweb">
+  <head>
+    <title>Hype</title>
+      
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+    <meta name="description" content="HYPE application">
+      
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+ 
+  </head>
+  <body>r
+		<!--[if lt IE 9]>
+		    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+      
+    <div ng-include="templates.header"></div>
+    
+    <div id="page-content">
+        <div ng-include="templates.navmenu"></div>
+        <div class="content-wrap">
+            <!-- <div ng-include="templates.msg_container"></div> -->
+            <div ng-include="templates.profilo_header"></div>
+            <div ng-include="templates.app_ad"></div>
+            <div class="container main">
+                <!--<div ng-include="templates.body"></div>-->
+                <div class="container" >
+                    <section ng-view>Hi</section>
+                    <div class="">
+                    </div>
+                </div>
+            </div>
+            <div ng-include="templates.footer"></div>
+        </div>
+    </div>
+    <div class="modal bottom" id="modal-faq" tabindex='-1'></div>
+      
+
+      
+    <!-- App script & lib -->
+      
+    <script src="lodash/lodash.js"></script>
+    <script src="sample_tickets.js"></script>
+    <script src="sms_ticket_parser.js"></script>
+  </body>
+</html>
